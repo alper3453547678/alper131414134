@@ -1,0 +1,2407 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>İletişim | Alper Tech</title>
+
+<style>
+
+/* =====================================================
+   TEMEL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --bg: #05050a;
+    --header: rgba(5,5,10,0.95);
+    --card: #0d0d12;
+    --input: #111116;
+    --border: #292929;
+
+    --text: #ffffff;
+    --muted: #a1a1aa;
+
+    --blue: #00d9ff;
+}
+
+body.light {
+    --bg: #f5f7fa;
+    --header: rgba(255,255,255,0.96);
+    --card: #ffffff;
+    --input: #f1f5f9;
+    --border: #d9dee7;
+
+    --text: #111111;
+    --muted: #64748b;
+
+    --blue: #2563eb;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    background: var(--header);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(15px);
+
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 14px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    position: relative;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    font-size: 27px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    color: var(--text);
+
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+
+/* =====================================================
+   NAV
+===================================================== */
+
+nav {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    white-space: nowrap;
+}
+
+nav a {
+    position: relative;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--blue);
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: var(--blue);
+
+    transition: 0.2s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   SAĞ MENÜ
+===================================================== */
+
+.controls {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.lang-select {
+    height: 38px;
+
+    min-width: 118px;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    padding: 0 10px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+.lang-select option {
+    background: #10131a;
+    color: white;
+}
+
+body.light .lang-select option {
+    background: white;
+    color: #111111;
+}
+
+.theme-btn {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.theme-btn:hover {
+    border-color: var(--blue);
+
+    transform: translateY(-1px);
+}
+
+.cart-btn {
+    height: 38px;
+
+    padding: 0 15px;
+
+    border-radius: 25px;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.cart-btn:hover {
+    border-color: var(--blue);
+
+    transform: translateY(-1px);
+}
+
+.cart-count {
+    min-width: 21px;
+
+    padding: 2px 6px;
+
+    border-radius: 20px;
+
+    background: var(--blue);
+
+    color: #000;
+
+    font-size: 11px;
+
+    text-align: center;
+
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   İLETİŞİM
+===================================================== */
+
+main {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 140px 20px 60px;
+}
+
+.contact-card {
+    width: 420px;
+
+    max-width: 100%;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.25);
+
+    position: relative;
+}
+
+.contact-title {
+    text-align: center;
+
+    font-size: 31px;
+
+    font-weight: 900;
+
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    padding: 13px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 15px rgba(0,217,255,0.08);
+}
+
+.form-group textarea {
+    height: 110px;
+
+    resize: vertical;
+}
+
+.send-btn {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #2563eb
+        );
+
+    color: white;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.send-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0,217,255,0.15);
+}
+
+
+/* =====================================================
+   GÖNDERİLDİ MESAJI
+===================================================== */
+
+.form-status {
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    background: rgba(0,217,255,0.08);
+
+    border: 1px solid rgba(0,217,255,0.25);
+
+    color: var(--blue);
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+.form-status.show {
+    display: block;
+}
+
+
+/* =====================================================
+   SEPET OVERLAY
+===================================================== */
+
+.cart-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    background: rgba(0,0,0,0.72);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =====================================================
+   SEPET DRAWER
+===================================================== */
+
+.cart-drawer {
+    position: absolute;
+
+    top: 0;
+    right: -450px;
+
+    width: 430px;
+
+    max-width: 100%;
+
+    height: 100%;
+
+    background: var(--card);
+
+    border-left: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition: 0.3s;
+}
+
+.cart-overlay.active .cart-drawer {
+    right: 0;
+}
+
+.drawer-header {
+    padding: 24px;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.drawer-title {
+    font-size: 20px;
+
+    font-weight: 900;
+}
+
+.drawer-close {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 50%;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.drawer-body {
+    flex: 1;
+
+    padding: 25px;
+
+    overflow-y: auto;
+}
+
+.cart-empty {
+    text-align: center;
+
+    color: var(--muted);
+
+    margin-top: 80px;
+
+    font-size: 14px;
+}
+
+.cart-item {
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.cart-item-name {
+    font-weight: 800;
+
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    color: var(--blue);
+
+    font-weight: 700;
+}
+
+.remove-item {
+    border: none;
+
+    background: none;
+
+    color: #ef4444;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+.cart-footer {
+    padding: 25px;
+
+    border-top: 1px solid var(--border);
+
+    background: var(--card);
+}
+
+.cart-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    margin-bottom: 18px;
+}
+
+.cart-total span:last-child {
+    color: var(--blue);
+}
+
+.checkout-btn {
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #2563eb
+        );
+
+    color: #ffffff;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   ÖDEME
+===================================================== */
+
+.payment-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,0.88);
+
+    backdrop-filter: blur(18px);
+}
+
+.payment-overlay.active {
+    display: flex;
+}
+
+.payment-box {
+    width: 950px;
+
+    max-width: 100%;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 100px #000;
+}
+
+.payment-close {
+    float: right;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+}
+
+.payment-title {
+    text-align: center;
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+    margin-bottom: 8px;
+}
+
+.payment-subtitle {
+    text-align: center;
+
+    color: var(--muted);
+
+    margin-bottom: 30px;
+}
+
+.payment-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+.credit-card {
+    width: 100%;
+
+    max-width: 430px;
+
+    aspect-ratio: 1.586;
+
+    margin: auto;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #020617,
+            #164e63
+        );
+
+    box-shadow:
+        0 25px 60px #000;
+
+    position: relative;
+
+    overflow: hidden;
+
+    color: #fff;
+}
+
+.card-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.chip {
+    width: 48px;
+    height: 36px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eeeeee,
+            #777777
+        );
+}
+
+.card-brand {
+    font-size: 21px;
+
+    font-weight: 900;
+
+    font-style: italic;
+}
+
+.card-number {
+    margin-top: 45px;
+
+    font-family: monospace;
+
+    font-size: 22px;
+
+    letter-spacing: 3px;
+}
+
+.card-bottom {
+    position: absolute;
+
+    left: 28px;
+    right: 28px;
+    bottom: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.card-label {
+    color: #999;
+
+    font-size: 8px;
+}
+
+.card-holder,
+.card-expiry {
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.method-title {
+    font-size: 14px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.methods {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+.method {
+    padding: 12px 5px;
+
+    border-radius: 8px;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+
+    font-weight: 800;
+}
+
+.method.active {
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 15px rgba(0,217,255,0.12);
+}
+
+.payment-group {
+    margin-bottom: 15px;
+}
+
+.payment-group label {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 7px;
+}
+
+.payment-group input {
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 9px;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    outline: none;
+}
+
+.payment-group input:focus {
+    border-color: var(--blue);
+}
+
+.payment-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+.payment-error {
+    display: none;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(239,68,68,0.08);
+
+    border:
+        1px solid rgba(239,68,68,0.35);
+
+    color: #ff6b6b;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.payment-error.show {
+    display: block;
+}
+
+.payment-submit {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #2563eb
+        );
+
+    color: #fff;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+.security {
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   MOBİL
+===================================================== */
+
+@media (max-width:1000px) {
+
+    .header-inner {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        position: static;
+
+        width: 100%;
+
+        order: 3;
+
+        transform: none;
+
+        justify-content: center;
+    }
+
+    .payment-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width:650px) {
+
+    .header-inner {
+        padding: 12px 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    nav {
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .controls {
+        gap: 6px;
+    }
+
+    .lang-select {
+        width: 85px;
+
+        min-width: 85px;
+
+        font-size: 10px;
+    }
+
+    .cart-btn {
+        padding: 0 10px;
+    }
+
+    main {
+        padding: 125px 20px 50px;
+    }
+
+    .contact-card {
+        padding: 25px 20px;
+    }
+
+    .cart-drawer {
+        width: 100%;
+
+        right: -100%;
+    }
+
+    .payment-box {
+        padding: 25px 18px;
+
+        border-radius: 20px;
+    }
+
+    .credit-card {
+        padding: 20px;
+    }
+
+    .card-number {
+        font-size: 17px;
+
+        letter-spacing: 2px;
+    }
+
+    .payment-row {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body id="pageBody">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="header-inner">
+
+<a href="index.html" class="logo">
+    ALPER<span>TECH</span>
+</a>
+
+
+<nav>
+
+<a
+    href="index.html"
+    data-i18n="home">
+
+    Ana Sayfa
+
+</a>
+
+<a
+    href="urunler.html"
+    data-i18n="products">
+
+    Ürünler
+
+</a>
+
+<a
+    href="hakkimizda.html"
+    data-i18n="about">
+
+    Hakkımızda
+
+</a>
+
+<a
+    href="iletisim.html"
+    class="active"
+    data-i18n="contact">
+
+    İletişim
+
+</a>
+
+</nav>
+
+
+<div class="controls">
+
+<select
+    id="languageSelect"
+    class="lang-select"
+    onchange="changeLanguage(this.value)">
+
+<option value="tr">
+    TR - Türkçe
+</option>
+
+<option value="en">
+    EN - English
+</option>
+
+<option value="es">
+    ES - Español
+</option>
+
+</select>
+
+
+<button
+    class="theme-btn"
+    id="themeBtn"
+    onclick="toggleTheme()"
+    type="button">
+
+🌙
+
+</button>
+
+
+<button
+    class="cart-btn"
+    onclick="openCart()"
+    type="button">
+
+🛒
+
+<span data-i18n="cart">
+    Sepet
+</span>
+
+<span
+    class="cart-count"
+    id="cartCount">
+
+0
+
+</span>
+
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     İLETİŞİM FORMU
+===================================================== -->
+
+<main>
+
+<div class="contact-card">
+
+<h1
+    class="contact-title"
+    data-i18n="contactTitle">
+
+    İLETİŞİM
+
+</h1>
+
+
+<form
+    id="contactForm"
+    action="https://formsubmit.co/alialpergulener@gmail.com"
+    method="POST">
+
+
+<input
+    type="hidden"
+    name="_subject"
+    value="Alper Tech - Yeni İletişim Mesajı">
+
+
+<input
+    type="hidden"
+    name="_template"
+    value="table">
+
+
+<input
+    type="hidden"
+    name="_captcha"
+    value="true">
+
+
+<div class="form-group">
+
+<label data-i18n="name">
+    Ad Soyad
+</label>
+
+<input
+    id="name"
+    name="name"
+    type="text"
+    placeholder="Adınız Soyadınız"
+    data-placeholder="namePlaceholder"
+    required>
+
+</div>
+
+
+<div class="form-group">
+
+<label data-i18n="email">
+    E-posta
+</label>
+
+<input
+    id="email"
+    name="email"
+    type="email"
+    placeholder="ornek@gmail.com"
+    data-placeholder="emailPlaceholder"
+    required>
+
+</div>
+
+
+<div class="form-group">
+
+<label data-i18n="message">
+    Mesajınız
+</label>
+
+<textarea
+    id="message"
+    name="message"
+    placeholder="Mesajınızı buraya yazın..."
+    data-placeholder="messagePlaceholder"
+    required></textarea>
+
+</div>
+
+
+<button
+    type="submit"
+    class="send-btn"
+    data-i18n="send">
+
+    Gönder
+
+</button>
+
+</form>
+
+<div
+    id="formStatus"
+    class="form-status">
+
+</div>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     SEPET
+===================================================== -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCartOutside(event)">
+
+<div class="cart-drawer">
+
+<div class="drawer-header">
+
+<span
+    class="drawer-title"
+    data-i18n="yourCart">
+
+    Sepetiniz
+
+</span>
+
+<button
+    class="drawer-close"
+    onclick="closeCart()"
+    type="button">
+
+    ✕
+
+</button>
+
+</div>
+
+
+<div class="drawer-body">
+
+<div
+    class="cart-empty"
+    id="cartEmpty"
+    data-i18n="emptyCart">
+
+    Sepetinizde henüz ürün bulunmuyor.
+
+</div>
+
+<div id="cartItems"></div>
+
+</div>
+
+
+<div
+    class="cart-footer"
+    id="cartFooter"
+    style="display:none;">
+
+<div class="cart-total">
+
+<span data-i18n="total">
+    Toplam
+</span>
+
+<span id="cartTotal">
+    0 TL
+</span>
+
+</div>
+
+
+<button
+    class="checkout-btn"
+    onclick="openPayment()"
+    type="button"
+    data-i18n="buy">
+
+    ÜRÜNÜ AL / ÖDEMEYE GEÇ
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ÖDEME
+===================================================== -->
+
+<div
+    class="payment-overlay"
+    id="paymentOverlay">
+
+<div class="payment-box">
+
+<button
+    class="payment-close"
+    onclick="closePayment()"
+    type="button">
+
+    ✕
+
+</button>
+
+
+<h2
+    class="payment-title"
+    data-i18n="securePayment">
+
+    GÜVENLİ ÖDEME
+
+</h2>
+
+
+<p
+    class="payment-subtitle"
+    data-i18n="paymentSubtitle">
+
+    Kart bilgilerinizi girerek devam edin
+
+</p>
+
+
+<div class="payment-grid">
+
+
+<div>
+
+<div class="credit-card">
+
+<div class="card-top">
+
+<div class="chip"></div>
+
+<div
+    class="card-brand"
+    id="cardBrand">
+
+    VISA
+
+</div>
+
+</div>
+
+
+<div
+    class="card-number"
+    id="previewNumber">
+
+    •••• •••• •••• ••••
+
+</div>
+
+
+<div class="card-bottom">
+
+<div>
+
+<div
+    class="card-label"
+    data-i18n="cardHolder">
+
+    KART SAHİBİ
+
+</div>
+
+<div
+    class="card-holder"
+    id="previewName">
+
+    AD SOYAD
+
+</div>
+
+</div>
+
+
+<div>
+
+<div
+    class="card-label"
+    data-i18n="expiryLabel">
+
+    SON KULLANMA
+
+</div>
+
+<div
+    class="card-expiry"
+    id="previewExpiry">
+
+    12/30
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div
+    class="method-title"
+    data-i18n="cardType">
+
+    Kart Türü
+
+</div>
+
+
+<div class="methods">
+
+<button
+    type="button"
+    class="method active"
+    onclick="selectCard('VISA',this)">
+
+    VISA
+
+</button>
+
+<button
+    type="button"
+    class="method"
+    onclick="selectCard('MASTERCARD',this)">
+
+    MASTERCARD
+
+</button>
+
+<button
+    type="button"
+    class="method"
+    onclick="selectCard('TROY',this)">
+
+    TROY
+
+</button>
+
+</div>
+
+
+<div
+    class="payment-error"
+    id="paymentError">
+
+</div>
+
+
+<div class="payment-group">
+
+<label data-i18n="cardNumber">
+    Kart Numarası
+</label>
+
+<input
+    id="cardNumber"
+    type="text"
+    inputmode="numeric"
+    maxlength="19"
+    placeholder="1234 5678 9012 3456"
+    autocomplete="off">
+
+</div>
+
+
+<div class="payment-group">
+
+<label data-i18n="cardName">
+    Kart Üzerindeki İsim
+</label>
+
+<input
+    id="cardName"
+    type="text"
+    maxlength="30"
+    placeholder="AD SOYAD"
+    autocomplete="off">
+
+</div>
+
+
+<div class="payment-row">
+
+<div class="payment-group">
+
+<label data-i18n="expiry">
+    Son Kullanma
+</label>
+
+<input
+    id="expiry"
+    type="text"
+    inputmode="numeric"
+    maxlength="5"
+    placeholder="AA/YY"
+    autocomplete="off">
+
+</div>
+
+
+<div class="payment-group">
+
+<label>
+    CVV
+</label>
+
+<input
+    id="cvv"
+    type="text"
+    inputmode="numeric"
+    maxlength="4"
+    placeholder="•••"
+    autocomplete="off">
+
+</div>
+
+</div>
+
+
+<button
+    type="button"
+    class="payment-submit"
+    onclick="completePayment()">
+
+    ÖDEMEYİ TAMAMLA
+
+</button>
+
+
+<div
+    class="security"
+    data-i18n="security">
+
+    Demo ödeme ekranı — kart bilgileri kaydedilmez.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ÇEVİRİLER
+===================================================== */
+
+const translations = {
+
+    tr: {
+        home: "Ana Sayfa",
+        products: "Ürünler",
+        about: "Hakkımızda",
+        contact: "İletişim",
+
+        cart: "Sepet",
+
+        contactTitle: "İLETİŞİM",
+
+        name: "Ad Soyad",
+        email: "E-posta",
+        message: "Mesajınız",
+
+        namePlaceholder: "Adınız Soyadınız",
+        emailPlaceholder: "ornek@gmail.com",
+        messagePlaceholder: "Mesajınızı buraya yazın...",
+
+        send: "Gönder",
+
+        yourCart: "Sepetiniz",
+        emptyCart: "Sepetinizde henüz ürün bulunmuyor.",
+        total: "Toplam",
+
+        buy: "ÜRÜNÜ AL / ÖDEMEYE GEÇ",
+
+        securePayment: "GÜVENLİ ÖDEME",
+
+        paymentSubtitle:
+            "Kart bilgilerinizi girerek devam edin",
+
+        cardType: "Kart Türü",
+        cardNumber: "Kart Numarası",
+        cardName: "Kart Üzerindeki İsim",
+        expiry: "Son Kullanma",
+
+        cardHolder: "KART SAHİBİ",
+        expiryLabel: "SON KULLANMA",
+
+        completePayment: "ÖDEMEYİ TAMAMLA",
+
+        security:
+            "Demo ödeme ekranı — kart bilgileri kaydedilmez."
+    },
+
+    en: {
+        home: "Home",
+        products: "Products",
+        about: "About Us",
+        contact: "Contact",
+
+        cart: "Cart",
+
+        contactTitle: "CONTACT US",
+
+        name: "Full Name",
+        email: "Email",
+        message: "Your Message",
+
+        namePlaceholder: "Your Full Name",
+        emailPlaceholder: "example@gmail.com",
+        messagePlaceholder: "Write your message here...",
+
+        send: "Send",
+
+        yourCart: "Your Cart",
+        emptyCart: "Your cart is currently empty.",
+        total: "Total",
+
+        buy: "BUY PRODUCT / CHECKOUT",
+
+        securePayment: "SECURE PAYMENT",
+
+        paymentSubtitle:
+            "Enter your card information to continue",
+
+        cardType: "Card Type",
+        cardNumber: "Card Number",
+        cardName: "Name on Card",
+        expiry: "Expiration",
+
+        cardHolder: "CARD HOLDER",
+        expiryLabel: "EXPIRATION",
+
+        completePayment: "COMPLETE PAYMENT",
+
+        security:
+            "Demo payment screen — card information is not saved."
+    },
+
+    es: {
+        home: "Inicio",
+        products: "Productos",
+        about: "Sobre Nosotros",
+        contact: "Contacto",
+
+        cart: "Carrito",
+
+        contactTitle: "CONTACTO",
+
+        name: "Nombre Completo",
+        email: "Correo Electrónico",
+        message: "Tu Mensaje",
+
+        namePlaceholder: "Tu nombre completo",
+        emailPlaceholder: "ejemplo@gmail.com",
+        messagePlaceholder: "Escribe tu mensaje aquí...",
+
+        send: "Enviar",
+
+        yourCart: "Tu Carrito",
+        emptyCart: "Tu carrito está vacío.",
+        total: "Total",
+
+        buy: "COMPRAR PRODUCTO / PAGAR",
+
+        securePayment: "PAGO SEGURO",
+
+        paymentSubtitle:
+            "Introduce los datos de tu tarjeta para continuar",
+
+        cardType: "Tipo de Tarjeta",
+        cardNumber: "Número de Tarjeta",
+        cardName: "Nombre en la Tarjeta",
+        expiry: "Vencimiento",
+
+        cardHolder: "TITULAR",
+        expiryLabel: "VENCIMIENTO",
+
+        completePayment: "COMPLETAR PAGO",
+
+        security:
+            "Pantalla de pago de demostración — los datos de la tarjeta no se guardan."
+    }
+
+};
+
+
+/* =====================================================
+   DİL
+===================================================== */
+
+function changeLanguage(lang) {
+
+    if (!translations[lang]) {
+        lang = "tr";
+    }
+
+    localStorage.setItem(
+        "alperTechLang",
+        lang
+    );
+
+    document.documentElement.lang = lang;
+
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function(element) {
+
+            const key =
+                element.getAttribute("data-i18n");
+
+            if (
+                translations[lang][key] !== undefined
+            ) {
+
+                element.textContent =
+                    translations[lang][key];
+
+            }
+
+        });
+
+    document
+        .querySelectorAll("[data-placeholder]")
+        .forEach(function(element) {
+
+            const key =
+                element.getAttribute("data-placeholder");
+
+            if (
+                translations[lang][key] !== undefined
+            ) {
+
+                element.placeholder =
+                    translations[lang][key];
+
+            }
+
+        });
+
+    const select =
+        document.getElementById("languageSelect");
+
+    if (select) {
+        select.value = lang;
+    }
+}
+
+
+/* =====================================================
+   TEMA
+===================================================== */
+
+function toggleTheme() {
+
+    const body =
+        document.getElementById("pageBody");
+
+    const button =
+        document.getElementById("themeBtn");
+
+    body.classList.toggle("light");
+
+    const isLight =
+        body.classList.contains("light");
+
+    button.textContent =
+        isLight ? "☀️" : "🌙";
+
+    localStorage.setItem(
+        "alperTechTheme",
+        isLight ? "light" : "dark"
+    );
+}
+
+
+/* =====================================================
+   SEPET
+===================================================== */
+
+function getCart() {
+
+    try {
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "alperTechCart"
+                )
+            );
+
+        return Array.isArray(cart)
+            ? cart
+            : [];
+
+    } catch {
+
+        return [];
+
+    }
+}
+
+
+function escapeHTML(text) {
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function updateCart() {
+
+    const cart =
+        getCart();
+
+    const count =
+        document.getElementById(
+            "cartCount"
+        );
+
+    const items =
+        document.getElementById(
+            "cartItems"
+        );
+
+    const empty =
+        document.getElementById(
+            "cartEmpty"
+        );
+
+    const footer =
+        document.getElementById(
+            "cartFooter"
+        );
+
+    const totalElement =
+        document.getElementById(
+            "cartTotal"
+        );
+
+    if (
+        !count ||
+        !items ||
+        !empty ||
+        !footer ||
+        !totalElement
+    ) {
+        return;
+    }
+
+    count.textContent =
+        cart.length;
+
+    items.innerHTML = "";
+
+    if (cart.length === 0) {
+
+        empty.style.display = "block";
+
+        footer.style.display = "none";
+
+        return;
+
+    }
+
+    empty.style.display = "none";
+
+    footer.style.display = "block";
+
+    let total = 0;
+
+    cart.forEach(
+        function(item,index) {
+
+            const name =
+                item.name ||
+                item.title ||
+                item.productName ||
+                item.urun ||
+                "Ürün";
+
+            const price =
+                Number(item.price) || 0;
+
+            total += price;
+
+            items.innerHTML += `
+
+                <div class="cart-item">
+
+                    <div>
+
+                        <div class="cart-item-name">
+                            ${escapeHTML(name)}
+                        </div>
+
+                        <div class="cart-item-price">
+                            ${price.toLocaleString("tr-TR")} ₺
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="remove-item"
+                        onclick="removeItem(${index})">
+
+                        Kaldır
+
+                    </button>
+
+                </div>
+
+            `;
+        }
+    );
+
+    totalElement.textContent =
+        total.toLocaleString("tr-TR")
+        + " TL";
+}
+
+
+function removeItem(index) {
+
+    const cart =
+        getCart();
+
+    cart.splice(index,1);
+
+    localStorage.setItem(
+        "alperTechCart",
+        JSON.stringify(cart)
+    );
+
+    updateCart();
+}
+
+
+function openCart() {
+
+    updateCart();
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("active");
+}
+
+
+function closeCart() {
+
+    document
+        .getElementById("cartOverlay")
+        .classList.remove("active");
+}
+
+
+function closeCartOutside(event) {
+
+    if (
+        event.target.id ===
+        "cartOverlay"
+    ) {
+
+        closeCart();
+
+    }
+}
+
+
+/* =====================================================
+   ÖDEME
+===================================================== */
+
+function openPayment() {
+
+    if (
+        getCart().length === 0
+    ) {
+
+        return;
+
+    }
+
+    closeCart();
+
+    document
+        .getElementById("paymentOverlay")
+        .classList.add("active");
+}
+
+
+function closePayment() {
+
+    document
+        .getElementById("paymentOverlay")
+        .classList.remove("active");
+}
+
+
+function selectCard(type,button) {
+
+    document
+        .querySelectorAll(".method")
+        .forEach(function(item) {
+
+            item.classList.remove("active");
+
+        });
+
+    button.classList.add("active");
+
+    document.getElementById(
+        "cardBrand"
+    ).textContent = type;
+}
+
+
+/* =====================================================
+   KART
+===================================================== */
+
+document
+    .getElementById("cardNumber")
+    .addEventListener(
+        "input",
+        function() {
+
+            let value =
+                this.value
+                    .replace(/\D/g,"")
+                    .substring(0,16);
+
+            const groups =
+                value.match(/.{1,4}/g);
+
+            this.value =
+                groups
+                    ? groups.join(" ")
+                    : "";
+
+            document.getElementById(
+                "previewNumber"
+            ).textContent =
+                this.value ||
+                "•••• •••• •••• ••••";
+        }
+    );
+
+
+document
+    .getElementById("cardName")
+    .addEventListener(
+        "input",
+        function() {
+
+            this.value =
+                this.value
+                    .replace(
+                        /[^a-zA-ZğüşöçıİĞÜŞÖÇ\s]/g,
+                        ""
+                    )
+                    .toUpperCase();
+
+            document.getElementById(
+                "previewName"
+            ).textContent =
+                this.value ||
+                "AD SOYAD";
+        }
+    );
+
+
+document
+    .getElementById("expiry")
+    .addEventListener(
+        "input",
+        function() {
+
+            let value =
+                this.value
+                    .replace(/\D/g,"")
+                    .substring(0,4);
+
+            if (
+                value.length > 2
+            ) {
+
+                value =
+                    value.substring(0,2)
+                    + "/"
+                    + value.substring(2);
+
+            }
+
+            this.value = value;
+
+            document.getElementById(
+                "previewExpiry"
+            ).textContent =
+                value || "12/30";
+        }
+    );
+
+
+document
+    .getElementById("cvv")
+    .addEventListener(
+        "input",
+        function() {
+
+            this.value =
+                this.value
+                    .replace(/\D/g,"")
+                    .substring(0,4);
+
+        }
+    );
+
+
+function completePayment() {
+
+    const error =
+        document.getElementById(
+            "paymentError"
+        );
+
+    error.textContent =
+        "Bu demo ödeme ekranında gerçek ödeme işlemi yapılamaz.";
+
+    error.classList.add("show");
+}
+
+
+/* =====================================================
+   İLETİŞİM FORMU
+   FormSubmit kullanılıyor.
+===================================================== */
+
+document
+    .getElementById("contactForm")
+    .addEventListener(
+        "submit",
+        function() {
+
+            const button =
+                this.querySelector(
+                    ".send-btn"
+                );
+
+            if (button) {
+
+                button.textContent =
+                    "Gönderiliyor...";
+
+                button.disabled = true;
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   BAŞLANGIÇ
+===================================================== */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const savedLang =
+            localStorage.getItem(
+                "alperTechLang"
+            ) || "tr";
+
+        changeLanguage(
+            savedLang
+        );
+
+
+        const savedTheme =
+            localStorage.getItem(
+                "alperTechTheme"
+            ) || "dark";
+
+        if (
+            savedTheme === "light"
+        ) {
+
+            document
+                .getElementById("pageBody")
+                .classList.add("light");
+
+            document
+                .getElementById("themeBtn")
+                .textContent = "☀️";
+        }
+
+
+        updateCart();
+
+    }
+);
+
+
+/* =====================================================
+   SEPET BAŞKA SAYFADA DEĞİŞİRSE
+===================================================== */
+
+window.addEventListener(
+    "storage",
+    function(event) {
+
+        if (
+            event.key ===
+            "alperTechCart"
+        ) {
+
+            updateCart();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ESC
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeCart();
+
+            closePayment();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

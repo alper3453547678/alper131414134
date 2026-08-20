@@ -1,0 +1,72 @@
+/* Header ve Butonların Tam Hizalanması (Mevcut kodlarını bozmaz) */
+.header, header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 5% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+}
+
+.nav-menu, .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Sağdaki Dil, Gece/Gündüz ve Sepet Butonlarını Yakınlaştırır */
+.header-actions, .actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.lang-select {
+    padding: 5px 8px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-size: 12px !important;
+    outline: none !important;
+}
+
+.theme-btn {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+}
+
+.cart-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 5px 10px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+}
+
+/* Formun dış kutusu (kendi class ismini yaz) */
+.contact-card {
+    width: 90%;
+    max-width: 650px; /* Genişliği buradan ayarlayabilirsin (örn. 650px - 700px) */
+    padding: 35px;
+    box-sizing: border-box;
+}
+
+/* Form içindeki girdi alanları ve buton */
+.contact-card input,
+.contact-card textarea,
+.contact-card button {
+    width: 100%;
+    box-sizing: border-box; /* Padding eklense bile genişliğin dışına taşmaz */
+}
