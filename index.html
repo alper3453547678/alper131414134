@@ -2,12 +2,14 @@
 <html lang="tr">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Alper Tech | Ana Sayfa</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -49,10 +51,22 @@ body{
     transition:.3s;
 }
 
-a{color:inherit;text-decoration:none;}
-button,input,select,textarea{font-family:inherit;}
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-/* HEADER */
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 header{
     position:fixed;
     top:0;
@@ -75,15 +89,30 @@ header{
     position:relative;
 }
 
+/* =====================================================
+   LOGO
+===================================================== */
+
 .logo{
-    font-size:27px;
-    font-weight:900;
-    letter-spacing:2px;
-    color:var(--text);
+    width:145px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    text-decoration:none;
     white-space:nowrap;
 }
 
-.logo span{color:var(--blue);}
+.site-logo{
+    width:145px;
+    height:45px;
+    object-fit:contain;
+    object-position:left center;
+    display:block;
+}
+
+/* =====================================================
+   NAV
+===================================================== */
 
 nav{
     position:absolute;
@@ -106,7 +135,9 @@ nav a{
 }
 
 nav a:hover,
-nav a.active{color:var(--blue);}
+nav a.active{
+    color:var(--blue);
+}
 
 nav a::after{
     content:"";
@@ -121,7 +152,13 @@ nav a::after{
 }
 
 nav a:hover::after,
-nav a.active::after{width:100%;}
+nav a.active::after{
+    width:100%;
+}
+
+/* =====================================================
+   CONTROLS
+===================================================== */
 
 .controls{
     margin-left:auto;
@@ -141,6 +178,7 @@ nav a.active::after{width:100%;}
     outline:none;
     cursor:pointer;
     font-size:12px;
+    transition:.2s;
 }
 
 .lang-select:hover,
@@ -207,14 +245,20 @@ body.light .lang-select option{
     font-weight:900;
 }
 
-/* MAIN */
+/* =====================================================
+   MAIN
+===================================================== */
+
 main{
     max-width:1250px;
     margin:auto;
     padding:140px 30px 70px;
 }
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
+
 .hero{
     min-height:610px;
     display:grid;
@@ -233,7 +277,11 @@ main{
     right:0;
     top:15px;
     border-radius:50%;
-    background:radial-gradient(circle,rgba(0,217,255,.14),transparent 68%);
+    background:radial-gradient(
+        circle,
+        rgba(0,217,255,.14),
+        transparent 68%
+    );
     filter:blur(12px);
     pointer-events:none;
 }
@@ -311,7 +359,11 @@ main{
 }
 
 .primary{
-    background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+    background:linear-gradient(
+        135deg,
+        var(--blue),
+        var(--blue-dark)
+    );
     color:#fff;
     box-shadow:0 10px 30px rgba(0,217,255,.14);
 }
@@ -332,6 +384,10 @@ main{
     transform:translateY(-2px);
 }
 
+/* =====================================================
+   HERO VISUAL
+===================================================== */
+
 .hero-visual{
     position:relative;
     min-height:450px;
@@ -346,7 +402,9 @@ main{
     height:390px;
     border-radius:50%;
     border:1px solid rgba(0,217,255,.13);
-    box-shadow:0 0 70px rgba(0,217,255,.05),inset 0 0 65px rgba(0,217,255,.035);
+    box-shadow:
+        0 0 70px rgba(0,217,255,.05),
+        inset 0 0 65px rgba(0,217,255,.035);
 }
 
 .ring::before{
@@ -367,10 +425,16 @@ main{
     align-items:center;
     justify-content:center;
     border-radius:25px;
-    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.018));
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.018)
+    );
     border:1px solid var(--border);
     backdrop-filter:blur(18px);
-    box-shadow:0 28px 75px rgba(0,0,0,.35),0 0 45px rgba(0,217,255,.05);
+    box-shadow:
+        0 28px 75px rgba(0,0,0,.35),
+        0 0 45px rgba(0,217,255,.05);
     transform:rotate(-3deg);
     transition:.4s;
 }
@@ -396,7 +460,12 @@ main{
     width:78px;
     height:2px;
     margin:19px auto;
-    background:linear-gradient(90deg,transparent,var(--blue),transparent);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--blue),
+        transparent
+    );
 }
 
 .visual-card p{
@@ -404,6 +473,10 @@ main{
     font-size:8px;
     letter-spacing:1.8px;
 }
+
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats{
     display:grid;
@@ -436,7 +509,10 @@ main{
     text-transform:uppercase;
 }
 
-/* SECTIONS */
+/* =====================================================
+   SECTIONS
+===================================================== */
+
 .features,
 .categories,
 .showcase-section,
@@ -479,7 +555,10 @@ main{
     font-size:13px;
 }
 
-/* FEATURES */
+/* =====================================================
+   FEATURES
+===================================================== */
+
 .feature-grid{
     max-width:1140px;
     margin:auto;
@@ -493,7 +572,11 @@ main{
     padding:30px;
     border-radius:19px;
     border:1px solid var(--border);
-    background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.015)
+    );
     transition:.3s;
 }
 
@@ -535,7 +618,10 @@ main{
     line-height:1.7;
 }
 
-/* CATEGORIES */
+/* =====================================================
+   CATEGORIES
+===================================================== */
+
 .category-grid{
     max-width:1140px;
     margin:auto;
@@ -580,7 +666,10 @@ main{
     font-size:11px;
 }
 
-/* SHOWCASE */
+/* =====================================================
+   SHOWCASE
+===================================================== */
+
 .showcase{
     max-width:1140px;
     margin:auto;
@@ -596,11 +685,23 @@ main{
     border:1px solid var(--border);
     position:relative;
     overflow:hidden;
-    background:radial-gradient(circle at 75% 25%,rgba(0,217,255,.11),transparent 26%),var(--card);
+    background:
+        radial-gradient(
+            circle at 75% 25%,
+            rgba(0,217,255,.11),
+            transparent 26%
+        ),
+        var(--card);
 }
 
 .showcase-card.purple{
-    background:radial-gradient(circle at 75% 20%,rgba(99,102,241,.13),transparent 27%),var(--card);
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(99,102,241,.13),
+            transparent 27%
+        ),
+        var(--card);
 }
 
 .showcase-label{
@@ -632,10 +733,15 @@ main{
     bottom:-65px;
     border-radius:50%;
     border:1px solid rgba(0,217,255,.16);
-    box-shadow:0 0 60px rgba(0,217,255,.08),inset 0 0 60px rgba(0,217,255,.035);
+    box-shadow:
+        0 0 60px rgba(0,217,255,.08),
+        inset 0 0 60px rgba(0,217,255,.035);
 }
 
-/* CTA */
+/* =====================================================
+   CTA
+===================================================== */
+
 .cta-box{
     max-width:1140px;
     margin:auto;
@@ -643,7 +749,13 @@ main{
     text-align:center;
     border-radius:26px;
     border:1px solid var(--border);
-    background:radial-gradient(circle at center,rgba(0,217,255,.10),transparent 55%),var(--card);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,217,255,.10),
+            transparent 55%
+        ),
+        var(--card);
     box-shadow:0 25px 65px rgba(0,0,0,.18);
 }
 
@@ -670,7 +782,10 @@ main{
     line-height:1.75;
 }
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
+
 footer{
     margin-left:-30px;
     margin-right:-30px;
@@ -698,7 +813,9 @@ footer{
     letter-spacing:1.5px;
 }
 
-.footer-brand h3 span{color:var(--blue);}
+.footer-brand h3 span{
+    color:var(--blue);
+}
 
 .footer-brand p{
     max-width:380px;
@@ -719,7 +836,9 @@ footer{
     transition:.2s;
 }
 
-.footer-links a:hover{color:var(--blue);}
+.footer-links a:hover{
+    color:var(--blue);
+}
 
 .footer-bottom{
     padding-top:15px;
@@ -731,7 +850,10 @@ footer{
     gap:12px;
 }
 
-/* CART */
+/* =====================================================
+   CART
+===================================================== */
+
 .cart-overlay{
     position:fixed;
     inset:0;
@@ -762,7 +884,9 @@ footer{
     transition:.3s;
 }
 
-.cart-overlay.active .cart-drawer{right:0;}
+.cart-overlay.active .cart-drawer{
+    right:0;
+}
 
 .drawer-header{
     padding:24px;
@@ -846,20 +970,29 @@ footer{
     margin-bottom:18px;
 }
 
-.cart-total span:last-child{color:var(--blue);}
+.cart-total span:last-child{
+    color:var(--blue);
+}
 
 .checkout-btn{
     width:100%;
     padding:16px;
     border:none;
     border-radius:11px;
-    background:linear-gradient(135deg,#00d9ff,#2563eb);
+    background:linear-gradient(
+        135deg,
+        #00d9ff,
+        #2563eb
+    );
     color:#fff;
     font-weight:900;
     cursor:pointer;
 }
 
-/* PAYMENT */
+/* =====================================================
+   PAYMENT
+===================================================== */
+
 .payment-overlay{
     position:fixed;
     inset:0;
@@ -872,7 +1005,9 @@ footer{
     backdrop-filter:blur(18px);
 }
 
-.payment-overlay.active{display:flex;}
+.payment-overlay.active{
+    display:flex;
+}
 
 .payment-box{
     width:950px;
@@ -924,7 +1059,12 @@ footer{
     margin:auto;
     padding:28px;
     border-radius:22px;
-    background:linear-gradient(135deg,#111827,#020617,#164e63);
+    background:linear-gradient(
+        135deg,
+        #111827,
+        #020617,
+        #164e63
+    );
     box-shadow:0 25px 60px #000;
     position:relative;
     overflow:hidden;
@@ -941,7 +1081,11 @@ footer{
     width:48px;
     height:36px;
     border-radius:8px;
-    background:linear-gradient(135deg,#eee,#777);
+    background:linear-gradient(
+        135deg,
+        #eee,
+        #777
+    );
 }
 
 .card-brand{
@@ -1027,7 +1171,9 @@ footer{
     outline:none;
 }
 
-.payment-group input:focus{border-color:var(--blue);}
+.payment-group input:focus{
+    border-color:var(--blue);
+}
 
 .payment-row{
     display:grid;
@@ -1047,14 +1193,20 @@ footer{
     font-weight:700;
 }
 
-.payment-error.show{display:block;}
+.payment-error.show{
+    display:block;
+}
 
 .payment-submit{
     width:100%;
     padding:15px;
     border:none;
     border-radius:10px;
-    background:linear-gradient(135deg,#00d9ff,#2563eb);
+    background:linear-gradient(
+        135deg,
+        #00d9ff,
+        #2563eb
+    );
     color:#fff;
     font-weight:900;
     cursor:pointer;
@@ -1067,9 +1219,15 @@ footer{
     margin-top:10px;
 }
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media(max-width:1000px){
-    .header-inner{flex-wrap:wrap;}
+
+    .header-inner{
+        flex-wrap:wrap;
+    }
 
     nav{
         position:static;
@@ -1095,29 +1253,59 @@ footer{
         margin-right:auto;
     }
 
-    .badge{justify-content:center;}
+    .badge{
+        justify-content:center;
+    }
 
-    .feature-grid{grid-template-columns:repeat(2,1fr);}
-    .category-grid{grid-template-columns:repeat(2,1fr);}
-    .showcase{grid-template-columns:1fr;}
-    .payment-grid{grid-template-columns:1fr;}
+    .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .category-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .showcase{
+        grid-template-columns:1fr;
+    }
+
+    .payment-grid{
+        grid-template-columns:1fr;
+    }
 }
 
 @media(max-width:650px){
-    .header-inner{padding:12px 15px;}
 
-    .logo{font-size:21px;}
+    .header-inner{
+        padding:12px 15px;
+    }
 
-    nav{gap:13px;}
+    .logo{
+        width:110px;
+        height:38px;
+    }
 
-    nav a{font-size:12px;}
+    .site-logo{
+        width:110px;
+        height:38px;
+    }
+
+    nav{
+        gap:13px;
+    }
+
+    nav a{
+        font-size:12px;
+    }
 
     nav a:nth-child(3),
     nav a:nth-child(4){
         display:none;
     }
 
-    .controls{gap:6px;}
+    .controls{
+        gap:6px;
+    }
 
     .lang-select{
         width:85px;
@@ -1125,20 +1313,30 @@ footer{
         font-size:10px;
     }
 
-    .cart-btn{padding:0 10px;}
+    .cart-btn{
+        padding:0 10px;
+    }
 
-    main{padding:125px 20px 50px;}
+    main{
+        padding:125px 20px 50px;
+    }
 
-    .hero{padding:10px 0 50px;}
+    .hero{
+        padding:10px 0 50px;
+    }
 
     .hero h1{
         font-size:46px;
         letter-spacing:-2px;
     }
 
-    .hero p{font-size:14px;}
+    .hero p{
+        font-size:14px;
+    }
 
-    .hero-visual{min-height:330px;}
+    .hero-visual{
+        min-height:330px;
+    }
 
     .ring{
         width:290px;
@@ -1192,7 +1390,9 @@ footer{
         border-radius:20px;
     }
 
-    .credit-card{padding:20px;}
+    .credit-card{
+        padding:20px;
+    }
 
     .card-number{
         font-size:17px;
@@ -1203,33 +1403,52 @@ footer{
         grid-template-columns:1fr;
     }
 }
+
 </style>
+
 </head>
 
 <body id="pageBody">
 
 <header>
+
 <div class="header-inner">
 
 <a href="index.html" class="logo">
-    ALPER<span>TECH</span>
+
+    <img
+        src="Logo.png"
+        alt="Alper Tech"
+        class="site-logo"
+        onerror="this.onerror=null;this.src='Logo.png.png';"
+    >
+
 </a>
 
 <nav>
 
-<a href="index.html" class="active" data-i18n="nav_home">
+<a
+    href="index.html"
+    class="active"
+    data-i18n="nav_home">
     Ana Sayfa
 </a>
 
-<a href="urunler.html" data-i18n="nav_products">
+<a
+    href="urunler.html"
+    data-i18n="nav_products">
     Ürünler
 </a>
 
-<a href="hakkimizda.html" data-i18n="nav_about">
+<a
+    href="hakkimizda.html"
+    data-i18n="nav_about">
     Hakkımızda
 </a>
 
-<a href="iletisim.html" data-i18n="nav_contact">
+<a
+    href="iletisim.html"
+    data-i18n="nav_contact">
     İletişim
 </a>
 
@@ -1237,9 +1456,10 @@ footer{
 
 <div class="controls">
 
-<select id="languageSelect"
-        class="lang-select"
-        onchange="changeLanguage(this.value)">
+<select
+    id="languageSelect"
+    class="lang-select"
+    onchange="changeLanguage(this.value)">
 
 <option value="tr">TR - Türkçe</option>
 <option value="en">EN - English</option>
@@ -1247,27 +1467,37 @@ footer{
 
 </select>
 
-<button class="theme-btn"
-        id="themeBtn"
-        onclick="toggleTheme()"
-        type="button">
+<button
+    class="theme-btn"
+    id="themeBtn"
+    onclick="toggleTheme()"
+    type="button">
 🌙
 </button>
 
-<button class="cart-btn"
-        onclick="openCart()"
-        type="button">
+<button
+    class="cart-btn"
+    onclick="openCart()"
+    type="button">
 
 🛒
 
-<span data-i18n="cart_text">Sepet</span>
+<span data-i18n="cart_text">
+    Sepet
+</span>
 
-<span class="cart-count" id="cartCount">0</span>
+<span
+    class="cart-count"
+    id="cartCount">
+    0
+</span>
 
 </button>
 
 </div>
+
 </div>
+
 </header>
 
 <main>
@@ -1288,11 +1518,21 @@ footer{
 
 <h1>
 
-<span data-i18n="hero_line1">Teknolojiyi</span>
+<span data-i18n="hero_line1">
+    Teknolojiyi
+</span>
+
 <br>
-<span data-i18n="hero_line2">yeniden</span>
+
+<span data-i18n="hero_line2">
+    yeniden
+</span>
+
 <br>
-<span data-i18n="hero_line3">keşfet.</span>
+
+<span data-i18n="hero_line3">
+    keşfet.
+</span>
 
 </h1>
 
@@ -1304,16 +1544,22 @@ footer{
 
 <div class="buttons">
 
-<a href="urunler.html"
-   class="button primary"
-   data-i18n="hero_products">
+<a
+    href="urunler.html"
+    class="button primary"
+    data-i18n="hero_products">
+
     Ürünleri İncele →
+
 </a>
 
-<a href="hakkimizda.html"
-   class="button secondary"
-   data-i18n="hero_about">
+<a
+    href="hakkimizda.html"
+    class="button secondary"
+    data-i18n="hero_about">
+
     Daha Fazla Bilgi
+
 </a>
 
 </div>
@@ -1321,18 +1567,39 @@ footer{
 <div class="stats">
 
 <div class="stat">
-<strong>100%</strong>
-<span data-i18n="stat_quality">Kalite Odaklı</span>
+
+<strong>
+    100%
+</strong>
+
+<span data-i18n="stat_quality">
+    Kalite Odaklı
+</span>
+
 </div>
 
 <div class="stat">
-<strong>7/24</strong>
-<span data-i18n="stat_support">Destek</span>
+
+<strong>
+    7/24
+</strong>
+
+<span data-i18n="stat_support">
+    Destek
+</span>
+
 </div>
 
 <div class="stat">
-<strong>NEW</strong>
-<span data-i18n="stat_next">Yeni Nesil</span>
+
+<strong>
+    NEW
+</strong>
+
+<span data-i18n="stat_next">
+    Yeni Nesil
+</span>
+
 </div>
 
 </div>
@@ -1388,11 +1655,15 @@ footer{
 
 <div class="feature-card">
 
-<span class="feature-number" data-i18n="performance_label">
+<span
+    class="feature-number"
+    data-i18n="performance_label">
     01 / PERFORMANCE
 </span>
 
-<div class="icon">⚡</div>
+<div class="icon">
+    ⚡
+</div>
 
 <h3 data-i18n="feature_1_title">
     Üst Düzey Performans
@@ -1407,11 +1678,15 @@ footer{
 
 <div class="feature-card">
 
-<span class="feature-number" data-i18n="design_label">
+<span
+    class="feature-number"
+    data-i18n="design_label">
     02 / DESIGN
 </span>
 
-<div class="icon">◈</div>
+<div class="icon">
+    ◈
+</div>
 
 <h3 data-i18n="feature_2_title">
     Premium Tasarım
@@ -1426,24 +1701,29 @@ footer{
 
 <div class="feature-card">
 
-<span class="feature-number" data-i18n="experience_label">
+<span
+    class="feature-number"
+    data-i18n="experience_label">
     03 / EXPERIENCE
 </span>
 
-<div class="icon">✓</div>
+<div class="icon">
+    ✓
+</div>
 
 <h3 data-i18n="feature_3_title">
     Kusursuz Deneyim
 </h3>
 
 <p data-i18n="feature_3_desc">
-    Teknoloji seçimini kolaylaştıran
-    sade ve güvenilir kullanıcı deneyimi.
+    Teknoloji seçimini kolaylaştıran sade
+    ve güvenilir kullanıcı deneyimi.
 </p>
 
 </div>
 
 </div>
+
 </section>
 
 <section class="categories">
@@ -1466,11 +1746,17 @@ footer{
 
 <div class="category-grid">
 
-<a href="urunler.html" class="category-card">
+<a
+    href="urunler.html"
+    class="category-card">
 
-<div class="category-icon">🖥️</div>
+<div class="category-icon">
+    🖥️
+</div>
 
-<h3 data-i18n="category_pc">Bilgisayar</h3>
+<h3 data-i18n="category_pc">
+    Bilgisayar
+</h3>
 
 <p data-i18n="category_pc_desc">
     Güçlü performans sistemleri
@@ -1478,11 +1764,17 @@ footer{
 
 </a>
 
-<a href="urunler.html" class="category-card">
+<a
+    href="urunler.html"
+    class="category-card">
 
-<div class="category-icon">📱</div>
+<div class="category-icon">
+    📱
+</div>
 
-<h3 data-i18n="category_phone">Akıllı Telefon</h3>
+<h3 data-i18n="category_phone">
+    Akıllı Telefon
+</h3>
 
 <p data-i18n="category_phone_desc">
     Yeni nesil mobil teknoloji
@@ -1490,11 +1782,17 @@ footer{
 
 </a>
 
-<a href="urunler.html" class="category-card">
+<a
+    href="urunler.html"
+    class="category-card">
 
-<div class="category-icon">🎮</div>
+<div class="category-icon">
+    🎮
+</div>
 
-<h3 data-i18n="category_gaming">Gaming</h3>
+<h3 data-i18n="category_gaming">
+    Gaming
+</h3>
 
 <p data-i18n="category_gaming_desc">
     Oyuncular için yüksek performans
@@ -1502,11 +1800,17 @@ footer{
 
 </a>
 
-<a href="urunler.html" class="category-card">
+<a
+    href="urunler.html"
+    class="category-card">
 
-<div class="category-icon">⚙️</div>
+<div class="category-icon">
+    ⚙️
+</div>
 
-<h3 data-i18n="category_component">Bileşen</h3>
+<h3 data-i18n="category_component">
+    Bileşen
+</h3>
 
 <p data-i18n="category_component_desc">
     Sistemin için doğru parçalar
@@ -1515,6 +1819,7 @@ footer{
 </a>
 
 </div>
+
 </section>
 
 <section class="showcase-section">
@@ -1523,7 +1828,9 @@ footer{
 
 <div class="showcase-card">
 
-<span class="showcase-label" data-i18n="showcase_performance">
+<span
+    class="showcase-label"
+    data-i18n="showcase_performance">
     PERFORMANCE
 </span>
 
@@ -1543,7 +1850,9 @@ footer{
 
 <div class="showcase-card purple">
 
-<span class="showcase-label" data-i18n="showcase_experience">
+<span
+    class="showcase-label"
+    data-i18n="showcase_experience">
     EXPERIENCE
 </span>
 
@@ -1561,6 +1870,7 @@ footer{
 </div>
 
 </div>
+
 </section>
 
 <section class="cta">
@@ -1580,94 +1890,134 @@ footer{
     keşfet ve Alper Tech deneyimini yaşa.
 </p>
 
-<a href="urunler.html"
-   class="button primary"
-   data-i18n="cta_button">
+<a
+    href="urunler.html"
+    class="button primary"
+    data-i18n="cta_button">
+
     Ürünleri Keşfet →
+
 </a>
 
 </div>
+
 </section>
 
 </main>
 
-<!-- SEPET -->
+<!-- =====================================================
+     SEPET
+===================================================== -->
 
-<div class="cart-overlay"
-     id="cartOverlay"
-     onclick="closeCartOutside(event)">
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCartOutside(event)">
 
 <div class="cart-drawer">
 
 <div class="drawer-header">
 
-<span class="drawer-title" data-i18n="cart_title">
+<span
+    class="drawer-title"
+    data-i18n="cart_title">
+
     Sepetiniz
+
 </span>
 
-<button class="drawer-close"
-        onclick="closeCart()"
-        type="button">
+<button
+    class="drawer-close"
+    onclick="closeCart()"
+    type="button">
+
     ✕
+
 </button>
 
 </div>
 
 <div class="drawer-body">
 
-<div class="cart-empty"
-     id="cartEmpty"
-     data-i18n="cart_empty">
+<div
+    class="cart-empty"
+    id="cartEmpty"
+    data-i18n="cart_empty">
+
     Sepetinizde henüz ürün bulunmuyor.
+
 </div>
 
 <div id="cartItems"></div>
 
 </div>
 
-<div class="cart-footer"
-     id="cartFooter"
-     style="display:none;">
+<div
+    class="cart-footer"
+    id="cartFooter"
+    style="display:none;">
 
 <div class="cart-total">
 
-<span data-i18n="cart_total">Toplam</span>
+<span data-i18n="cart_total">
+    Toplam
+</span>
 
-<span id="cartTotal">0 ₺</span>
+<span id="cartTotal">
+    0 ₺
+</span>
 
 </div>
 
-<button class="checkout-btn"
-        onclick="openPayment()"
-        type="button"
-        data-i18n="checkout">
+<button
+    class="checkout-btn"
+    onclick="openPayment()"
+    type="button"
+    data-i18n="checkout">
+
     ÖDEMEYE GEÇ
+
 </button>
 
 </div>
 
 </div>
+
 </div>
 
-<!-- ÖDEME -->
+<!-- =====================================================
+     ÖDEME
+===================================================== -->
 
-<div class="payment-overlay"
-     id="paymentOverlay">
+<div
+    class="payment-overlay"
+    id="paymentOverlay">
 
 <div class="payment-box">
 
-<button class="payment-close"
-        onclick="closePayment()"
-        type="button">
+<button
+    class="payment-close"
+    onclick="closePayment()"
+    type="button">
+
     ✕
+
 </button>
 
-<h2 class="payment-title" data-i18n="payment_title">
+<h2
+    class="payment-title"
+    data-i18n="payment_title">
+
     GÜVENLİ ÖDEME
+
 </h2>
 
-<p class="payment-subtitle" data-i18n="payment_subtitle">
+<p
+    class="payment-subtitle"
+    data-i18n="payment_subtitle">
+
     Demo ödeme ekranı
+
 </p>
 
 <div class="payment-grid">
@@ -1680,75 +2030,112 @@ footer{
 
 <div class="chip"></div>
 
-<div class="card-brand" id="cardBrand">
+<div
+    class="card-brand"
+    id="cardBrand">
+
     VISA
-</div>
 
 </div>
 
-<div class="card-number" id="previewNumber">
+</div>
+
+<div
+    class="card-number"
+    id="previewNumber">
+
     •••• •••• •••• ••••
+
 </div>
 
 <div class="card-bottom">
 
 <div>
 
-<div class="card-label" data-i18n="card_holder">
+<div
+    class="card-label"
+    data-i18n="card_holder">
+
     KART SAHİBİ
+
 </div>
 
-<div class="card-holder" id="previewName">
+<div
+    class="card-holder"
+    id="previewName">
+
     AD SOYAD
+
 </div>
 
 </div>
 
 <div>
 
-<div class="card-label" data-i18n="expiry_label">
+<div
+    class="card-label"
+    data-i18n="expiry_label">
+
     SON KULLANMA
+
 </div>
 
-<div class="card-expiry" id="previewExpiry">
+<div
+    class="card-expiry"
+    id="previewExpiry">
+
     12/30
+
+</div>
+
 </div>
 
 </div>
 
 </div>
-</div>
+
 </div>
 
 <div>
 
-<div class="method-title" data-i18n="card_type">
+<div
+    class="method-title"
+    data-i18n="card_type">
+
     Kart Türü
+
 </div>
 
 <div class="methods">
 
-<button type="button"
-        class="method active"
-        onclick="selectCard('VISA',this)">
+<button
+    type="button"
+    class="method active"
+    onclick="selectCard('VISA',this)">
     VISA
 </button>
 
-<button type="button"
-        class="method"
-        onclick="selectCard('MASTERCARD',this)">
+<button
+    type="button"
+    class="method"
+    onclick="selectCard('MASTERCARD',this)">
     MASTERCARD
 </button>
 
-<button type="button"
-        class="method"
-        onclick="selectCard('TROY',this)">
+<button
+    type="button"
+    class="method"
+    onclick="selectCard('TROY',this)">
     TROY
 </button>
 
 </div>
 
-<div class="payment-error" id="paymentError"></div>
+<div
+    class="payment-error"
+    id="paymentError">
+
+</div>
 
 <div class="payment-group">
 
@@ -1756,12 +2143,13 @@ footer{
     Kart Numarası
 </label>
 
-<input id="cardNumber"
-       type="text"
-       inputmode="numeric"
-       maxlength="19"
-       placeholder="1234 5678 9012 3456"
-       autocomplete="off">
+<input
+    id="cardNumber"
+    type="text"
+    inputmode="numeric"
+    maxlength="19"
+    placeholder="1234 5678 9012 3456"
+    autocomplete="off">
 
 </div>
 
@@ -1771,11 +2159,12 @@ footer{
     Kart Üzerindeki İsim
 </label>
 
-<input id="cardName"
-       type="text"
-       maxlength="30"
-       placeholder="AD SOYAD"
-       autocomplete="off">
+<input
+    id="cardName"
+    type="text"
+    maxlength="30"
+    placeholder="AD SOYAD"
+    autocomplete="off">
 
 </div>
 
@@ -1787,12 +2176,13 @@ footer{
     Son Kullanma
 </label>
 
-<input id="expiry"
-       type="text"
-       inputmode="numeric"
-       maxlength="5"
-       placeholder="AA/YY"
-       autocomplete="off">
+<input
+    id="expiry"
+    type="text"
+    inputmode="numeric"
+    maxlength="5"
+    placeholder="AA/YY"
+    autocomplete="off">
 
 </div>
 
@@ -1802,34 +2192,47 @@ footer{
     CVV
 </label>
 
-<input id="cvv"
-       type="text"
-       inputmode="numeric"
-       maxlength="4"
-       placeholder="•••"
-       autocomplete="off">
+<input
+    id="cvv"
+    type="text"
+    inputmode="numeric"
+    maxlength="4"
+    placeholder="•••"
+    autocomplete="off">
 
 </div>
 
 </div>
 
-<button type="button"
-        class="payment-submit"
-        onclick="completePayment()"
-        data-i18n="complete_payment">
+<button
+    type="button"
+    class="payment-submit"
+    onclick="completePayment()"
+    data-i18n="complete_payment">
+
     ÖDEMEYİ TAMAMLA
+
 </button>
 
-<div class="security" data-i18n="security">
+<div
+    class="security"
+    data-i18n="security">
+
     Demo ödeme ekranı — kart bilgileri kaydedilmez.
+
 </div>
 
 </div>
-</div>
-</div>
+
 </div>
 
-<!-- FOOTER -->
+</div>
+
+</div>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -1852,10 +2255,29 @@ footer{
 
 <div class="footer-links">
 
-<a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
-<a href="urunler.html" data-i18n="nav_products">Ürünler</a>
-<a href="hakkimizda.html" data-i18n="nav_about">Hakkımızda</a>
-<a href="iletisim.html" data-i18n="nav_contact">İletişim</a>
+<a
+    href="index.html"
+    data-i18n="nav_home">
+    Ana Sayfa
+</a>
+
+<a
+    href="urunler.html"
+    data-i18n="nav_products">
+    Ürünler
+</a>
+
+<a
+    href="hakkimizda.html"
+    data-i18n="nav_about">
+    Hakkımızda
+</a>
+
+<a
+    href="iletisim.html"
+    data-i18n="nav_contact">
+    İletişim
+</a>
 
 </div>
 
@@ -1872,11 +2294,18 @@ footer{
 </span>
 
 </div>
+
 </div>
+
 </footer>
 
 <script>
-const translations = {
+
+/* =====================================================
+   DİLLER
+===================================================== */
+
+const translations={
 
 tr:{
     nav_home:"Ana Sayfa",
@@ -1889,9 +2318,7 @@ tr:{
     hero_line1:"Teknolojiyi",
     hero_line2:"yeniden",
     hero_line3:"keşfet.",
-
     hero_desc:"Alper Tech ile performans, kalite ve modern tasarım tek bir deneyimde buluşuyor. İhtiyacın olan teknoloji artık daha güçlü, daha hızlı ve daha şık.",
-
     hero_products:"Ürünleri İncele →",
     hero_about:"Daha Fazla Bilgi",
 
@@ -1912,37 +2339,28 @@ tr:{
 
     feature_title:"Teknoloji artık sadece güçlü değil.",
     feature_desc:"Performans, tasarım ve kullanıcı deneyimini tek bir premium teknoloji anlayışında birleştiriyoruz.",
-
     feature_1_title:"Üst Düzey Performans",
     feature_1_desc:"Günlük kullanımdan ağır işlemlere kadar hızlı, akıcı ve güçlü teknoloji deneyimi.",
-
     feature_2_title:"Premium Tasarım",
     feature_2_desc:"Güçlü performansı modern ve şık tasarımla birleştiren teknoloji.",
-
     feature_3_title:"Kusursuz Deneyim",
     feature_3_desc:"Teknoloji seçimini kolaylaştıran sade ve güvenilir kullanıcı deneyimi.",
 
     category_title:"İhtiyacın olan teknoloji tek yerde.",
     category_desc:"Teknoloji dünyasının farklı kategorilerini keşfet.",
-
     category_pc:"Bilgisayar",
     category_pc_desc:"Güçlü performans sistemleri",
-
     category_phone:"Akıllı Telefon",
     category_phone_desc:"Yeni nesil mobil teknoloji",
-
     category_gaming:"Gaming",
     category_gaming_desc:"Oyuncular için yüksek performans",
-
     category_component:"Bileşen",
     category_component_desc:"Sistemin için doğru parçalar",
 
     showcase_performance:"PERFORMANCE",
     showcase_experience:"EXPERIENCE",
-
     showcase_1_title:"Sistemin için daha fazlasını iste.",
     showcase_1_desc:"Yüksek performanslı bileşenler, modern sistemler ve güçlü donanımlarla sınırları ileri taşı.",
-
     showcase_2_title:"Teknolojiyi daha premium yaşa.",
     showcase_2_desc:"Alper Tech; performans, kalite ve tasarımı aynı deneyimde buluşturmak için tasarlandı.",
 
@@ -1984,9 +2402,7 @@ en:{
     hero_line1:"Rediscover",
     hero_line2:"technology",
     hero_line3:"again.",
-
     hero_desc:"Performance, quality and modern design come together in one experience with Alper Tech. The technology you need is now more powerful, faster and more stylish.",
-
     hero_products:"Explore Products →",
     hero_about:"Learn More",
 
@@ -2007,37 +2423,28 @@ en:{
 
     feature_title:"Technology is more than power.",
     feature_desc:"We combine performance, design and user experience in one premium technology vision.",
-
     feature_1_title:"High Performance",
     feature_1_desc:"A fast, smooth and powerful technology experience for everyday use and demanding tasks.",
-
     feature_2_title:"Premium Design",
     feature_2_desc:"Technology that combines powerful performance with a modern and stylish design.",
-
     feature_3_title:"Seamless Experience",
     feature_3_desc:"A simple and reliable user experience that makes choosing technology easier.",
 
     category_title:"All the technology you need in one place.",
     category_desc:"Explore different categories from the world of technology.",
-
     category_pc:"Computers",
     category_pc_desc:"High-performance systems",
-
     category_phone:"Smartphones",
     category_phone_desc:"Next-generation mobile technology",
-
     category_gaming:"Gaming",
     category_gaming_desc:"High performance for gamers",
-
     category_component:"Components",
     category_component_desc:"The right parts for your system",
 
     showcase_performance:"PERFORMANCE",
     showcase_experience:"EXPERIENCE",
-
     showcase_1_title:"Expect more from your system.",
     showcase_1_desc:"Take performance further with high-performance components, modern systems and powerful hardware.",
-
     showcase_2_title:"Experience technology at a premium level.",
     showcase_2_desc:"Alper Tech is designed to bring performance, quality and design together in one experience.",
 
@@ -2079,9 +2486,7 @@ es:{
     hero_line1:"Descubre",
     hero_line2:"la tecnología",
     hero_line3:"de nuevo.",
-
     hero_desc:"Rendimiento, calidad y diseño moderno se unen en una sola experiencia con Alper Tech. La tecnología que necesitas ahora es más potente, rápida y elegante.",
-
     hero_products:"Ver Productos →",
     hero_about:"Más Información",
 
@@ -2102,37 +2507,28 @@ es:{
 
     feature_title:"La tecnología es más que potencia.",
     feature_desc:"Combinamos rendimiento, diseño y experiencia de usuario en una visión tecnológica premium.",
-
     feature_1_title:"Alto Rendimiento",
     feature_1_desc:"Una experiencia tecnológica rápida, fluida y potente para el uso diario y tareas exigentes.",
-
     feature_2_title:"Diseño Premium",
     feature_2_desc:"Tecnología que combina un gran rendimiento con un diseño moderno y elegante.",
-
     feature_3_title:"Experiencia Perfecta",
     feature_3_desc:"Una experiencia sencilla y fiable que facilita la elección de tecnología.",
 
     category_title:"Toda la tecnología que necesitas en un solo lugar.",
     category_desc:"Explora diferentes categorías del mundo de la tecnología.",
-
     category_pc:"Computadoras",
     category_pc_desc:"Sistemas de alto rendimiento",
-
     category_phone:"Smartphones",
     category_phone_desc:"Tecnología móvil de nueva generación",
-
     category_gaming:"Gaming",
     category_gaming_desc:"Alto rendimiento para jugadores",
-
     category_component:"Componentes",
     category_component_desc:"Las piezas adecuadas para tu sistema",
 
     showcase_performance:"RENDIMIENTO",
     showcase_experience:"EXPERIENCIA",
-
     showcase_1_title:"Exige más de tu sistema.",
     showcase_1_desc:"Lleva el rendimiento más lejos con componentes potentes, sistemas modernos y hardware de alto nivel.",
-
     showcase_2_title:"Vive la tecnología a un nivel premium.",
     showcase_2_desc:"Alper Tech ha sido diseñado para unir rendimiento, calidad y diseño en una sola experiencia.",
 
@@ -2165,67 +2561,121 @@ es:{
 
 };
 
+/* =====================================================
+   DİL
+===================================================== */
+
 function changeLanguage(lang){
 
     if(!translations[lang]){
         lang="tr";
     }
 
-    localStorage.setItem("alperTechLang",lang);
+    localStorage.setItem(
+        "alperTechLang",
+        lang
+    );
 
     document.documentElement.lang=lang;
 
-    const select=document.getElementById("languageSelect");
+    const select=
+        document.getElementById(
+            "languageSelect"
+        );
 
     if(select){
         select.value=lang;
     }
 
-    document.querySelectorAll("[data-i18n]").forEach(function(element){
+    document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function(element){
 
-        const key=element.getAttribute("data-i18n");
+            const key=
+                element.getAttribute(
+                    "data-i18n"
+                );
 
-        if(
-            translations[lang] &&
-            Object.prototype.hasOwnProperty.call(translations[lang],key)
-        ){
-            element.textContent=translations[lang][key];
-        }
+            if(
+                Object.prototype.hasOwnProperty.call(
+                    translations[lang],
+                    key
+                )
+            ){
 
-    });
+                element.textContent=
+                    translations[lang][key];
+
+            }
+
+        });
 
 }
+
+/* =====================================================
+   TEMA
+===================================================== */
 
 function toggleTheme(){
 
-    const body=document.getElementById("pageBody");
-    const button=document.getElementById("themeBtn");
+    const body=
+        document.getElementById(
+            "pageBody"
+        );
 
-    body.classList.toggle("light");
+    const button=
+        document.getElementById(
+            "themeBtn"
+        );
 
-    const light=body.classList.contains("light");
+    body.classList.toggle(
+        "light"
+    );
 
-    button.textContent=light?"☀️":"🌙";
+    const light=
+        body.classList.contains(
+            "light"
+        );
+
+    button.textContent=
+        light
+            ? "☀️"
+            : "🌙";
 
     localStorage.setItem(
         "alperTechTheme",
-        light?"light":"dark"
+        light
+            ? "light"
+            : "dark"
     );
+
 }
+
+/* =====================================================
+   SEPET
+===================================================== */
 
 function getCart(){
 
     try{
 
-        const cart=JSON.parse(
-            localStorage.getItem("alperTechCart")
-        );
+        const cart=
+            JSON.parse(
+                localStorage.getItem(
+                    "alperTechCart"
+                )
+            );
 
-        return Array.isArray(cart)?cart:[];
+        return Array.isArray(cart)
+            ? cart
+            : [];
 
     }catch{
+
         return [];
+
     }
+
 }
 
 function escapeHTML(text){
@@ -2236,80 +2686,132 @@ function escapeHTML(text){
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
+
 }
 
 function updateCart(){
 
-    const cart=getCart();
+    const cart=
+        getCart();
 
-    const count=document.getElementById("cartCount");
-    const items=document.getElementById("cartItems");
-    const empty=document.getElementById("cartEmpty");
-    const footer=document.getElementById("cartFooter");
-    const totalElement=document.getElementById("cartTotal");
+    const count=
+        document.getElementById(
+            "cartCount"
+        );
 
-    if(!count||!items||!empty||!footer||!totalElement){
+    const items=
+        document.getElementById(
+            "cartItems"
+        );
+
+    const empty=
+        document.getElementById(
+            "cartEmpty"
+        );
+
+    const footer=
+        document.getElementById(
+            "cartFooter"
+        );
+
+    const totalElement=
+        document.getElementById(
+            "cartTotal"
+        );
+
+    if(
+        !count ||
+        !items ||
+        !empty ||
+        !footer ||
+        !totalElement
+    ){
+
         return;
+
     }
 
-    count.textContent=cart.length;
+    count.textContent=
+        cart.length;
+
     items.innerHTML="";
 
     if(cart.length===0){
 
-        empty.style.display="block";
-        footer.style.display="none";
+        empty.style.display=
+            "block";
+
+        footer.style.display=
+            "none";
+
         return;
+
     }
 
-    empty.style.display="none";
-    footer.style.display="block";
+    empty.style.display=
+        "none";
+
+    footer.style.display=
+        "block";
 
     let total=0;
 
-    cart.forEach(function(item,index){
+    cart.forEach(
+        function(item,index){
 
-        const price=Number(item.price)||0;
-        total+=price;
+            const price=
+                Number(item.price)||0;
 
-        items.innerHTML+=`
+            total+=price;
 
-            <div class="cart-item">
+            items.innerHTML+=`
 
-                <div>
+                <div class="cart-item">
 
-                    <div class="cart-item-name">
-                        ${escapeHTML(item.name)}
+                    <div>
+
+                        <div class="cart-item-name">
+                            ${escapeHTML(item.name)}
+                        </div>
+
+                        <div class="cart-item-price">
+                            ${price.toLocaleString("tr-TR")} ₺
+                        </div>
+
                     </div>
 
-                    <div class="cart-item-price">
-                        ${price.toLocaleString("tr-TR")} ₺
-                    </div>
+                    <button
+                        type="button"
+                        class="remove-item"
+                        onclick="removeItem(${index})">
+
+                        Kaldır
+
+                    </button>
 
                 </div>
 
-                <button
-                    type="button"
-                    class="remove-item"
-                    onclick="removeItem(${index})">
-                    Kaldır
-                </button>
+            `;
 
-            </div>
-
-        `;
-
-    });
+        }
+    );
 
     totalElement.textContent=
-        total.toLocaleString("tr-TR")+" ₺";
+        total.toLocaleString(
+            "tr-TR"
+        )+" ₺";
+
 }
 
 function removeItem(index){
 
-    const cart=getCart();
+    const cart=
+        getCart();
 
-    cart.splice(index,1);
+    cart.splice(
+        index,
+        1
+    );
 
     localStorage.setItem(
         "alperTechCart",
@@ -2317,6 +2819,7 @@ function removeItem(index){
     );
 
     updateCart();
+
 }
 
 function openCart(){
@@ -2324,175 +2827,353 @@ function openCart(){
     updateCart();
 
     document
-        .getElementById("cartOverlay")
-        .classList.add("active");
+        .getElementById(
+            "cartOverlay"
+        )
+        .classList.add(
+            "active"
+        );
+
 }
 
 function closeCart(){
 
     document
-        .getElementById("cartOverlay")
-        .classList.remove("active");
+        .getElementById(
+            "cartOverlay"
+        )
+        .classList.remove(
+            "active"
+        );
+
 }
 
 function closeCartOutside(event){
 
-    if(event.target.id==="cartOverlay"){
+    if(
+        event.target.id===
+        "cartOverlay"
+    ){
+
         closeCart();
+
     }
+
 }
+
+/* =====================================================
+   ÖDEME
+===================================================== */
 
 function openPayment(){
 
-    if(getCart().length===0){
+    if(
+        getCart().length===0
+    ){
+
         return;
+
     }
 
     closeCart();
 
     document
-        .getElementById("paymentOverlay")
-        .classList.add("active");
+        .getElementById(
+            "paymentOverlay"
+        )
+        .classList.add(
+            "active"
+        );
+
 }
 
 function closePayment(){
 
     document
-        .getElementById("paymentOverlay")
-        .classList.remove("active");
+        .getElementById(
+            "paymentOverlay"
+        )
+        .classList.remove(
+            "active"
+        );
+
 }
 
-function selectCard(type,button){
+function selectCard(
+    type,
+    button
+){
 
     document
-        .querySelectorAll(".method")
-        .forEach(function(item){
-            item.classList.remove("active");
-        });
+        .querySelectorAll(
+            ".method"
+        )
+        .forEach(
+            function(item){
 
-    button.classList.add("active");
+                item.classList.remove(
+                    "active"
+                );
 
-    document.getElementById("cardBrand").textContent=type;
+            }
+        );
+
+    button.classList.add(
+        "active"
+    );
+
+    document.getElementById(
+        "cardBrand"
+    ).textContent=
+        type;
+
 }
 
-document.getElementById("cardNumber").addEventListener(
-    "input",
-    function(){
+/* =====================================================
+   KART
+===================================================== */
 
-        let value=this.value
-            .replace(/\D/g,"")
-            .substring(0,16);
+document
+    .getElementById(
+        "cardNumber"
+    )
+    .addEventListener(
+        "input",
+        function(){
 
-        const groups=value.match(/.{1,4}/g);
+            let value=
+                this.value
+                    .replace(
+                        /\D/g,
+                        ""
+                    )
+                    .substring(
+                        0,
+                        16
+                    );
 
-        this.value=groups?groups.join(" "):"";
+            const groups=
+                value.match(
+                    /.{1,4}/g
+                );
 
-        document.getElementById("previewNumber").textContent=
-            this.value||"•••• •••• •••• ••••";
-    }
-);
+            this.value=
+                groups
+                    ? groups.join(" ")
+                    : "";
 
-document.getElementById("cardName").addEventListener(
-    "input",
-    function(){
+            document.getElementById(
+                "previewNumber"
+            ).textContent=
+                this.value ||
+                "•••• •••• •••• ••••";
 
-        this.value=this.value
-            .replace(/[^a-zA-ZğüşöçıİĞÜŞÖÇ\s]/g,"")
-            .toUpperCase();
-
-        document.getElementById("previewName").textContent=
-            this.value||"AD SOYAD";
-    }
-);
-
-document.getElementById("expiry").addEventListener(
-    "input",
-    function(){
-
-        let value=this.value
-            .replace(/\D/g,"")
-            .substring(0,4);
-
-        if(value.length>2){
-            value=
-                value.substring(0,2)+"/"+
-                value.substring(2);
         }
+    );
 
-        this.value=value;
+document
+    .getElementById(
+        "cardName"
+    )
+    .addEventListener(
+        "input",
+        function(){
 
-        document.getElementById("previewExpiry").textContent=
-            value||"12/30";
-    }
-);
+            this.value=
+                this.value
+                    .replace(
+                        /[^a-zA-ZğüşöçıİĞÜŞÖÇ\s]/g,
+                        ""
+                    )
+                    .toUpperCase();
 
-document.getElementById("cvv").addEventListener(
-    "input",
-    function(){
+            document.getElementById(
+                "previewName"
+            ).textContent=
+                this.value ||
+                "AD SOYAD";
 
-        this.value=this.value
-            .replace(/\D/g,"")
-            .substring(0,4);
-    }
-);
+        }
+    );
+
+document
+    .getElementById(
+        "expiry"
+    )
+    .addEventListener(
+        "input",
+        function(){
+
+            let value=
+                this.value
+                    .replace(
+                        /\D/g,
+                        ""
+                    )
+                    .substring(
+                        0,
+                        4
+                    );
+
+            if(
+                value.length>2
+            ){
+
+                value=
+                    value.substring(
+                        0,
+                        2
+                    )
+                    +"/"+
+                    value.substring(
+                        2
+                    );
+
+            }
+
+            this.value=
+                value;
+
+            document.getElementById(
+                "previewExpiry"
+            ).textContent=
+                value ||
+                "12/30";
+
+        }
+    );
+
+document
+    .getElementById(
+        "cvv"
+    )
+    .addEventListener(
+        "input",
+        function(){
+
+            this.value=
+                this.value
+                    .replace(
+                        /\D/g,
+                        ""
+                    )
+                    .substring(
+                        0,
+                        4
+                    );
+
+        }
+    );
+
+/* =====================================================
+   DEMO ÖDEME
+===================================================== */
 
 function completePayment(){
 
-    const error=document.getElementById("paymentError");
+    const error=
+        document.getElementById(
+            "paymentError"
+        );
 
     error.textContent=
         "Bu demo ödeme ekranında gerçek ödeme işlemi yapılamaz.";
 
-    error.classList.add("show");
+    error.classList.add(
+        "show"
+    );
+
 }
+
+/* =====================================================
+   BAŞLANGIÇ
+===================================================== */
 
 window.addEventListener(
     "DOMContentLoaded",
     function(){
 
         const savedTheme=
-            localStorage.getItem("alperTechTheme")||"dark";
+            localStorage.getItem(
+                "alperTechTheme"
+            ) || "dark";
 
-        if(savedTheme==="light"){
+        if(
+            savedTheme==="light"
+        ){
 
             document
-                .getElementById("pageBody")
-                .classList.add("light");
+                .getElementById(
+                    "pageBody"
+                )
+                .classList.add(
+                    "light"
+                );
 
             document
-                .getElementById("themeBtn")
-                .textContent="☀️";
+                .getElementById(
+                    "themeBtn"
+                )
+                .textContent=
+                    "☀️";
+
         }
 
         const savedLang=
-            localStorage.getItem("alperTechLang")||"tr";
+            localStorage.getItem(
+                "alperTechLang"
+            ) || "tr";
 
-        changeLanguage(savedLang);
+        changeLanguage(
+            savedLang
+        );
 
         updateCart();
+
     }
 );
+
+/* =====================================================
+   SEPET SENKRON
+===================================================== */
 
 window.addEventListener(
     "storage",
     function(event){
 
-        if(event.key==="alperTechCart"){
+        if(
+            event.key===
+            "alperTechCart"
+        ){
+
             updateCart();
+
         }
+
     }
 );
+
+/* =====================================================
+   ESC
+===================================================== */
 
 document.addEventListener(
     "keydown",
     function(event){
 
-        if(event.key==="Escape"){
+        if(
+            event.key===
+            "Escape"
+        ){
+
             closeCart();
             closePayment();
+
         }
+
     }
 );
+
 </script>
 
 </body>
