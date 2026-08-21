@@ -17,9 +17,8 @@
 /* =========================================================
    ALPER TECH
    PREMIUM TECHNOLOGY STORE
-   HOMEPAGE V4
+   INDEX.HTML - FINAL
 ========================================================= */
-
 
 /* =========================================================
    RESET
@@ -28,21 +27,67 @@
 *,
 *::before,
 *::after {
-
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(0,217,255,.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 92% 10%,
+            rgba(37,99,235,.12),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            var(--bg),
+            var(--bg-soft) 55%,
+            var(--bg)
+        );
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
 
 /* =========================================================
-   GLOBAL VARIABLES
+   VARIABLES
 ========================================================= */
 
 :root {
@@ -57,161 +102,56 @@
     --bg-soft: #060a10;
     --bg-card: #0b1119;
 
-    --header:
-        rgba(3,6,10,.82);
+    --header: rgba(3,6,10,.82);
 
-    --card:
-        rgba(12,18,27,.94);
+    --card: rgba(12,18,27,.94);
+    --card-soft: rgba(17,24,34,.88);
 
-    --card-soft:
-        rgba(17,24,34,.88);
+    --input: #091018;
 
-    --input:
-        #091018;
+    --text: #ffffff;
+    --muted: #8f99a8;
+    --muted-2: #596575;
 
-    --text:
-        #ffffff;
+    --border: rgba(255,255,255,.075);
+    --border-strong: rgba(255,255,255,.14);
 
-    --muted:
-        #8f99a8;
-
-    --muted-2:
-        #596575;
-
-    --border:
-        rgba(255,255,255,.075);
-
-    --border-strong:
-        rgba(255,255,255,.14);
-
-    --blue:
-        #00d9ff;
-
-    --blue-2:
-        #2563eb;
-
-    --purple:
-        #6366f1;
-
-    --green:
-        #22c55e;
-
-    --red:
-        #ef4444;
+    --blue: #00d9ff;
+    --blue-2: #2563eb;
+    --purple: #6366f1;
+    --green: #22c55e;
+    --red: #ef4444;
 
     --shadow:
         0 30px 90px rgba(0,0,0,.30);
 }
 
-
 body.light {
 
-    --bg:
-        #eef2f7;
+    --bg: #eef2f7;
+    --bg-soft: #f7f9fc;
+    --bg-card: #ffffff;
 
-    --bg-soft:
-        #f7f9fc;
+    --header: rgba(255,255,255,.90);
 
-    --bg-card:
-        #ffffff;
+    --card: rgba(255,255,255,.97);
+    --card-soft: rgba(248,250,252,.98);
 
-    --header:
-        rgba(255,255,255,.86);
+    --input: #f1f5f9;
 
-    --card:
-        rgba(255,255,255,.97);
+    --text: #0f172a;
+    --muted: #64748b;
+    --muted-2: #94a3b8;
 
-    --card-soft:
-        rgba(248,250,252,.98);
+    --border: rgba(15,23,42,.08);
+    --border-strong: rgba(15,23,42,.14);
 
-    --input:
-        #f1f5f9;
-
-    --text:
-        #0f172a;
-
-    --muted:
-        #64748b;
-
-    --muted-2:
-        #94a3b8;
-
-    --border:
-        rgba(15,23,42,.08);
-
-    --border-strong:
-        rgba(15,23,42,.14);
-
-    --blue:
-        #2563eb;
-
-    --blue-2:
-        #1d4ed8;
-
-    --purple:
-        #6366f1;
+    --blue: #2563eb;
+    --blue-2: #1d4ed8;
 }
-
 
 /* =========================================================
-   DOCUMENT
-========================================================= */
-
-html {
-
-    min-height: 100%;
-
-    scroll-behavior: smooth;
-
-    scroll-padding-top: 110px;
-}
-
-
-body {
-
-    min-width: 320px;
-
-    min-height: 100vh;
-
-    color: var(--text);
-
-    overflow-x: hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 8% 8%,
-            rgba(0,217,255,.10),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 94% 10%,
-            rgba(37,99,235,.12),
-            transparent 27%
-        ),
-
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(99,102,241,.035),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            180deg,
-            var(--bg),
-            var(--bg-soft) 55%,
-            var(--bg)
-        );
-
-    transition:
-        background .3s ease,
-        color .3s ease;
-}
-
-
-/* =========================================================
-   BACKGROUND GRID
+   BACKGROUND
 ========================================================= */
 
 body::before {
@@ -219,7 +159,6 @@ body::before {
     content: "";
 
     position: fixed;
-
     inset: 0;
 
     pointer-events: none;
@@ -227,20 +166,17 @@ body::before {
     z-index: -5;
 
     background:
-
         linear-gradient(
             rgba(255,255,255,.012) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
             rgba(255,255,255,.012) 1px,
             transparent 1px
         );
 
-    background-size:
-        48px 48px;
+    background-size: 48px 48px;
 
     mask-image:
         linear-gradient(
@@ -250,34 +186,27 @@ body::before {
         );
 }
 
-
-/* =========================================================
-   AMBIENT LIGHT
-========================================================= */
-
 .ambient {
 
     position: fixed;
 
-    width: 420px;
-    height: 420px;
+    width: 430px;
+    height: 430px;
 
     border-radius: 50%;
 
     pointer-events: none;
 
-    filter: blur(50px);
+    filter: blur(55px);
 
-    opacity: .18;
+    opacity: .15;
 
     z-index: -4;
 }
 
 .ambient.one {
-
-    top: 12%;
-
-    right: -150px;
+    right: -160px;
+    top: 10%;
 
     background:
         radial-gradient(
@@ -288,10 +217,8 @@ body::before {
 }
 
 .ambient.two {
-
+    left: -190px;
     top: 55%;
-
-    left: -180px;
 
     background:
         radial-gradient(
@@ -300,33 +227,6 @@ body::before {
             transparent 70%
         );
 }
-
-
-/* =========================================================
-   GENERIC
-========================================================= */
-
-a {
-
-    color: inherit;
-
-    text-decoration: none;
-}
-
-
-button,
-input,
-select {
-
-    font-family: inherit;
-}
-
-
-button {
-
-    cursor: pointer;
-}
-
 
 /* =========================================================
    HEADER
@@ -342,11 +242,9 @@ header {
 
     width: 100% !important;
 
-    height:
-        var(--header-height) !important;
+    height: var(--header-height) !important;
 
-    background:
-        var(--header);
+    background: var(--header);
 
     border-bottom:
         1px solid var(--border);
@@ -359,13 +257,11 @@ header {
         blur(24px)
         saturate(150%);
 
-    z-index:
-        1000 !important;
-
     box-shadow:
         0 10px 35px rgba(0,0,0,.10);
-}
 
+    z-index: 1000 !important;
+}
 
 .header-inner {
 
@@ -384,9 +280,6 @@ header {
     padding:
         0 !important;
 
-    position:
-        relative;
-
     display:
         flex !important;
 
@@ -398,8 +291,10 @@ header {
 
     gap:
         25px;
-}
 
+    position:
+        relative;
+}
 
 /* =========================================================
    LOGO
@@ -407,45 +302,32 @@ header {
 
 .logo {
 
-    width:
-        145px;
+    width: 145px;
+    height: 45px;
 
-    height:
-        45px;
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
 
-    align-items:
-        center;
+    flex: 0 0 auto;
 
-    flex:
-        0 0 auto;
+    overflow: hidden;
 }
-
 
 .site-logo {
 
-    width:
-        145px;
+    width: 145px;
+    height: 45px;
 
-    height:
-        45px;
+    display: block;
 
-    display:
-        block;
-
-    object-fit:
-        contain;
-
-    object-position:
-        left center;
+    object-fit: contain;
+    object-position: left center;
 
     transition:
         transform .25s ease,
         filter .25s ease;
 }
-
 
 .logo:hover .site-logo {
 
@@ -455,102 +337,77 @@ header {
     filter:
         drop-shadow(
             0 0 18px
-            rgba(0,217,255,.14)
+            rgba(0,217,255,.15)
         );
 }
 
-
 /* =========================================================
-   NAV
+   NAVIGATION
 ========================================================= */
 
 nav {
 
-    position:
-        absolute !important;
+    position: absolute !important;
 
-    left:
-        50% !important;
-
-    top:
-        50% !important;
+    left: 50% !important;
+    top: 50% !important;
 
     transform:
         translate(-50%,-50%) !important;
 
-    display:
-        flex !important;
+    display: flex !important;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        28px;
+    justify-content: center;
 
-    white-space:
-        nowrap;
+    gap: 28px;
+
+    white-space: nowrap;
 }
-
 
 nav a {
 
-    position:
-        relative;
+    position: relative;
 
-    padding:
-        8px 0;
+    padding: 8px 0;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 
     transition:
         color .2s ease,
         transform .2s ease;
 }
 
-
 nav a:hover,
 nav a.active {
 
-    color:
-        var(--text);
+    color: var(--text);
 
     transform:
         translateY(-1px);
 }
 
-
 nav a::after {
 
-    content:
-        "";
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    left:
-        50%;
+    left: 50%;
+    bottom: -6px;
 
-    bottom:
-        -6px;
-
-    width:
-        0;
-
-    height:
-        2px;
+    width: 0;
+    height: 2px;
 
     transform:
         translateX(-50%);
 
-    border-radius:
-        99px;
+    border-radius: 999px;
 
     background:
         linear-gradient(
@@ -567,57 +424,41 @@ nav a::after {
         width .2s ease;
 }
 
-
 nav a:hover::after,
 nav a.active::after {
-
-    width:
-        100%;
+    width: 100%;
 }
 
-
 /* =========================================================
-   HEADER CONTROLS
+   CONTROLS
 ========================================================= */
 
 .controls {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        8px;
+    gap: 8px;
 
-    margin-left:
-        auto;
+    margin-left: auto;
 }
-
 
 .lang-select {
 
-    width:
-        122px;
+    width: 122px;
+    min-width: 122px;
 
-    min-width:
-        122px;
+    height: 40px;
 
-    height:
-        40px;
-
-    padding:
-        0 10px;
+    padding: 0 10px;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        11px;
+    border-radius: 11px;
 
-    outline:
-        none;
+    outline: none;
 
     background:
         var(--input);
@@ -625,19 +466,15 @@ nav a.active::after {
     color:
         var(--text);
 
-    font-size:
-        11px;
+    font-size: 11px;
+    font-weight: 700;
 
-    font-weight:
-        700;
-
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
-        .2s;
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
-
 
 .lang-select:hover,
 .lang-select:focus {
@@ -650,47 +487,28 @@ nav a.active::after {
         rgba(0,217,255,.05);
 }
 
-
 .lang-select option {
 
-    background:
-        #0b1118;
-
-    color:
-        #ffffff;
+    background: #0b1118;
+    color: #fff;
 }
-
 
 body.light .lang-select option {
 
-    background:
-        #ffffff;
-
-    color:
-        #111827;
+    background: #fff;
+    color: #111827;
 }
-
-
-/* =========================================================
-   THEME BUTTON
-========================================================= */
 
 .theme-btn {
 
-    width:
-        40px;
+    width: 40px;
+    min-width: 40px;
 
-    min-width:
-        40px;
+    height: 40px;
 
-    height:
-        40px;
+    padding: 0;
 
-    padding:
-        0;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
         1px solid var(--border);
@@ -704,19 +522,13 @@ body.light .lang-select option {
     display:
         flex;
 
-    align-items:
-        center;
+    align-items: center;
+    justify-content: center;
 
-    justify-content:
-        center;
+    font-size: 15px;
 
-    font-size:
-        15px;
-
-    transition:
-        .25s;
+    transition: .25s;
 }
-
 
 .theme-btn:hover {
 
@@ -728,21 +540,14 @@ body.light .lang-select option {
         var(--blue);
 }
 
-
-/* =========================================================
-   CART BUTTON
-========================================================= */
-
 .cart-btn {
 
-    height:
-        40px;
+    height: 40px;
 
     padding:
         0 15px;
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
     border:
         1px solid var(--border);
@@ -756,22 +561,15 @@ body.light .lang-select option {
     display:
         flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        7px;
+    gap: 7px;
 
-    font-size:
-        12px;
+    font-size: 12px;
+    font-weight: 800;
 
-    font-weight:
-        800;
-
-    transition:
-        .25s;
+    transition: .25s;
 }
-
 
 .cart-btn:hover {
 
@@ -782,29 +580,19 @@ body.light .lang-select option {
         var(--blue);
 }
 
-
 .cart-count {
 
-    min-width:
-        21px;
+    min-width: 21px;
+    height: 21px;
 
-    height:
-        21px;
+    padding: 0 6px;
 
-    padding:
-        0 6px;
+    border-radius: 999px;
 
-    border-radius:
-        99px;
+    display: inline-flex;
 
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    align-items: center;
+    justify-content: center;
 
     background:
         linear-gradient(
@@ -813,16 +601,11 @@ body.light .lang-select option {
             var(--blue-2)
         );
 
-    color:
-        #ffffff;
+    color: #fff;
 
-    font-size:
-        10px;
-
-    font-weight:
-        900;
+    font-size: 10px;
+    font-weight: 900;
 }
-
 
 /* =========================================================
    MAIN
@@ -846,73 +629,53 @@ main {
         0 !important;
 }
 
-
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero {
 
-    min-height:
-        650px;
+    min-height: 650px;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        70px;
-
-    position:
-        relative;
+    gap: 70px;
 
     padding:
         25px 0 90px;
+
+    position: relative;
 }
-
-
-/* =========================================================
-   HERO LEFT
-========================================================= */
 
 .hero-left {
 
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        2;
+    z-index: 2;
 }
-
 
 .eyebrow {
 
-    width:
-        max-content;
+    width: max-content;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        9px;
+    gap: 9px;
 
     padding:
         9px 13px;
 
     border:
-        1px solid
-        rgba(0,217,255,.18);
+        1px solid rgba(0,217,255,.18);
 
-    border-radius:
-        999px;
+    border-radius: 999px;
 
     background:
         rgba(0,217,255,.045);
@@ -920,30 +683,20 @@ main {
     color:
         var(--blue);
 
-    font-size:
-        9px;
+    font-size: 9px;
+    font-weight: 900;
 
-    font-weight:
-        900;
+    letter-spacing: 1.7px;
 
-    letter-spacing:
-        1.7px;
-
-    margin-bottom:
-        23px;
+    margin-bottom: 23px;
 }
-
 
 .eyebrow-dot {
 
-    width:
-        6px;
+    width: 6px;
+    height: 6px;
 
-    height:
-        6px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
         var(--blue);
@@ -953,11 +706,9 @@ main {
         var(--blue);
 }
 
-
 .hero-title {
 
-    max-width:
-        720px;
+    max-width: 720px;
 
     font-size:
         clamp(
@@ -966,31 +717,22 @@ main {
             84px
         );
 
-    line-height:
-        .93;
+    line-height: .93;
 
-    letter-spacing:
-        -4.7px;
+    letter-spacing: -4.7px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 
-    margin-bottom:
-        27px;
+    margin-bottom: 27px;
 }
-
 
 .hero-title .white {
-
-    color:
-        var(--text);
+    color: var(--text);
 }
-
 
 .hero-title .gradient {
 
-    color:
-        transparent;
+    color: transparent;
 
     background:
         linear-gradient(
@@ -1000,91 +742,59 @@ main {
             var(--blue-2)
         );
 
-    -webkit-background-clip:
-        text;
-
-    background-clip:
-        text;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
-
 
 .hero-description {
 
-    max-width:
-        600px;
+    max-width: 600px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        15px;
+    font-size: 15px;
 
-    line-height:
-        1.85;
+    line-height: 1.85;
 
-    margin-bottom:
-        31px;
+    margin-bottom: 31px;
 }
-
-
-/* =========================================================
-   HERO ACTIONS
-========================================================= */
 
 .hero-actions {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        12px;
+    gap: 12px;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 }
-
 
 .hero-button {
 
-    min-width:
-        175px;
+    min-width: 175px;
 
-    min-height:
-        49px;
+    min-height: 49px;
 
-    padding:
-        14px 22px;
+    padding: 14px 22px;
 
-    display:
-        inline-flex;
+    display: inline-flex;
 
-    align-items:
-        center;
+    align-items: center;
+    justify-content: center;
 
-    justify-content:
-        center;
+    border-radius: 12px;
 
-    border-radius:
-        12px;
+    font-size: 12px;
 
-    font-size:
-        12px;
+    font-weight: 900;
 
-    font-weight:
-        900;
-
-    transition:
-        .25s;
+    transition: .25s;
 }
-
 
 .hero-button.primary {
 
-    color:
-        #ffffff;
+    color: #fff;
 
     background:
         linear-gradient(
@@ -1098,7 +808,6 @@ main {
         rgba(37,99,235,.22);
 }
 
-
 .hero-button.primary:hover {
 
     transform:
@@ -1109,11 +818,9 @@ main {
         rgba(37,99,235,.32);
 }
 
-
 .hero-button.secondary {
 
-    color:
-        var(--text);
+    color: var(--text);
 
     background:
         var(--input);
@@ -1121,7 +828,6 @@ main {
     border:
         1px solid var(--border);
 }
-
 
 .hero-button.secondary:hover {
 
@@ -1132,81 +838,53 @@ main {
         var(--blue);
 }
 
-
-/* =========================================================
-   HERO TRUST
-========================================================= */
-
 .hero-trust {
 
-    margin-top:
-        47px;
+    margin-top: 47px;
 
-    padding-top:
-        22px;
+    padding-top: 22px;
 
     border-top:
         1px solid var(--border);
 
-    max-width:
-        630px;
+    max-width: 630px;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3,1fr);
 }
 
-
 .trust-block {
-
-    padding-right:
-        18px;
+    padding-right: 18px;
 }
 
-
 .trust-block:not(:last-child) {
-
     border-right:
         1px solid var(--border);
 }
 
-
 .trust-number {
 
-    display:
-        block;
+    display: block;
 
-    font-size:
-        24px;
+    font-size: 24px;
+    font-weight: 950;
 
-    font-weight:
-        950;
-
-    margin-bottom:
-        5px;
+    margin-bottom: 5px;
 }
-
 
 .trust-label {
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        9px;
+    font-size: 9px;
+    font-weight: 700;
 
-    font-weight:
-        700;
+    text-transform: uppercase;
 
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        1px;
+    letter-spacing: 1px;
 }
-
 
 /* =========================================================
    HERO RIGHT
@@ -1214,163 +892,103 @@ main {
 
 .hero-right {
 
-    min-height:
-        500px;
+    min-height: 500px;
 
-    position:
-        relative;
+    position: relative;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    align-items: center;
+    justify-content: center;
 }
-
-
-/* =========================================================
-   ORBIT
-========================================================= */
 
 .orbit {
 
-    position:
-        absolute;
+    position: absolute;
 
-    width:
-        470px;
+    width: 470px;
+    height: 470px;
 
-    height:
-        470px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
-        1px solid
-        rgba(0,217,255,.11);
+        1px solid rgba(0,217,255,.11);
 
     box-shadow:
-
         0 0 80px
         rgba(0,217,255,.04),
 
-        inset
-        0 0 80px
+        inset 0 0 80px
         rgba(0,217,255,.025);
 
     animation:
-        orbitPulse
-        5s
-        ease-in-out
-        infinite;
+        orbitPulse 5s ease-in-out infinite;
 }
-
 
 .orbit::before {
 
-    content:
-        "";
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        40px;
+    inset: 40px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
-        1px solid
-        rgba(0,217,255,.08);
+        1px solid rgba(0,217,255,.08);
 }
-
 
 .orbit::after {
 
-    content:
-        "";
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        105px;
+    inset: 105px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
-        1px solid
-        rgba(37,99,235,.08);
+        1px solid rgba(37,99,235,.08);
 }
-
 
 @keyframes orbitPulse {
 
     0%,
     100% {
-
-        transform:
-            scale(1);
-
-        opacity:
-            .8;
+        transform: scale(1);
+        opacity: .8;
     }
 
     50% {
-
-        transform:
-            scale(1.025);
-
-        opacity:
-            1;
+        transform: scale(1.025);
+        opacity: 1;
     }
 }
 
-
-/* =========================================================
-   HERO DEVICE
-========================================================= */
-
 .hero-device {
 
-    width:
-        315px;
+    width: 315px;
+    height: 390px;
 
-    height:
-        390px;
+    position: relative;
 
-    position:
-        relative;
+    z-index: 5;
 
-    z-index:
-        5;
+    display: flex;
 
-    display:
-        flex;
+    flex-direction: column;
 
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    align-items: center;
+    justify-content: center;
 
     border:
         1px solid var(--border-strong);
 
-    border-radius:
-        28px;
+    border-radius: 28px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.075),
@@ -1378,23 +996,18 @@ main {
         );
 
     box-shadow:
-
         0 35px 100px
         rgba(0,0,0,.40),
 
         0 0 55px
         rgba(0,217,255,.055);
 
-    backdrop-filter:
-        blur(22px);
+    backdrop-filter: blur(22px);
 
-    transform:
-        rotate(-4deg);
+    transform: rotate(-4deg);
 
-    transition:
-        .45s;
+    transition: .45s;
 }
-
 
 .hero-device:hover {
 
@@ -1403,72 +1016,51 @@ main {
         translateY(-10px);
 }
 
-
 .device-top {
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        9px;
+    font-size: 9px;
 
-    letter-spacing:
-        2.2px;
+    letter-spacing: 2.2px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    margin-bottom:
-        24px;
+    margin-bottom: 24px;
 }
-
 
 .device-title {
 
-    font-size:
-        26px;
+    font-size: 26px;
 
-    letter-spacing:
-        3px;
+    letter-spacing: 3px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 }
-
 
 .device-main {
 
-    margin-top:
-        10px;
+    margin-top: 10px;
 
-    font-size:
-        56px;
+    font-size: 56px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 
-    letter-spacing:
-        -3px;
+    letter-spacing: -3px;
 
-    color:
-        var(--blue);
+    color: var(--blue);
 
     text-shadow:
         0 0 32px
         rgba(0,217,255,.2);
 }
 
-
 .device-line {
 
-    width:
-        90px;
+    width: 90px;
+    height: 2px;
 
-    height:
-        2px;
-
-    margin:
-        21px 0;
+    margin: 21px 0;
 
     background:
         linear-gradient(
@@ -1477,153 +1069,101 @@ main {
             var(--blue),
             transparent
         );
-
-    box-shadow:
-        0 0 18px
-        rgba(0,217,255,.35);
 }
-
 
 .device-caption {
 
     color:
         var(--muted);
 
-    font-size:
-        8px;
+    font-size: 8px;
 
-    letter-spacing:
-        2px;
+    letter-spacing: 2px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 }
-
 
 .device-bottom {
 
-    position:
-        absolute;
+    position: absolute;
 
-    bottom:
-        25px;
+    bottom: 25px;
 
-    left:
-        25px;
+    left: 25px;
+    right: 25px;
 
-    right:
-        25px;
+    display: flex;
 
-    display:
-        flex;
+    justify-content: space-between;
 
-    justify-content:
-        space-between;
+    align-items: center;
 
-    align-items:
-        center;
-
-    padding-top:
-        15px;
+    padding-top: 15px;
 
     border-top:
         1px solid var(--border);
 }
-
 
 .device-bottom span {
 
     color:
         var(--muted);
 
-    font-size:
-        8px;
+    font-size: 8px;
 
-    letter-spacing:
-        1px;
+    letter-spacing: 1px;
 }
-
-
-/* =========================================================
-   FLOATING TAGS
-========================================================= */
 
 .floating-tag {
 
-    position:
-        absolute;
+    position: absolute;
 
-    z-index:
-        7;
+    z-index: 7;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        7px;
+    gap: 7px;
 
-    padding:
-        8px 11px;
+    padding: 8px 11px;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        999px;
+    border-radius: 999px;
 
     background:
         rgba(0,0,0,.30);
 
-    backdrop-filter:
-        blur(10px);
+    backdrop-filter: blur(10px);
 
     color:
         rgba(255,255,255,.72);
 
-    font-size:
-        8px;
+    font-size: 8px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    letter-spacing:
-        .8px;
+    letter-spacing: .8px;
 }
-
 
 .floating-tag.one {
-
-    top:
-        58px;
-
-    left:
-        25px;
+    top: 58px;
+    left: 25px;
 }
-
 
 .floating-tag.two {
-
-    right:
-        18px;
-
-    bottom:
-        55px;
+    right: 18px;
+    bottom: 55px;
 }
-
 
 .floating-dot {
 
-    width:
-        5px;
+    width: 5px;
+    height: 5px;
 
-    height:
-        5px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
         var(--blue);
@@ -1633,26 +1173,8 @@ main {
         var(--blue);
 }
 
-
 /* =========================================================
-   DIVIDER
-========================================================= */
-
-.section-divider {
-
-    width:
-        100%;
-
-    height:
-        1px;
-
-    background:
-        var(--border);
-}
-
-
-/* =========================================================
-   SECTION
+   SECTIONS
 ========================================================= */
 
 .section {
@@ -1660,7 +1182,6 @@ main {
     padding:
         105px 0;
 }
-
 
 .section.dark {
 
@@ -1690,11 +1211,19 @@ main {
         1px solid var(--border);
 }
 
+.section-divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        var(--border);
+}
 
 .section-heading {
 
-    max-width:
-        730px;
+    max-width: 730px;
 
     margin:
         0 auto 52px;
@@ -1702,7 +1231,6 @@ main {
     text-align:
         center;
 }
-
 
 .section-heading .label {
 
@@ -1722,7 +1250,6 @@ main {
         uppercase;
 }
 
-
 .section-heading h2 {
 
     margin-top:
@@ -1735,78 +1262,59 @@ main {
             50px
         );
 
-    line-height:
-        1.02;
+    line-height: 1.02;
 
-    letter-spacing:
-        -2px;
+    letter-spacing: -2px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 }
-
 
 .section-heading p {
 
-    max-width:
-        650px;
+    max-width: 650px;
 
-    margin:
-        16px auto 0;
+    margin: 16px auto 0;
 
     color:
         var(--muted);
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    line-height:
-        1.8;
+    line-height: 1.8;
 }
 
-
 /* =========================================================
-   THREE FEATURES
+   FEATURES
 ========================================================= */
 
 .feature-grid {
 
-    max-width:
-        1140px;
+    max-width: 1140px;
 
-    margin:
-        auto;
+    margin: auto;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:
-        20px;
+    gap: 20px;
 }
-
 
 .feature-card {
 
-    min-height:
-        255px;
+    min-height: 255px;
 
-    position:
-        relative;
+    position: relative;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    padding:
-        29px;
+    padding: 29px;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        21px;
+    border-radius: 21px;
 
     background:
         linear-gradient(
@@ -1818,10 +1326,8 @@ main {
     box-shadow:
         var(--shadow);
 
-    transition:
-        .3s;
+    transition: .3s;
 }
-
 
 .feature-card:hover {
 
@@ -1832,7 +1338,6 @@ main {
         rgba(0,217,255,.23);
 }
 
-
 .feature-number {
 
     color:
@@ -1841,21 +1346,15 @@ main {
     font-size:
         9px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 
-    letter-spacing:
-        1.7px;
+    letter-spacing: 1.7px;
 }
-
 
 .feature-icon {
 
-    width:
-        52px;
-
-    height:
-        52px;
+    width: 52px;
+    height: 52px;
 
     margin:
         21px 0 18px;
@@ -1863,14 +1362,10 @@ main {
     display:
         flex;
 
-    align-items:
-        center;
+    align-items: center;
+    justify-content: center;
 
-    justify-content:
-        center;
-
-    border-radius:
-        14px;
+    border-radius: 14px;
 
     border:
         1px solid var(--border);
@@ -1881,77 +1376,55 @@ main {
     color:
         var(--blue);
 
-    font-size:
-        20px;
-
-    box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.04);
+    font-size: 20px;
 }
-
 
 .feature-card h3 {
 
-    font-size:
-        18px;
+    font-size: 18px;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 }
-
 
 .feature-card p {
 
     color:
         var(--muted);
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    line-height:
-        1.75;
+    line-height: 1.75;
 }
 
-
 /* =========================================================
-   CATEGORY SECTION
+   CATEGORIES
 ========================================================= */
 
 .category-grid {
 
-    max-width:
-        1140px;
+    max-width: 1140px;
 
-    margin:
-        auto;
+    margin: auto;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:
-        17px;
+    gap: 17px;
 }
-
 
 .category {
 
-    min-height:
-        205px;
+    min-height: 205px;
 
-    position:
-        relative;
+    position: relative;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    padding:
-        25px;
+    padding: 25px;
 
     display:
         flex;
@@ -1965,8 +1438,7 @@ main {
     border:
         1px solid var(--border);
 
-    border-radius:
-        20px;
+    border-radius: 20px;
 
     background:
         var(--card);
@@ -1974,10 +1446,8 @@ main {
     box-shadow:
         var(--shadow);
 
-    transition:
-        .3s;
+    transition: .3s;
 }
-
 
 .category:hover {
 
@@ -1988,133 +1458,98 @@ main {
         rgba(0,217,255,.24);
 }
 
-
 .category-symbol {
 
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        20px;
+    top: 20px;
+    right: 20px;
 
-    right:
-        20px;
-
-    font-size:
-        31px;
+    font-size: 31px;
 }
-
 
 .category-index {
 
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        22px;
-
-    left:
-        22px;
+    top: 22px;
+    left: 22px;
 
     color:
         var(--muted-2);
 
-    font-size:
-        9px;
+    font-size: 9px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    letter-spacing:
-        1px;
+    letter-spacing: 1px;
 }
-
 
 .category h3 {
 
-    margin-bottom:
-        6px;
+    margin-bottom: 6px;
 
-    font-size:
-        18px;
+    font-size: 18px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 }
-
 
 .category p {
 
     color:
         var(--muted);
 
-    font-size:
-        11px;
+    font-size: 11px;
 
-    line-height:
-        1.5;
+    line-height: 1.5;
 }
 
-
 /* =========================================================
-   FEATURED SHOWCASE
+   SHOWCASE
 ========================================================= */
 
 .showcase {
 
-    max-width:
-        1140px;
+    max-width: 1140px;
 
-    margin:
-        auto;
+    margin: auto;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         1.15fr .85fr;
 
-    gap:
-        20px;
+    gap: 20px;
 }
-
 
 .showcase-main,
 .showcase-side {
 
-    min-height:
-        350px;
+    min-height: 350px;
 
-    position:
-        relative;
+    position: relative;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        24px;
+    border-radius: 24px;
 
     box-shadow:
         var(--shadow);
 }
 
-
 .showcase-main {
 
-    padding:
-        35px;
+    padding: 35px;
 
     background:
-
         radial-gradient(
             circle at 78% 28%,
             rgba(0,217,255,.13),
             transparent 26%
         ),
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.035),
@@ -2122,214 +1557,152 @@ main {
         );
 }
 
-
 .showcase-side {
 
-    padding:
-        30px;
+    padding: 30px;
 
     background:
-
         radial-gradient(
             circle at 75% 22%,
             rgba(99,102,241,.15),
             transparent 29%
         ),
-
         var(--card);
 }
-
 
 .showcase-label {
 
     color:
         var(--blue);
 
-    font-size:
-        9px;
+    font-size: 9px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 
-    letter-spacing:
-        2px;
+    letter-spacing: 2px;
 }
-
 
 .showcase-main h3,
 .showcase-side h3 {
 
-    max-width:
-        550px;
+    max-width: 550px;
 
-    margin:
-        15px 0;
+    margin: 15px 0;
 
-    font-size:
-        30px;
+    font-size: 30px;
 
-    line-height:
-        1.12;
+    line-height: 1.12;
 
-    letter-spacing:
-        -1px;
+    letter-spacing: -1px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 }
-
 
 .showcase-main p,
 .showcase-side p {
 
-    max-width:
-        510px;
+    max-width: 510px;
 
     color:
         var(--muted);
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    line-height:
-        1.8;
+    line-height: 1.8;
 }
-
-
-/* =========================================================
-   SHOWCASE ORBIT
-========================================================= */
 
 .showcase-orbit {
 
-    position:
-        absolute;
+    position: absolute;
 
-    width:
-        280px;
+    width: 280px;
+    height: 280px;
 
-    height:
-        280px;
+    right: -95px;
+    bottom: -115px;
 
-    right:
-        -95px;
-
-    bottom:
-        -115px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
         1px solid
         rgba(0,217,255,.16);
 }
 
-
 .showcase-orbit::before {
 
-    content:
-        "";
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        32px;
+    inset: 32px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
         1px solid
         rgba(0,217,255,.09);
 }
 
-
 .showcase-orbit::after {
 
-    content:
-        "";
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        72px;
+    inset: 72px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
         1px solid
         rgba(37,99,235,.10);
 }
 
-
-/* =========================================================
-   SIDE FEATURE
-========================================================= */
-
 .side-stat {
 
-    margin-top:
-        38px;
+    margin-top: 38px;
 
-    display:
-        grid;
+    display: grid;
 
-    gap:
-        11px;
+    gap: 11px;
 }
-
 
 .side-stat-row {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    padding:
-        12px 13px;
+    padding: 12px 13px;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        11px;
+    border-radius: 11px;
 
     background:
         rgba(255,255,255,.018);
 }
-
 
 .side-stat-row span {
 
     color:
         var(--muted);
 
-    font-size:
-        10px;
+    font-size: 10px;
 }
-
 
 .side-stat-row strong {
 
     color:
         var(--blue);
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 }
-
 
 /* =========================================================
    NUMBERS
@@ -2337,70 +1710,54 @@ main {
 
 .numbers {
 
-    max-width:
-        1140px;
+    max-width: 1140px;
 
-    margin:
-        auto;
+    margin: auto;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:
-        16px;
+    gap: 16px;
 }
-
 
 .number-card {
 
-    padding:
-        25px;
+    padding: 25px;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        17px;
+    border-radius: 17px;
 
     background:
         var(--card);
 }
 
-
 .number-card strong {
 
-    display:
-        block;
+    display: block;
 
     color:
         var(--blue);
 
-    font-size:
-        28px;
+    font-size: 28px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 
-    margin-bottom:
-        7px;
+    margin-bottom: 7px;
 }
-
 
 .number-card span {
 
     color:
         var(--muted);
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    line-height:
-        1.5;
+    line-height: 1.5;
 }
-
 
 /* =========================================================
    CTA
@@ -2412,41 +1769,31 @@ main {
         110px 0;
 }
 
-
 .cta-box {
 
-    max-width:
-        1140px;
+    max-width: 1140px;
 
-    margin:
-        auto;
+    margin: auto;
 
-    position:
-        relative;
+    position: relative;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    padding:
-        72px 30px;
+    padding: 72px 30px;
 
-    text-align:
-        center;
+    text-align: center;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        28px;
+    border-radius: 28px;
 
     background:
-
         radial-gradient(
             circle at center,
             rgba(0,217,255,.10),
             transparent 55%
         ),
-
         var(--card);
 
     box-shadow:
@@ -2454,107 +1801,33 @@ main {
         rgba(0,0,0,.22);
 }
 
-
-.cta-box::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        260px;
-
-    height:
-        260px;
-
-    left:
-        -130px;
-
-    top:
-        -130px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0,217,255,.09),
-            transparent 70%
-        );
-}
-
-
-.cta-box::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        250px;
-
-    height:
-        250px;
-
-    right:
-        -120px;
-
-    bottom:
-        -125px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(99,102,241,.08),
-            transparent 70%
-        );
-}
-
-
 .cta-box small,
 .cta-box h2,
 .cta-box p,
 .cta-box a {
 
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        2;
+    z-index: 2;
 }
-
 
 .cta-box small {
 
     color:
         var(--blue);
 
-    font-size:
-        9px;
+    font-size: 9px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 
-    letter-spacing:
-        2.3px;
+    letter-spacing: 2.3px;
 }
-
 
 .cta-box h2 {
 
-    max-width:
-        720px;
+    max-width: 720px;
 
-    margin:
-        14px auto;
+    margin: 14px auto;
 
     font-size:
         clamp(
@@ -2563,21 +1836,16 @@ main {
             54px
         );
 
-    line-height:
-        1;
+    line-height: 1;
 
-    letter-spacing:
-        -2.2px;
+    letter-spacing: -2.2px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 }
-
 
 .cta-box p {
 
-    max-width:
-        600px;
+    max-width: 600px;
 
     margin:
         0 auto 28px;
@@ -2585,13 +1853,10 @@ main {
     color:
         var(--muted);
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    line-height:
-        1.8;
+    line-height: 1.8;
 }
-
 
 /* =========================================================
    FOOTER
@@ -2609,7 +1874,6 @@ footer {
         48px 0 22px;
 }
 
-
 .footer-inner {
 
     width:
@@ -2618,150 +1882,106 @@ footer {
             var(--site-width)
         );
 
-    margin:
-        auto;
+    margin: auto;
 }
-
 
 .footer-top {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    gap:
-        25px;
+    gap: 25px;
 
-    padding-bottom:
-        28px;
+    padding-bottom: 28px;
 
     border-bottom:
         1px solid var(--border);
 }
 
-
 .footer-brand h3 {
 
-    font-size:
-        20px;
+    font-size: 20px;
 
-    letter-spacing:
-        1.7px;
+    letter-spacing: 1.7px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 }
-
 
 .footer-brand h3 span {
-
-    color:
-        var(--blue);
+    color: var(--blue);
 }
-
 
 .footer-brand p {
 
-    max-width:
-        410px;
+    max-width: 410px;
 
-    margin-top:
-        9px;
+    margin-top: 9px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    line-height:
-        1.7;
+    line-height: 1.7;
 }
-
 
 .footer-links {
 
-    display:
-        flex;
+    display: flex;
 
-    gap:
-        26px;
+    gap: 26px;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 }
-
 
 .footer-links a {
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
     transition:
         color .2s;
 }
 
-
 .footer-links a:hover {
-
-    color:
-        var(--blue);
+    color: var(--blue);
 }
-
 
 .footer-bottom {
 
-    padding-top:
-        16px;
+    padding-top: 16px;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        9px;
+    font-size: 9px;
 }
 
-
 /* =========================================================
-   CART OVERLAY
+   CART
 ========================================================= */
 
 .cart-overlay {
 
-    position:
-        fixed;
+    position: fixed;
 
-    inset:
-        0;
+    inset: 0;
 
-    z-index:
-        2000;
+    z-index: 2000;
 
-    opacity:
-        0;
+    opacity: 0;
 
-    visibility:
-        hidden;
+    visibility: hidden;
 
     background:
         rgba(0,0,0,.74);
@@ -2769,46 +1989,33 @@ footer {
     backdrop-filter:
         blur(15px);
 
-    transition:
-        .3s;
+    transition: .3s;
 }
-
 
 .cart-overlay.active {
 
-    opacity:
-        1;
+    opacity: 1;
 
-    visibility:
-        visible;
+    visibility: visible;
 }
-
 
 .cart-drawer {
 
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        0;
+    top: 0;
 
-    right:
-        -470px;
+    right: -470px;
 
-    width:
-        450px;
+    width: 450px;
 
-    max-width:
-        100%;
+    max-width: 100%;
 
-    height:
-        100%;
+    height: 100%;
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
     background:
         linear-gradient(
@@ -2829,53 +2036,37 @@ footer {
         cubic-bezier(.22,1,.36,1);
 }
 
-
 .cart-overlay.active .cart-drawer {
-
-    right:
-        0;
+    right: 0;
 }
-
 
 .drawer-header {
 
-    padding:
-        25px;
+    padding: 25px;
 
     border-bottom:
         1px solid var(--border);
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 }
-
 
 .drawer-title {
 
-    font-size:
-        21px;
+    font-size: 21px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 }
-
 
 .drawer-close {
 
-    width:
-        40px;
+    width: 40px;
+    height: 40px;
 
-    height:
-        40px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
         1px solid var(--border);
@@ -2886,10 +2077,8 @@ footer {
     color:
         var(--text);
 
-    transition:
-        .25s;
+    transition: .25s;
 }
-
 
 .drawer-close:hover {
 
@@ -2900,149 +2089,110 @@ footer {
         var(--blue);
 }
 
-
 .drawer-body {
 
-    flex:
-        1;
+    flex: 1;
 
-    padding:
-        25px;
+    padding: 25px;
 
-    overflow-y:
-        auto;
+    overflow-y: auto;
 }
-
 
 .cart-empty {
 
-    margin-top:
-        90px;
+    margin-top: 90px;
 
-    text-align:
-        center;
+    text-align: center;
 
     color:
         var(--muted);
 
-    font-size:
-        14px;
+    font-size: 14px;
 }
-
 
 .cart-item {
 
-    padding:
-        17px 0;
+    padding: 17px 0;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    gap:
-        15px;
+    gap: 15px;
 
     border-bottom:
         1px solid var(--border);
 }
 
-
 .cart-item-name {
 
-    margin-bottom:
-        5px;
+    margin-bottom: 5px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 }
-
 
 .cart-item-price {
 
     color:
         var(--blue);
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 }
-
 
 .remove-item {
 
-    border:
-        none;
+    border: none;
 
-    background:
-        none;
+    background: none;
 
     color:
         var(--red);
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 }
-
 
 .cart-footer {
 
-    padding:
-        25px;
+    padding: 25px;
 
     border-top:
         1px solid var(--border);
 }
 
-
 .cart-total {
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    align-items: center;
 
-    margin-bottom:
-        18px;
+    justify-content: space-between;
 
-    font-size:
-        18px;
+    margin-bottom: 18px;
 
-    font-weight:
-        950;
+    font-size: 18px;
+
+    font-weight: 950;
 }
-
 
 .cart-total span:last-child {
-
-    color:
-        var(--blue);
+    color: var(--blue);
 }
-
 
 .checkout-btn {
 
-    width:
-        100%;
+    width: 100%;
 
-    padding:
-        16px;
+    padding: 16px;
 
-    border:
-        none;
+    border: none;
 
-    border-radius:
-        13px;
+    border-radius: 13px;
 
     background:
         linear-gradient(
@@ -3051,16 +2201,12 @@ footer {
             var(--blue-2)
         );
 
-    color:
-        #ffffff;
+    color: #fff;
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 }
-
 
 /* =========================================================
    PAYMENT
@@ -3068,26 +2214,19 @@ footer {
 
 .payment-overlay {
 
-    position:
-        fixed;
+    position: fixed;
 
-    inset:
-        0;
+    inset: 0;
 
-    z-index:
-        3000;
+    z-index: 3000;
 
-    display:
-        none;
+    display: none;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    padding:
-        20px;
+    padding: 20px;
 
     background:
         rgba(0,0,0,.88);
@@ -3096,39 +2235,28 @@ footer {
         blur(18px);
 }
 
-
 .payment-overlay.active {
-
-    display:
-        flex;
+    display: flex;
 }
-
 
 .payment-box {
 
-    width:
-        980px;
+    width: 980px;
 
-    max-width:
-        100%;
+    max-width: 100%;
 
-    max-height:
-        92vh;
+    max-height: 92vh;
 
-    overflow-y:
-        auto;
+    overflow-y: auto;
 
-    padding:
-        38px;
+    padding: 38px;
 
-    position:
-        relative;
+    position: relative;
 
     border:
         1px solid var(--border-strong);
 
-    border-radius:
-        28px;
+    border-radius: 28px;
 
     background:
         var(--card);
@@ -3138,26 +2266,17 @@ footer {
         rgba(0,0,0,.55);
 }
 
-
 .payment-close {
 
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        20px;
+    top: 20px;
+    right: 20px;
 
-    right:
-        20px;
+    width: 40px;
+    height: 40px;
 
-    width:
-        40px;
-
-    height:
-        40px;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     border:
         1px solid var(--border);
@@ -3169,96 +2288,66 @@ footer {
         var(--text);
 }
 
-
 .payment-title {
 
-    text-align:
-        center;
+    text-align: center;
 
-    font-size:
-        29px;
+    font-size: 29px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 
-    margin-bottom:
-        8px;
+    margin-bottom: 8px;
 }
-
 
 .payment-subtitle {
 
-    text-align:
-        center;
+    text-align: center;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    margin-bottom:
-        30px;
+    margin-bottom: 30px;
 
-    font-size:
-        13px;
+    font-size: 13px;
 }
-
 
 .payment-grid {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap:
-        35px;
+    gap: 35px;
 
-    align-items:
-        center;
+    align-items: center;
 }
-
-
-/* =========================================================
-   CREDIT CARD
-========================================================= */
 
 .credit-card {
 
-    width:
-        100%;
+    width: 100%;
 
-    max-width:
-        430px;
+    max-width: 430px;
 
-    aspect-ratio:
-        1.586;
+    aspect-ratio: 1.586;
 
-    margin:
-        auto;
+    margin: auto;
 
-    padding:
-        28px;
+    padding: 28px;
 
-    position:
-        relative;
+    position: relative;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    border-radius:
-        23px;
+    border-radius: 23px;
 
-    color:
-        #ffffff;
+    color: #fff;
 
     background:
-
         radial-gradient(
             circle at 82% 16%,
             rgba(0,217,255,.18),
             transparent 25%
         ),
-
         linear-gradient(
             135deg,
             #151f2e,
@@ -3271,30 +2360,22 @@ footer {
         rgba(0,0,0,.44);
 }
 
-
 .card-top {
 
-    display:
-        flex;
+    display: flex;
 
     justify-content:
         space-between;
 
-    align-items:
-        center;
+    align-items: center;
 }
-
 
 .chip {
 
-    width:
-        49px;
+    width: 49px;
+    height: 37px;
 
-    height:
-        37px;
-
-    border-radius:
-        8px;
+    border-radius: 8px;
 
     background:
         linear-gradient(
@@ -3305,122 +2386,84 @@ footer {
         );
 }
 
-
 .card-brand {
 
-    font-size:
-        21px;
+    font-size: 21px;
 
-    font-weight:
-        950;
+    font-weight: 950;
 
-    font-style:
-        italic;
+    font-style: italic;
 }
-
 
 .card-number {
 
-    margin-top:
-        45px;
+    margin-top: 45px;
 
-    font-family:
-        monospace;
+    font-family: monospace;
 
-    font-size:
-        22px;
+    font-size: 22px;
 
-    letter-spacing:
-        3px;
+    letter-spacing: 3px;
 }
-
 
 .card-bottom {
 
-    position:
-        absolute;
+    position: absolute;
 
-    left:
-        28px;
+    left: 28px;
+    right: 28px;
 
-    right:
-        28px;
+    bottom: 24px;
 
-    bottom:
-        24px;
+    display: flex;
 
-    display:
-        flex;
-
-    justify-content:
-        space-between;
+    justify-content: space-between;
 }
-
 
 .card-label {
 
     color:
         rgba(255,255,255,.55);
 
-    font-size:
-        8px;
+    font-size: 8px;
 }
-
 
 .card-holder,
 .card-expiry {
 
-    margin-top:
-        4px;
+    margin-top: 4px;
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 }
-
-
-/* =========================================================
-   PAYMENT FORM
-========================================================= */
 
 .method-title {
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 }
-
 
 .methods {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:
-        8px;
+    gap: 8px;
 
-    margin-bottom:
-        18px;
+    margin-bottom: 18px;
 }
-
 
 .method {
 
-    padding:
-        12px 5px;
+    padding: 12px 5px;
 
-    border-radius:
-        9px;
+    border-radius: 9px;
 
     border:
         1px solid var(--border);
@@ -3431,13 +2474,10 @@ footer {
     color:
         var(--text);
 
-    font-size:
-        11px;
+    font-size: 11px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 }
-
 
 .method.active {
 
@@ -3449,43 +2489,30 @@ footer {
         rgba(0,217,255,.10);
 }
 
-
 .payment-group {
-
-    margin-bottom:
-        15px;
+    margin-bottom: 15px;
 }
-
 
 .payment-group label {
 
-    display:
-        block;
+    display: block;
 
-    margin-bottom:
-        7px;
+    margin-bottom: 7px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    font-weight:
-        700;
+    font-weight: 700;
 }
-
 
 .payment-group input {
 
-    width:
-        100%;
+    width: 100%;
 
-    padding:
-        13px;
+    padding: 13px;
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
     border:
         1px solid var(--border);
@@ -3496,10 +2523,8 @@ footer {
     color:
         var(--text);
 
-    outline:
-        none;
+    outline: none;
 }
-
 
 .payment-group input:focus {
 
@@ -3511,33 +2536,25 @@ footer {
         rgba(0,217,255,.05);
 }
 
-
 .payment-row {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap:
-        10px;
+    gap: 10px;
 }
-
 
 .payment-submit {
 
-    width:
-        100%;
+    width: 100%;
 
-    padding:
-        15px;
+    padding: 15px;
 
-    border:
-        none;
+    border: none;
 
-    border-radius:
-        11px;
+    border-radius: 11px;
 
     background:
         linear-gradient(
@@ -3547,26 +2564,20 @@ footer {
         );
 
     color:
-        #ffffff;
+        #fff;
 
-    font-weight:
-        950;
+    font-weight: 950;
 }
-
 
 .payment-error {
 
-    display:
-        none;
+    display: none;
 
-    padding:
-        13px;
+    padding: 13px;
 
-    margin-bottom:
-        15px;
+    margin-bottom: 15px;
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
     background:
         rgba(239,68,68,.08);
@@ -3578,42 +2589,30 @@ footer {
     color:
         #ff6b6b;
 
-    text-align:
-        center;
+    text-align: center;
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    font-weight:
-        800;
+    font-weight: 800;
 }
-
 
 .payment-error.show {
-
-    display:
-        block;
+    display: block;
 }
-
 
 .security {
 
-    margin-top:
-        10px;
+    margin-top: 10px;
 
-    text-align:
-        center;
+    text-align: center;
 
     color:
         var(--muted);
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    line-height:
-        1.5;
+    line-height: 1.5;
 }
-
 
 /* =========================================================
    TABLET
@@ -3622,29 +2621,20 @@ footer {
 @media (max-width:1100px) {
 
     :root {
-
-        --site-side:
-            20px;
+        --site-side: 20px;
     }
-
 
     header {
-
-        height:
-            auto !important;
-
-        min-height:
-            var(--header-height);
+        height: auto !important;
+        min-height: var(--header-height);
     }
-
 
     .header-inner {
 
         width:
             calc(100% - 40px) !important;
 
-        height:
-            auto !important;
+        height: auto !important;
 
         min-height:
             var(--header-height);
@@ -3656,25 +2646,18 @@ footer {
             wrap !important;
     }
 
-
     nav {
 
-        position:
-            static !important;
+        position: static !important;
 
-        transform:
-            none !important;
+        transform: none !important;
 
-        width:
-            100% !important;
+        width: 100% !important;
 
-        order:
-            3 !important;
+        order: 3 !important;
 
-        justify-content:
-            center;
+        justify-content: center !important;
     }
-
 
     main {
 
@@ -3685,82 +2668,54 @@ footer {
             145px !important;
     }
 
-
     .hero {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        text-align:
-            center;
+        text-align: center;
     }
-
 
     .hero-left {
 
-        display:
-            flex;
+        display: flex;
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        align-items:
-            center;
+        align-items: center;
     }
-
 
     .hero-description {
-
-        margin-left:
-            auto;
-
-        margin-right:
-            auto;
+        margin:
+            0 auto 31px;
     }
-
 
     .hero-right {
-
-        min-height:
-            440px;
+        min-height: 440px;
     }
-
 
     .feature-grid {
-
         grid-template-columns:
             repeat(2,1fr);
     }
-
 
     .category-grid {
-
         grid-template-columns:
             repeat(2,1fr);
     }
-
 
     .showcase {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
-
     .numbers {
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
-
     .payment-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 }
-
 
 /* =========================================================
    MOBILE
@@ -3769,101 +2724,171 @@ footer {
 @media (max-width:650px) {
 
     :root {
-
-        --site-side:
-            15px;
+        --site-side: 15px;
     }
 
+    header {
+
+        height:
+            auto !important;
+
+        min-height:
+            116px;
+    }
 
     .header-inner {
 
         width:
             calc(100% - 30px) !important;
-    }
 
+        height:
+            auto !important;
+
+        min-height:
+            116px;
+
+        padding:
+            10px 0 9px !important;
+
+        display:
+            grid !important;
+
+        grid-template-columns:
+            auto 1fr;
+
+        grid-template-rows:
+            42px 40px;
+
+        gap:
+            7px 10px;
+    }
 
     .logo {
 
-        width:
-            110px;
+        width: 110px;
+        height: 38px;
 
-        height:
-            38px;
+        grid-column: 1;
+        grid-row: 1;
     }
-
 
     .site-logo {
 
-        width:
-            110px;
-
-        height:
-            38px;
+        width: 110px;
+        height: 38px;
     }
-
-
-    nav {
-
-        gap:
-            12px;
-    }
-
-
-    nav a {
-
-        font-size:
-            10px;
-    }
-
 
     .controls {
 
-        gap:
-            5px;
-    }
+        grid-column: 2;
+        grid-row: 1;
 
+        justify-content: flex-end;
+
+        gap: 5px;
+
+        min-width: 0;
+    }
 
     .lang-select {
 
-        width:
-            83px;
+        width: 83px;
+        min-width: 83px;
 
-        min-width:
-            83px;
+        height: 36px;
 
         padding:
-            0 7px;
+            0 6px;
 
-        font-size:
-            9px;
+        font-size: 9px;
     }
-
 
     .theme-btn {
 
-        width:
-            36px;
+        width: 36px;
+        min-width: 36px;
 
-        min-width:
-            36px;
-
-        height:
-            36px;
+        height: 36px;
     }
-
 
     .cart-btn {
 
-        height:
-            36px;
+        height: 36px;
 
         padding:
             0 9px;
 
-        font-size:
-            10px;
+        font-size: 10px;
     }
 
+    nav {
+
+        position: static !important;
+
+        transform: none !important;
+
+        grid-column: 1 / -1;
+
+        grid-row: 2;
+
+        width: 100% !important;
+
+        height: 40px;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap: 7px !important;
+
+        order: unset !important;
+
+    }
+
+    nav a {
+
+        width: 100%;
+
+        height: 36px;
+
+        display:
+            flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 0;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 10px;
+
+        background:
+            rgba(255,255,255,.025);
+
+        font-size: 10px;
+
+        font-weight: 800;
+    }
+
+    nav a::after {
+        display: none;
+    }
+
+    nav a.active {
+
+        color:
+            var(--blue);
+
+        border-color:
+            rgba(0,217,255,.28);
+
+        background:
+            rgba(0,217,255,.05);
+    }
 
     main {
 
@@ -3871,118 +2896,99 @@ footer {
             calc(100% - 30px) !important;
 
         padding-top:
-            135px !important;
+            140px !important;
     }
-
 
     .hero {
 
-        min-height:
-            auto;
+        min-height: auto;
 
         padding:
             10px 0 60px;
 
-        gap:
-            35px;
+        gap: 35px;
     }
-
 
     .eyebrow {
 
-        font-size:
-            8px;
-    }
+        font-size: 8px;
 
+        text-align: center;
+    }
 
     .hero-title {
 
-        font-size:
-            45px;
+        font-size: 45px;
 
-        letter-spacing:
-            -2.7px;
+        letter-spacing: -2.7px;
     }
-
 
     .hero-description {
 
-        font-size:
-            13px;
+        font-size: 13px;
+
+        line-height: 1.75;
     }
 
+    .hero-actions {
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .hero-button {
+
+        width: 100%;
+
+        min-width: 0;
+    }
 
     .hero-trust {
 
-        width:
-            100%;
-    }
+        width: 100%;
 
+        gap: 0;
+    }
 
     .trust-number {
-
-        font-size:
-            20px;
+        font-size: 20px;
     }
-
 
     .trust-label {
-
-        font-size:
-            8px;
+        font-size: 8px;
     }
-
 
     .hero-right {
 
-        min-height:
-            350px;
+        min-height: 350px;
     }
-
 
     .orbit {
 
-        width:
-            285px;
-
-        height:
-            285px;
+        width: 285px;
+        height: 285px;
     }
-
 
     .hero-device {
 
-        width:
-            245px;
+        width: 245px;
+        height: 300px;
 
-        height:
-            300px;
-
-        border-radius:
-            22px;
+        border-radius: 22px;
     }
-
 
     .device-main {
-
-        font-size:
-            43px;
+        font-size: 43px;
     }
-
 
     .floating-tag {
-
-        display:
-            none;
+        display: none;
     }
-
 
     .section {
-
-        padding:
-            72px 0;
+        padding: 72px 0;
     }
-
 
     .section.dark {
 
@@ -3999,127 +3005,82 @@ footer {
             15px;
     }
 
-
     .section-heading {
-
-        margin-bottom:
-            36px;
+        margin-bottom: 36px;
     }
-
 
     .section-heading h2 {
-
-        font-size:
-            32px;
+        font-size: 32px;
     }
 
+    .section-heading p {
+        font-size: 12px;
+    }
 
     .feature-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
-
 
     .category-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
-
 
     .showcase-main,
     .showcase-side {
 
-        min-height:
-            300px;
+        min-height: 300px;
 
-        padding:
-            25px;
+        padding: 25px;
     }
-
 
     .showcase-main h3,
     .showcase-side h3 {
-
-        font-size:
-            25px;
+        font-size: 25px;
     }
-
 
     .numbers {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            12px;
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
-
 
     .cta {
-
-        padding:
-            72px 0;
+        padding: 72px 0;
     }
-
 
     .cta-box {
-
-        padding:
-            55px 20px;
-
-        border-radius:
-            22px;
+        padding: 55px 20px;
+        border-radius: 22px;
     }
-
 
     .cta-box h2 {
-
-        font-size:
-            34px;
+        font-size: 34px;
     }
-
 
     .footer-top {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
         align-items:
             flex-start;
     }
-
-
-    .footer-links {
-
-        gap:
-            17px;
-    }
-
 
     .footer-bottom {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
         align-items:
             flex-start;
 
-        gap:
-            8px;
+        gap: 8px;
     }
-
 
     .cart-drawer {
 
-        width:
-            100%;
+        width: 100%;
 
         right:
             -100%;
     }
-
 
     .payment-box {
 
@@ -4130,37 +3091,27 @@ footer {
             20px;
     }
 
-
     .credit-card {
-
-        padding:
-            20px;
+        padding: 20px;
     }
-
 
     .card-number {
 
-        font-size:
-            17px;
+        font-size: 17px;
 
-        letter-spacing:
-            2px;
+        letter-spacing: 2px;
     }
-
 
     .payment-row {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 }
-
 
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
 
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
@@ -4184,13 +3135,10 @@ footer {
 
 </head>
 
-
 <body id="pageBody">
-
 
 <div class="ambient one"></div>
 <div class="ambient two"></div>
-
 
 <!-- =========================================================
      HEADER
@@ -4200,20 +3148,16 @@ footer {
 
 <div class="header-inner">
 
-
 <a
     href="index.html"
     class="logo"
 >
-
-<img
-    src="Logo.png"
-    alt="Alper Tech"
-    class="site-logo"
->
-
+    <img
+        src="Logo.png"
+        alt="Alper Tech"
+        class="site-logo"
+    >
 </a>
-
 
 <nav>
 
@@ -4225,7 +3169,6 @@ footer {
     Ana Sayfa
 </a>
 
-
 <a
     href="urunler.html"
     data-i18n="nav_products"
@@ -4233,14 +3176,12 @@ footer {
     Ürünler
 </a>
 
-
 <a
     href="hakkimizda.html"
     data-i18n="nav_about"
 >
     Hakkımızda
 </a>
-
 
 <a
     href="iletisim.html"
@@ -4251,29 +3192,16 @@ footer {
 
 </nav>
 
-
 <div class="controls">
-
 
 <select
     id="languageSelect"
     class="lang-select"
 >
-
-<option value="tr">
-    TR - Türkçe
-</option>
-
-<option value="en">
-    EN - English
-</option>
-
-<option value="es">
-    ES - Español
-</option>
-
+    <option value="tr">TR - Türkçe</option>
+    <option value="en">EN - English</option>
+    <option value="es">ES - Español</option>
 </select>
-
 
 <button
     id="themeBtn"
@@ -4283,28 +3211,26 @@ footer {
     🌙
 </button>
 
-
 <button
     id="cartButton"
     class="cart-btn"
     type="button"
 >
 
-🛒
+    🛒
 
-<span data-i18n="cart">
-    Sepet
-</span>
+    <span data-i18n="cart">
+        Sepet
+    </span>
 
-<span
-    class="cart-count"
-    id="cartCount"
->
-    0
-</span>
+    <span
+        class="cart-count"
+        id="cartCount"
+    >
+        0
+    </span>
 
 </button>
-
 
 </div>
 
@@ -4312,23 +3238,15 @@ footer {
 
 </header>
 
-
 <!-- =========================================================
      MAIN
 ========================================================= -->
 
 <main>
 
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
 <section class="hero">
 
-
 <div class="hero-left">
-
 
 <div class="eyebrow">
 
@@ -4339,7 +3257,6 @@ footer {
 </span>
 
 </div>
-
 
 <h1 class="hero-title">
 
@@ -4370,7 +3287,6 @@ footer {
 
 </h1>
 
-
 <p
     class="hero-description"
     data-i18n="hero_description"
@@ -4380,9 +3296,7 @@ footer {
     İhtiyacın olan teknoloji burada başlıyor.
 </p>
 
-
 <div class="hero-actions">
-
 
 <a
     href="urunler.html"
@@ -4392,7 +3306,6 @@ footer {
     Ürünleri Keşfet →
 </a>
 
-
 <a
     href="hakkimizda.html"
     class="hero-button secondary"
@@ -4401,12 +3314,9 @@ footer {
     Alper Tech'i Tanı
 </a>
 
-
 </div>
 
-
 <div class="hero-trust">
-
 
 <div class="trust-block">
 
@@ -4423,7 +3333,6 @@ footer {
 
 </div>
 
-
 <div class="trust-block">
 
 <span class="trust-number">
@@ -4438,7 +3347,6 @@ footer {
 </span>
 
 </div>
-
 
 <div class="trust-block">
 
@@ -4455,22 +3363,13 @@ footer {
 
 </div>
 
-
 </div>
 
-
 </div>
-
-
-<!-- =====================================================
-     HERO VISUAL
-===================================================== -->
 
 <div class="hero-right">
 
-
 <div class="orbit"></div>
-
 
 <div class="floating-tag one">
 
@@ -4482,7 +3381,6 @@ footer {
 
 </div>
 
-
 <div class="floating-tag two">
 
 <span class="floating-dot"></span>
@@ -4493,9 +3391,7 @@ footer {
 
 </div>
 
-
 <div class="hero-device">
-
 
 <div
     class="device-top"
@@ -4504,7 +3400,6 @@ footer {
     ALPER TECH / SYSTEM
 </div>
 
-
 <div
     class="device-title"
     data-i18n="device_title"
@@ -4512,14 +3407,11 @@ footer {
     ELITE
 </div>
 
-
 <div class="device-main">
     01
 </div>
 
-
 <div class="device-line"></div>
-
 
 <div
     class="device-caption"
@@ -4528,41 +3420,29 @@ footer {
     TECHNOLOGY • PERFORMANCE
 </div>
 
-
 <div class="device-bottom">
 
 <span data-i18n="device_left">
     NEXT GEN
 </span>
 
-<span data-i18n="device_right">
+<span>
     2026
 </span>
 
 </div>
 
-
 </div>
 
-
 </div>
-
 
 </section>
 
-
 <div class="section-divider"></div>
-
-
-<!-- =========================================================
-     FEATURES
-========================================================= -->
 
 <section class="section dark">
 
-
 <div class="section-heading">
-
 
 <span
     class="label"
@@ -4571,27 +3451,20 @@ footer {
     ALPER TECH STANDARD
 </span>
 
-
 <h2 data-i18n="features_title">
-    Teknoloji sadece güçlü
-    olmak zorunda değil.
+    Teknoloji sadece güçlü olmak zorunda değil.
 </h2>
-
 
 <p data-i18n="features_description">
     Gücü, tasarımı ve kullanım deneyimini
     aynı seviyede tutan modern teknoloji yaklaşımı.
 </p>
 
-
 </div>
-
 
 <div class="feature-grid">
 
-
 <div class="feature-card">
-
 
 <div
     class="feature-number"
@@ -4600,18 +3473,15 @@ footer {
     01 / PERFORMANCE
 </div>
 
-
 <div class="feature-icon">
     ⚡
 </div>
-
 
 <h3
     data-i18n="feature_1_title"
 >
     Üst Düzey Performans
 </h3>
-
 
 <p
     data-i18n="feature_1_description"
@@ -4620,12 +3490,9 @@ footer {
     akıcı ve güçlü bir teknoloji deneyimi.
 </p>
 
-
 </div>
 
-
 <div class="feature-card">
-
 
 <div
     class="feature-number"
@@ -4634,18 +3501,15 @@ footer {
     02 / DESIGN
 </div>
 
-
 <div class="feature-icon">
     ◈
 </div>
-
 
 <h3
     data-i18n="feature_2_title"
 >
     Premium Tasarım
 </h3>
-
 
 <p
     data-i18n="feature_2_description"
@@ -4654,12 +3518,9 @@ footer {
     güçlü görsel kimlik tek bir sistemde.
 </p>
 
-
 </div>
 
-
 <div class="feature-card">
-
 
 <div
     class="feature-number"
@@ -4668,18 +3529,15 @@ footer {
     03 / EXPERIENCE
 </div>
 
-
 <div class="feature-icon">
     ✓
 </div>
-
 
 <h3
     data-i18n="feature_3_title"
 >
     Kusursuz Deneyim
 </h3>
-
 
 <p
     data-i18n="feature_3_description"
@@ -4688,25 +3546,15 @@ footer {
     anlaşılır hale getiren kullanıcı deneyimi.
 </p>
 
-
 </div>
 
-
 </div>
-
 
 </section>
 
-
-<!-- =========================================================
-     CATEGORY
-========================================================= -->
-
 <section class="section">
 
-
 <div class="section-heading">
-
 
 <span
     class="label"
@@ -4715,171 +3563,118 @@ footer {
     COLLECTION
 </span>
 
-
 <h2 data-i18n="category_title">
     Teknoloji dünyasını keşfet.
 </h2>
-
 
 <p data-i18n="category_description">
     İhtiyacın olan ürün kategorisini seç
     ve bir sonraki seviyeye geç.
 </p>
 
-
 </div>
 
-
 <div class="category-grid">
-
 
 <a
     href="urunler.html"
     class="category"
 >
-
 
 <span class="category-index">
     01
 </span>
 
-
 <span class="category-symbol">
     🖥️
 </span>
 
-
-<h3
-    data-i18n="category_pc"
->
+<h3 data-i18n="category_pc">
     Bilgisayar
 </h3>
 
-
-<p
-    data-i18n="category_pc_desc"
->
+<p data-i18n="category_pc_desc">
     Güçlü performans sistemleri
 </p>
 
-
 </a>
-
 
 <a
     href="urunler.html"
     class="category"
 >
-
 
 <span class="category-index">
     02
 </span>
 
-
 <span class="category-symbol">
     🎮
 </span>
 
-
-<h3
-    data-i18n="category_gaming"
->
+<h3 data-i18n="category_gaming">
     Gaming
 </h3>
 
-
-<p
-    data-i18n="category_gaming_desc"
->
+<p data-i18n="category_gaming_desc">
     Oyuncular için yüksek performans
 </p>
 
-
 </a>
-
 
 <a
     href="urunler.html"
     class="category"
 >
-
 
 <span class="category-index">
     03
 </span>
 
-
 <span class="category-symbol">
     📱
 </span>
 
-
-<h3
-    data-i18n="category_mobile"
->
+<h3 data-i18n="category_mobile">
     Mobil
 </h3>
 
-
-<p
-    data-i18n="category_mobile_desc"
->
+<p data-i18n="category_mobile_desc">
     Yeni nesil mobil teknoloji
 </p>
 
-
 </a>
-
 
 <a
     href="urunler.html"
     class="category"
 >
 
-
 <span class="category-index">
     04
 </span>
-
 
 <span class="category-symbol">
     ⚙️
 </span>
 
-
-<h3
-    data-i18n="category_component"
->
+<h3 data-i18n="category_component">
     Bileşen
 </h3>
 
-
-<p
-    data-i18n="category_component_desc"
->
+<p data-i18n="category_component_desc">
     Sistemin için doğru parçalar
 </p>
 
-
 </a>
-
 
 </div>
 
-
 </section>
-
-
-<!-- =========================================================
-     SHOWCASE
-========================================================= -->
 
 <section class="section dark">
 
-
 <div class="section-heading">
-
 
 <span
     class="label"
@@ -4888,26 +3683,20 @@ footer {
     ALPER TECH EXPERIENCE
 </span>
 
-
 <h2 data-i18n="showcase_heading">
     Sistemini bir üst seviyeye taşı.
 </h2>
-
 
 <p data-i18n="showcase_description">
     Doğru ürünleri seç, performansını yükselt
     ve teknoloji deneyimini yeniden tanımla.
 </p>
 
-
 </div>
-
 
 <div class="showcase">
 
-
 <div class="showcase-main">
-
 
 <span
     class="showcase-label"
@@ -4916,13 +3705,11 @@ footer {
     PERFORMANCE
 </span>
 
-
 <h3
     data-i18n="showcase_main_title"
 >
     Sistemin için daha fazlasını iste.
 </h3>
-
 
 <p
     data-i18n="showcase_main_description"
@@ -4932,15 +3719,11 @@ footer {
     seçenekleriyle sınırları ileri taşı.
 </p>
 
-
 <div class="showcase-orbit"></div>
-
 
 </div>
 
-
 <div class="showcase-side">
-
 
 <span
     class="showcase-label"
@@ -4949,13 +3732,11 @@ footer {
     PREMIUM EXPERIENCE
 </span>
 
-
 <h3
     data-i18n="showcase_side_title"
 >
     Teknolojiyi daha premium yaşa.
 </h3>
-
 
 <p
     data-i18n="showcase_side_description"
@@ -4964,15 +3745,11 @@ footer {
     aynı deneyimde buluştuğu Alper Tech yaklaşımı.
 </p>
 
-
 <div class="side-stat">
-
 
 <div class="side-stat-row">
 
-<span
-    data-i18n="side_stat_1"
->
+<span data-i18n="side_stat_1">
     Performans
 </span>
 
@@ -4982,12 +3759,9 @@ footer {
 
 </div>
 
-
 <div class="side-stat-row">
 
-<span
-    data-i18n="side_stat_2"
->
+<span data-i18n="side_stat_2">
     Tasarım
 </span>
 
@@ -4997,12 +3771,9 @@ footer {
 
 </div>
 
-
 <div class="side-stat-row">
 
-<span
-    data-i18n="side_stat_3"
->
+<span data-i18n="side_stat_3">
     Deneyim
 </span>
 
@@ -5012,28 +3783,17 @@ footer {
 
 </div>
 
+</div>
 
 </div>
 
-
 </div>
-
-
-</div>
-
 
 </section>
 
-
-<!-- =========================================================
-     NUMBERS
-========================================================= -->
-
 <section class="section">
 
-
 <div class="section-heading">
-
 
 <span
     class="label"
@@ -5042,133 +3802,87 @@ footer {
     THE ALPER TECH DIFFERENCE
 </span>
 
-
 <h2 data-i18n="numbers_title">
     Detaylarda fark yaratıyoruz.
 </h2>
-
 
 <p data-i18n="numbers_description">
     Basit görünen ayrıntıların toplamı,
     premium bir teknoloji deneyimi oluşturur.
 </p>
 
-
 </div>
-
 
 <div class="numbers">
 
-
 <div class="number-card">
-
 
 <strong>
     180Hz
 </strong>
 
-
-<span
-    data-i18n="number_1"
->
+<span data-i18n="number_1">
     Yüksek yenileme hızına sahip ürün seçenekleri
 </span>
 
-
 </div>
 
-
 <div class="number-card">
-
 
 <strong>
     24/7
 </strong>
 
-
-<span
-    data-i18n="number_2"
->
+<span data-i18n="number_2">
     Her zaman erişilebilir dijital mağaza deneyimi
 </span>
 
-
 </div>
 
-
 <div class="number-card">
-
 
 <strong>
     PRO
 </strong>
 
-
-<span
-    data-i18n="number_3"
->
+<span data-i18n="number_3">
     Performans odaklı teknoloji yaklaşımı
 </span>
 
-
 </div>
 
-
 <div class="number-card">
-
 
 <strong>
     2026
 </strong>
 
-
-<span
-    data-i18n="number_4"
->
+<span data-i18n="number_4">
     Yeni nesil teknoloji vizyonu
 </span>
 
-
 </div>
 
-
 </div>
-
 
 </section>
 
-
-<!-- =========================================================
-     CTA
-========================================================= -->
-
 <section class="cta">
-
 
 <div class="cta-box">
 
-
-<small
-    data-i18n="cta_label"
->
+<small data-i18n="cta_label">
     READY FOR THE NEXT LEVEL?
 </small>
 
-
-<h2
-    data-i18n="cta_title"
->
+<h2 data-i18n="cta_title">
     Teknolojinin yeni tarafına geç.
 </h2>
 
-
-<p
-    data-i18n="cta_description"
->
+<p data-i18n="cta_description">
     Sana uygun sistemi, ürünü veya ekipmanı
     keşfet ve Alper Tech deneyimini yaşa.
 </p>
-
 
 <a
     href="urunler.html"
@@ -5178,15 +3892,11 @@ footer {
     Ürünleri Keşfet →
 </a>
 
-
 </div>
-
 
 </section>
 
-
 </main>
-
 
 <!-- =========================================================
      CART
@@ -5197,12 +3907,9 @@ footer {
     id="cartOverlay"
 >
 
-
 <div class="cart-drawer">
 
-
 <div class="drawer-header">
-
 
 <span
     class="drawer-title"
@@ -5210,7 +3917,6 @@ footer {
 >
     Sepetiniz
 </span>
-
 
 <button
     class="drawer-close"
@@ -5220,12 +3926,9 @@ footer {
     ✕
 </button>
 
-
 </div>
 
-
 <div class="drawer-body">
-
 
 <div
     class="cart-empty"
@@ -5235,12 +3938,9 @@ footer {
     Sepetinizde henüz ürün bulunmuyor.
 </div>
 
-
 <div id="cartItems"></div>
 
-
 </div>
-
 
 <div
     class="cart-footer"
@@ -5248,22 +3948,17 @@ footer {
     style="display:none;"
 >
 
-
 <div class="cart-total">
-
 
 <span data-i18n="cart_total">
     Toplam
 </span>
 
-
 <span id="cartTotal">
     0 ₺
 </span>
 
-
 </div>
-
 
 <button
     class="checkout-btn"
@@ -5274,15 +3969,11 @@ footer {
     ÖDEMEYE GEÇ
 </button>
 
+</div>
 
 </div>
 
-
 </div>
-
-
-</div>
-
 
 <!-- =========================================================
      PAYMENT
@@ -5293,9 +3984,7 @@ footer {
     id="paymentOverlay"
 >
 
-
 <div class="payment-box">
-
 
 <button
     class="payment-close"
@@ -5305,14 +3994,12 @@ footer {
     ✕
 </button>
 
-
 <h2
     class="payment-title"
     data-i18n="payment_title"
 >
     GÜVENLİ ÖDEME
 </h2>
-
 
 <p
     class="payment-subtitle"
@@ -5321,23 +4008,15 @@ footer {
     Ödeme bilgilerinizi girin.
 </p>
 
-
 <div class="payment-grid">
-
-
-<!-- CARD -->
 
 <div>
 
-
 <div class="credit-card">
-
 
 <div class="card-top">
 
-
 <div class="chip"></div>
-
 
 <div
     class="card-brand"
@@ -5346,9 +4025,7 @@ footer {
     VISA
 </div>
 
-
 </div>
-
 
 <div
     class="card-number"
@@ -5357,12 +4034,9 @@ footer {
     •••• •••• •••• ••••
 </div>
 
-
 <div class="card-bottom">
 
-
 <div>
-
 
 <div
     class="card-label"
@@ -5371,7 +4045,6 @@ footer {
     KART SAHİBİ
 </div>
 
-
 <div
     class="card-holder"
     id="previewName"
@@ -5379,12 +4052,9 @@ footer {
     AD SOYAD
 </div>
 
-
 </div>
 
-
 <div>
-
 
 <div
     class="card-label"
@@ -5393,7 +4063,6 @@ footer {
     SON KULLANMA
 </div>
 
-
 <div
     class="card-expiry"
     id="previewExpiry"
@@ -5401,23 +4070,15 @@ footer {
     12/30
 </div>
 
+</div>
 
 </div>
 
-
 </div>
 
-
 </div>
-
-
-</div>
-
-
-<!-- FORM -->
 
 <div>
-
 
 <div
     class="method-title"
@@ -5426,9 +4087,7 @@ footer {
     Kart Türü
 </div>
 
-
 <div class="methods">
-
 
 <button
     class="method active"
@@ -5438,7 +4097,6 @@ footer {
     VISA
 </button>
 
-
 <button
     class="method"
     data-card="MASTERCARD"
@@ -5446,7 +4104,6 @@ footer {
 >
     MASTERCARD
 </button>
-
 
 <button
     class="method"
@@ -5456,9 +4113,7 @@ footer {
     TROY
 </button>
 
-
 </div>
-
 
 <div
     class="payment-error"
@@ -5466,9 +4121,7 @@ footer {
 >
 </div>
 
-
 <div class="payment-group">
-
 
 <label
     for="cardNumber"
@@ -5476,7 +4129,6 @@ footer {
 >
     Kart Numarası
 </label>
-
 
 <input
     id="cardNumber"
@@ -5487,12 +4139,9 @@ footer {
     placeholder="1234 5678 9012 3456"
 >
 
-
 </div>
 
-
 <div class="payment-group">
-
 
 <label
     for="cardName"
@@ -5500,7 +4149,6 @@ footer {
 >
     Kart Üzerindeki İsim
 </label>
-
 
 <input
     id="cardName"
@@ -5510,15 +4158,11 @@ footer {
     placeholder="AD SOYAD"
 >
 
-
 </div>
-
 
 <div class="payment-row">
 
-
 <div class="payment-group">
-
 
 <label
     for="expiry"
@@ -5526,7 +4170,6 @@ footer {
 >
     Son Kullanma
 </label>
-
 
 <input
     id="expiry"
@@ -5537,12 +4180,9 @@ footer {
     placeholder="AA/YY"
 >
 
-
 </div>
 
-
 <div class="payment-group">
-
 
 <label
     for="cvv"
@@ -5550,7 +4190,6 @@ footer {
 >
     CVV
 </label>
-
 
 <input
     id="cvv"
@@ -5561,12 +4200,9 @@ footer {
     placeholder="•••"
 >
 
-
 </div>
 
-
 </div>
-
 
 <button
     class="payment-submit"
@@ -5577,26 +4213,20 @@ footer {
     ÖDEMEYİ TAMAMLA
 </button>
 
-
 <div
     class="security"
     data-i18n="security"
 >
-    Gerçek tahsilat için güvenli ödeme sağlayıcısı entegrasyonu gerekir.
+    Bu ekran yalnızca demo arayüzüdür.
 </div>
-
-
-</div>
-
 
 </div>
 
+</div>
 
 </div>
 
-
 </div>
-
 
 <!-- =========================================================
      FOOTER
@@ -5604,34 +4234,24 @@ footer {
 
 <footer>
 
-
 <div class="footer-inner">
-
 
 <div class="footer-top">
 
-
 <div class="footer-brand">
-
 
 <h3>
     ALPER<span>TECH</span>
 </h3>
 
-
-<p
-    data-i18n="footer_description"
->
+<p data-i18n="footer_description">
     Yeni nesil teknoloji, performans ve
     premium tasarımın buluştuğu teknoloji platformu.
 </p>
 
-
 </div>
 
-
 <div class="footer-links">
-
 
 <a
     href="index.html"
@@ -5640,14 +4260,12 @@ footer {
     Ana Sayfa
 </a>
 
-
 <a
     href="urunler.html"
     data-i18n="nav_products"
 >
     Ürünler
 </a>
-
 
 <a
     href="hakkimizda.html"
@@ -5656,7 +4274,6 @@ footer {
     Hakkımızda
 </a>
 
-
 <a
     href="iletisim.html"
     data-i18n="nav_contact"
@@ -5664,66 +4281,827 @@ footer {
     İletişim
 </a>
 
-
 </div>
 
-
 </div>
-
 
 <div class="footer-bottom">
 
-
-<span
-    data-i18n="footer_copy"
->
+<span data-i18n="footer_copy">
     © 2026 Alper Tech. Tüm hakları saklıdır.
 </span>
 
-
-<span
-    data-i18n="footer_motto"
->
+<span data-i18n="footer_motto">
     TECHNOLOGY • PERFORMANCE • DESIGN
 </span>
 
-
 </div>
 
-
 </div>
-
 
 </footer>
 
-
 <script>
+
 /* =========================================================
-   ALPER TECH - ORTAK PARA BİRİMİ SİSTEMİ
+   TRANSLATIONS
 ========================================================= */
 
-let currentLanguage =
-    localStorage.getItem("alperTechLang") || "tr";
+const translations = {
 
+    tr: {
 
-if (
-    !["tr", "en", "es"].includes(currentLanguage)
-) {
-    currentLanguage = "tr";
-}
+        nav_home:
+            "Ana Sayfa",
 
+        nav_products:
+            "Ürünler",
+
+        nav_about:
+            "Hakkımızda",
+
+        nav_contact:
+            "İletişim",
+
+        cart:
+            "Sepet",
+
+        hero_badge:
+            "Yeni Nesil Teknoloji",
+
+        hero_title_1:
+            "Teknolojinin",
+
+        hero_title_2:
+            "yeni neslini",
+
+        hero_title_3:
+            "keşfet.",
+
+        hero_description:
+            "Performans, tasarım ve teknolojiyi tek bir premium deneyimde bir araya getiriyoruz. İhtiyacın olan teknoloji burada başlıyor.",
+
+        hero_products:
+            "Ürünleri Keşfet →",
+
+        hero_about:
+            "Alper Tech'i Tanı",
+
+        trust_quality:
+            "Kalite Odaklı",
+
+        trust_support:
+            "Destek",
+
+        trust_technology:
+            "Teknoloji",
+
+        floating_performance:
+            "PERFORMANCE READY",
+
+        floating_premium:
+            "PREMIUM BUILD",
+
+        device_top:
+            "ALPER TECH / SYSTEM",
+
+        device_title:
+            "ELITE",
+
+        device_caption:
+            "TECHNOLOGY • PERFORMANCE",
+
+        device_left:
+            "NEXT GEN",
+
+        features_label:
+            "ALPER TECH STANDARD",
+
+        features_title:
+            "Teknoloji sadece güçlü olmak zorunda değil.",
+
+        features_description:
+            "Gücü, tasarımı ve kullanım deneyimini aynı seviyede tutan modern teknoloji yaklaşımı.",
+
+        feature_1_number:
+            "01 / PERFORMANCE",
+
+        feature_1_title:
+            "Üst Düzey Performans",
+
+        feature_1_description:
+            "Günlük kullanımın ötesine geçen hızlı, akıcı ve güçlü bir teknoloji deneyimi.",
+
+        feature_2_number:
+            "02 / DESIGN",
+
+        feature_2_title:
+            "Premium Tasarım",
+
+        feature_2_description:
+            "Modern çizgiler, sade arayüz ve güçlü görsel kimlik tek bir sistemde.",
+
+        feature_3_number:
+            "03 / EXPERIENCE",
+
+        feature_3_title:
+            "Kusursuz Deneyim",
+
+        feature_3_description:
+            "Teknoloji seçimini daha kolay ve anlaşılır hale getiren kullanıcı deneyimi.",
+
+        category_label:
+            "COLLECTION",
+
+        category_title:
+            "Teknoloji dünyasını keşfet.",
+
+        category_description:
+            "İhtiyacın olan ürün kategorisini seç ve bir sonraki seviyeye geç.",
+
+        category_pc:
+            "Bilgisayar",
+
+        category_pc_desc:
+            "Güçlü performans sistemleri",
+
+        category_gaming:
+            "Gaming",
+
+        category_gaming_desc:
+            "Oyuncular için yüksek performans",
+
+        category_mobile:
+            "Mobil",
+
+        category_mobile_desc:
+            "Yeni nesil mobil teknoloji",
+
+        category_component:
+            "Bileşen",
+
+        category_component_desc:
+            "Sistemin için doğru parçalar",
+
+        showcase_label:
+            "ALPER TECH EXPERIENCE",
+
+        showcase_heading:
+            "Sistemini bir üst seviyeye taşı.",
+
+        showcase_description:
+            "Doğru ürünleri seç, performansını yükselt ve teknoloji deneyimini yeniden tanımla.",
+
+        showcase_main_label:
+            "PERFORMANCE",
+
+        showcase_main_title:
+            "Sistemin için daha fazlasını iste.",
+
+        showcase_main_description:
+            "Yüksek performanslı donanımlar, modern sistemler ve güçlü teknoloji seçenekleriyle sınırları ileri taşı.",
+
+        showcase_side_label:
+            "PREMIUM EXPERIENCE",
+
+        showcase_side_title:
+            "Teknolojiyi daha premium yaşa.",
+
+        showcase_side_description:
+            "Performans, kalite ve tasarımın aynı deneyimde buluştuğu Alper Tech yaklaşımı.",
+
+        side_stat_1:
+            "Performans",
+
+        side_stat_2:
+            "Tasarım",
+
+        side_stat_3:
+            "Deneyim",
+
+        numbers_label:
+            "THE ALPER TECH DIFFERENCE",
+
+        numbers_title:
+            "Detaylarda fark yaratıyoruz.",
+
+        numbers_description:
+            "Basit görünen ayrıntıların toplamı, premium bir teknoloji deneyimi oluşturur.",
+
+        number_1:
+            "Yüksek yenileme hızına sahip ürün seçenekleri",
+
+        number_2:
+            "Her zaman erişilebilir dijital mağaza deneyimi",
+
+        number_3:
+            "Performans odaklı teknoloji yaklaşımı",
+
+        number_4:
+            "Yeni nesil teknoloji vizyonu",
+
+        cta_label:
+            "READY FOR THE NEXT LEVEL?",
+
+        cta_title:
+            "Teknolojinin yeni tarafına geç.",
+
+        cta_description:
+            "Sana uygun sistemi, ürünü veya ekipmanı keşfet ve Alper Tech deneyimini yaşa.",
+
+        cta_button:
+            "Ürünleri Keşfet →",
+
+        footer_description:
+            "Yeni nesil teknoloji, performans ve premium tasarımın buluştuğu teknoloji platformu.",
+
+        footer_copy:
+            "© 2026 Alper Tech. Tüm hakları saklıdır.",
+
+        footer_motto:
+            "TECHNOLOGY • PERFORMANCE • DESIGN",
+
+        cart_title:
+            "Sepetiniz",
+
+        cart_empty:
+            "Sepetinizde henüz ürün bulunmuyor.",
+
+        cart_total:
+            "Toplam",
+
+        checkout:
+            "ÖDEMEYE GEÇ",
+
+        remove:
+            "Kaldır",
+
+        payment_title:
+            "GÜVENLİ ÖDEME",
+
+        payment_subtitle:
+            "Ödeme bilgilerinizi girin.",
+
+        card_type:
+            "Kart Türü",
+
+        card_number:
+            "Kart Numarası",
+
+        card_name:
+            "Kart Üzerindeki İsim",
+
+        expiry:
+            "Son Kullanma",
+
+        cvv:
+            "CVV",
+
+        card_holder:
+            "KART SAHİBİ",
+
+        expiry_label:
+            "SON KULLANMA",
+
+        complete_payment:
+            "ÖDEMEYİ TAMAMLA",
+
+        security:
+            "Bu ekran yalnızca demo arayüzüdür."
+    },
+
+    en: {
+
+        nav_home:
+            "Home",
+
+        nav_products:
+            "Products",
+
+        nav_about:
+            "About Us",
+
+        nav_contact:
+            "Contact",
+
+        cart:
+            "Cart",
+
+        hero_badge:
+            "Next Generation Technology",
+
+        hero_title_1:
+            "The next",
+
+        hero_title_2:
+            "generation of",
+
+        hero_title_3:
+            "technology.",
+
+        hero_description:
+            "We bring performance, design and technology together in one premium experience. Your next technology experience starts here.",
+
+        hero_products:
+            "Explore Products →",
+
+        hero_about:
+            "Discover Alper Tech",
+
+        trust_quality:
+            "Quality Focused",
+
+        trust_support:
+            "Support",
+
+        trust_technology:
+            "Technology",
+
+        floating_performance:
+            "PERFORMANCE READY",
+
+        floating_premium:
+            "PREMIUM BUILD",
+
+        device_top:
+            "ALPER TECH / SYSTEM",
+
+        device_title:
+            "ELITE",
+
+        device_caption:
+            "TECHNOLOGY • PERFORMANCE",
+
+        device_left:
+            "NEXT GEN",
+
+        features_label:
+            "ALPER TECH STANDARD",
+
+        features_title:
+            "Technology does not have to be only powerful.",
+
+        features_description:
+            "A modern technology approach that keeps power, design and user experience at the same level.",
+
+        feature_1_number:
+            "01 / PERFORMANCE",
+
+        feature_1_title:
+            "High Performance",
+
+        feature_1_description:
+            "A fast, smooth and powerful technology experience beyond everyday use.",
+
+        feature_2_number:
+            "02 / DESIGN",
+
+        feature_2_title:
+            "Premium Design",
+
+        feature_2_description:
+            "Modern lines, a clean interface and a strong visual identity in one system.",
+
+        feature_3_number:
+            "03 / EXPERIENCE",
+
+        feature_3_title:
+            "Seamless Experience",
+
+        feature_3_description:
+            "A user experience that makes choosing technology easier and clearer.",
+
+        category_label:
+            "COLLECTION",
+
+        category_title:
+            "Explore the world of technology.",
+
+        category_description:
+            "Choose the category you need and move to the next level.",
+
+        category_pc:
+            "Computers",
+
+        category_pc_desc:
+            "High-performance systems",
+
+        category_gaming:
+            "Gaming",
+
+        category_gaming_desc:
+            "High performance for gamers",
+
+        category_mobile:
+            "Mobile",
+
+        category_mobile_desc:
+            "Next-generation mobile technology",
+
+        category_component:
+            "Components",
+
+        category_component_desc:
+            "The right parts for your system",
+
+        showcase_label:
+            "ALPER TECH EXPERIENCE",
+
+        showcase_heading:
+            "Take your system to the next level.",
+
+        showcase_description:
+            "Choose the right products, increase performance and redefine your technology experience.",
+
+        showcase_main_label:
+            "PERFORMANCE",
+
+        showcase_main_title:
+            "Expect more from your system.",
+
+        showcase_main_description:
+            "Take performance further with powerful hardware, modern systems and advanced technology options.",
+
+        showcase_side_label:
+            "PREMIUM EXPERIENCE",
+
+        showcase_side_title:
+            "Experience technology at a premium level.",
+
+        showcase_side_description:
+            "The Alper Tech approach brings performance, quality and design together.",
+
+        side_stat_1:
+            "Performance",
+
+        side_stat_2:
+            "Design",
+
+        side_stat_3:
+            "Experience",
+
+        numbers_label:
+            "THE ALPER TECH DIFFERENCE",
+
+        numbers_title:
+            "We make a difference in the details.",
+
+        numbers_description:
+            "The sum of small details creates a premium technology experience.",
+
+        number_1:
+            "Product options with high refresh rates",
+
+        number_2:
+            "Always-accessible digital store experience",
+
+        number_3:
+            "Performance-focused technology approach",
+
+        number_4:
+            "Next-generation technology vision",
+
+        cta_label:
+            "READY FOR THE NEXT LEVEL?",
+
+        cta_title:
+            "Step into the next side of technology.",
+
+        cta_description:
+            "Discover the system, product or equipment that fits you and experience Alper Tech.",
+
+        cta_button:
+            "Discover Products →",
+
+        footer_description:
+            "A technology platform where next-generation technology, performance and premium design meet.",
+
+        footer_copy:
+            "© 2026 Alper Tech. All rights reserved.",
+
+        footer_motto:
+            "TECHNOLOGY • PERFORMANCE • DESIGN",
+
+        cart_title:
+            "Your Cart",
+
+        cart_empty:
+            "Your cart is currently empty.",
+
+        cart_total:
+            "Total",
+
+        checkout:
+            "CHECKOUT",
+
+        remove:
+            "Remove",
+
+        payment_title:
+            "SECURE PAYMENT",
+
+        payment_subtitle:
+            "Enter your payment information.",
+
+        card_type:
+            "Card Type",
+
+        card_number:
+            "Card Number",
+
+        card_name:
+            "Name on Card",
+
+        expiry:
+            "Expiration",
+
+        cvv:
+            "CVV",
+
+        card_holder:
+            "CARD HOLDER",
+
+        expiry_label:
+            "EXPIRATION",
+
+        complete_payment:
+            "COMPLETE PAYMENT",
+
+        security:
+            "This screen is for demo interface purposes only."
+    },
+
+    es: {
+
+        nav_home:
+            "Inicio",
+
+        nav_products:
+            "Productos",
+
+        nav_about:
+            "Sobre Nosotros",
+
+        nav_contact:
+            "Contacto",
+
+        cart:
+            "Carrito",
+
+        hero_badge:
+            "Tecnología de Nueva Generación",
+
+        hero_title_1:
+            "La nueva",
+
+        hero_title_2:
+            "generación de",
+
+        hero_title_3:
+            "tecnología.",
+
+        hero_description:
+            "Unimos rendimiento, diseño y tecnología en una sola experiencia premium. Tu próxima experiencia tecnológica comienza aquí.",
+
+        hero_products:
+            "Ver Productos →",
+
+        hero_about:
+            "Conoce Alper Tech",
+
+        trust_quality:
+            "Enfocados en Calidad",
+
+        trust_support:
+            "Soporte",
+
+        trust_technology:
+            "Tecnología",
+
+        floating_performance:
+            "PERFORMANCE READY",
+
+        floating_premium:
+            "PREMIUM BUILD",
+
+        device_top:
+            "ALPER TECH / SYSTEM",
+
+        device_title:
+            "ELITE",
+
+        device_caption:
+            "TECNOLOGÍA • RENDIMIENTO",
+
+        device_left:
+            "NEXT GEN",
+
+        features_label:
+            "ESTÁNDAR ALPER TECH",
+
+        features_title:
+            "La tecnología no tiene que ser solo potencia.",
+
+        features_description:
+            "Un enfoque tecnológico moderno que mantiene potencia, diseño y experiencia de usuario al mismo nivel.",
+
+        feature_1_number:
+            "01 / RENDIMIENTO",
+
+        feature_1_title:
+            "Alto Rendimiento",
+
+        feature_1_description:
+            "Una experiencia tecnológica rápida, fluida y potente más allá del uso diario.",
+
+        feature_2_number:
+            "02 / DISEÑO",
+
+        feature_2_title:
+            "Diseño Premium",
+
+        feature_2_description:
+            "Líneas modernas, interfaz limpia y una identidad visual sólida en un solo sistema.",
+
+        feature_3_number:
+            "03 / EXPERIENCIA",
+
+        feature_3_title:
+            "Experiencia Perfecta",
+
+        feature_3_description:
+            "Una experiencia de usuario que hace más sencilla y clara la elección de tecnología.",
+
+        category_label:
+            "COLECCIÓN",
+
+        category_title:
+            "Explora el mundo de la tecnología.",
+
+        category_description:
+            "Elige la categoría que necesitas y pasa al siguiente nivel.",
+
+        category_pc:
+            "Computadoras",
+
+        category_pc_desc:
+            "Sistemas de alto rendimiento",
+
+        category_gaming:
+            "Gaming",
+
+        category_gaming_desc:
+            "Alto rendimiento para jugadores",
+
+        category_mobile:
+            "Móvil",
+
+        category_mobile_desc:
+            "Tecnología móvil de nueva generación",
+
+        category_component:
+            "Componentes",
+
+        category_component_desc:
+            "Las piezas adecuadas para tu sistema",
+
+        showcase_label:
+            "EXPERIENCIA ALPER TECH",
+
+        showcase_heading:
+            "Lleva tu sistema al siguiente nivel.",
+
+        showcase_description:
+            "Elige los productos adecuados, aumenta el rendimiento y redefine tu experiencia tecnológica.",
+
+        showcase_main_label:
+            "RENDIMIENTO",
+
+        showcase_main_title:
+            "Exige más de tu sistema.",
+
+        showcase_main_description:
+            "Lleva el rendimiento más lejos con hardware potente, sistemas modernos y opciones tecnológicas avanzadas.",
+
+        showcase_side_label:
+            "EXPERIENCIA PREMIUM",
+
+        showcase_side_title:
+            "Vive la tecnología a un nivel premium.",
+
+        showcase_side_description:
+            "El enfoque de Alper Tech une rendimiento, calidad y diseño.",
+
+        side_stat_1:
+            "Rendimiento",
+
+        side_stat_2:
+            "Diseño",
+
+        side_stat_3:
+            "Experiencia",
+
+        numbers_label:
+            "LA DIFERENCIA ALPER TECH",
+
+        numbers_title:
+            "Creamos diferencia en los detalles.",
+
+        numbers_description:
+            "La suma de pequeños detalles crea una experiencia tecnológica premium.",
+
+        number_1:
+            "Opciones de productos con altas tasas de refresco",
+
+        number_2:
+            "Experiencia de tienda digital siempre accesible",
+
+        number_3:
+            "Enfoque tecnológico orientado al rendimiento",
+
+        number_4:
+            "Visión tecnológica de nueva generación",
+
+        cta_label:
+            "¿LISTO PARA EL SIGUIENTE NIVEL?",
+
+        cta_title:
+            "Da el paso hacia el nuevo lado de la tecnología.",
+
+        cta_description:
+            "Descubre el sistema, producto o equipo ideal para ti y vive la experiencia Alper Tech.",
+
+        cta_button:
+            "Descubrir Productos →",
+
+        footer_description:
+            "Una plataforma tecnológica donde se unen la tecnología de nueva generación, el rendimiento y el diseño premium.",
+
+        footer_copy:
+            "© 2026 Alper Tech. Todos los derechos reservados.",
+
+        footer_motto:
+            "TECNOLOGÍA • RENDIMIENTO • DISEÑO",
+
+        cart_title:
+            "Tu Carrito",
+
+        cart_empty:
+            "Tu carrito está vacío.",
+
+        cart_total:
+            "Total",
+
+        checkout:
+            "IR AL PAGO",
+
+        remove:
+            "Eliminar",
+
+        payment_title:
+            "PAGO SEGURO",
+
+        payment_subtitle:
+            "Introduce la información de pago.",
+
+        card_type:
+            "Tipo de Tarjeta",
+
+        card_number:
+            "Número de Tarjeta",
+
+        card_name:
+            "Nombre en la Tarjeta",
+
+        expiry:
+            "Vencimiento",
+
+        cvv:
+            "CVV",
+
+        card_holder:
+            "TITULAR",
+
+        expiry_label:
+            "VENCIMIENTO",
+
+        complete_payment:
+            "COMPLETAR PAGO",
+
+        security:
+            "Esta pantalla es solo para la interfaz de demostración."
+    }
+
+};
 
 /* =========================================================
-   FİYAT FORMAT
+   PRICE FORMAT
 ========================================================= */
 
 function formatPrice(price) {
 
     price =
         Number(price) || 0;
-
-
-    /* TÜRKÇE */
 
     if (currentLanguage === "tr") {
 
@@ -5736,11 +5114,7 @@ function formatPrice(price) {
                 maximumFractionDigits: 0
             }
         );
-
     }
-
-
-    /* İNGİLİZCE */
 
     if (currentLanguage === "en") {
 
@@ -5756,11 +5130,7 @@ function formatPrice(price) {
                 maximumFractionDigits: 2
             }
         );
-
     }
-
-
-    /* İSPANYOLCA */
 
     if (currentLanguage === "es") {
 
@@ -5776,11 +5146,7 @@ function formatPrice(price) {
                 maximumFractionDigits: 2
             }
         );
-
     }
-
-
-    /* FALLBACK */
 
     return price.toLocaleString(
         "tr-TR",
@@ -5791,12 +5157,10 @@ function formatPrice(price) {
             maximumFractionDigits: 0
         }
     );
-
 }
 
-
 /* =========================================================
-   ÜRÜN FİYATLARINI GÜNCELLE
+   PRICES
 ========================================================= */
 
 function updatePrices() {
@@ -5808,236 +5172,111 @@ function updatePrices() {
         .forEach(
             function(element) {
 
-                const price =
-                    Number(
-                        element.dataset.price
-                    ) || 0;
-
-
                 element.textContent =
-                    formatPrice(price);
-
+                    formatPrice(
+                        element.dataset.price
+                    );
             }
         );
-
 }
 
-
 /* =========================================================
-   DİL DEĞİŞTİR
+   LANGUAGE
 ========================================================= */
 
 function changeLanguage(lang) {
 
     if (
-        !["tr", "en", "es"].includes(lang)
+        !translations[lang]
     ) {
         lang = "tr";
     }
 
-
     currentLanguage =
         lang;
-
 
     localStorage.setItem(
         "alperTechLang",
         lang
     );
 
-
     document.documentElement.lang =
         lang;
-
 
     const select =
         document.getElementById(
             "languageSelect"
         );
 
-
     if (select) {
-
-        select.value =
-            lang;
-
+        select.value = lang;
     }
 
+    document
+        .querySelectorAll(
+            "[data-i18n]"
+        )
+        .forEach(
+            function(element) {
 
-    /* NORMAL METİNLER */
+                const key =
+                    element.getAttribute(
+                        "data-i18n"
+                    );
 
-    if (
-        typeof translations !== "undefined"
-    ) {
+                if (
+                    translations[lang][key] !== undefined
+                ) {
 
-        document
-            .querySelectorAll(
-                "[data-i18n]"
-            )
-            .forEach(
-                function(element) {
-
-                    const key =
-                        element.getAttribute(
-                            "data-i18n"
-                        );
-
-
-                    if (
-                        translations[currentLanguage] &&
-                        translations[currentLanguage][key] !== undefined
-                    ) {
-
-                        element.textContent =
-                            translations[currentLanguage][key];
-
-                    }
-
+                    element.textContent =
+                        translations[lang][key];
                 }
-            );
-
-    }
-
-
-    /* PLACEHOLDER */
-
-    if (
-        typeof translations !== "undefined"
-    ) {
-
-        document
-            .querySelectorAll(
-                "[data-i18n-placeholder]"
-            )
-            .forEach(
-                function(element) {
-
-                    const key =
-                        element.getAttribute(
-                            "data-i18n-placeholder"
-                        );
-
-
-                    if (
-                        translations[currentLanguage] &&
-                        translations[currentLanguage][key] !== undefined
-                    ) {
-
-                        element.placeholder =
-                            translations[currentLanguage][key];
-
-                    }
-
-                }
-            );
-
-    }
-
-
-    /* FİYATLAR */
+            }
+        );
 
     updatePrices();
-
-
-    /* SEPET */
-
     updateCart();
-
 }
 
-
 /* =========================================================
-   SEPETİ AL
+   CART
 ========================================================= */
 
 function getCart() {
 
     try {
 
-        const saved =
+        const cart =
             JSON.parse(
                 localStorage.getItem(
                     "alperTechCart"
                 )
             );
 
-
-        return Array.isArray(saved)
-            ? saved
+        return Array.isArray(cart)
+            ? cart
             : [];
 
     } catch {
 
         return [];
-
     }
-
 }
-
-
-/* =========================================================
-   HTML ESCAPE
-========================================================= */
 
 function escapeHTML(text) {
 
     return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 }
-
-
-/* =========================================================
-   SEPETE EKLE
-========================================================= */
-
-function addToCart(
-    productKey,
-    price
-) {
-
-    const cart =
-        getCart();
-
-
-    cart.push({
-
-        productKey:
-            productKey,
-
-        price:
-            Number(price) || 0
-
-    });
-
-
-    localStorage.setItem(
-        "alperTechCart",
-        JSON.stringify(cart)
-    );
-
-
-    updateCart();
-
-
-    openCart();
-
-}
-
-
-/* =========================================================
-   SEPETİ GÜNCELLE
-========================================================= */
 
 function updateCart() {
 
     const cart =
         getCart();
-
 
     const count =
         document.getElementById(
@@ -6064,7 +5303,6 @@ function updateCart() {
             "cartTotal"
         );
 
-
     if (
         !count ||
         !items ||
@@ -6072,23 +5310,13 @@ function updateCart() {
         !footer ||
         !totalElement
     ) {
-
         return;
-
     }
-
 
     count.textContent =
         cart.length;
 
-
-    items.innerHTML =
-        "";
-
-
-    /* =====================================================
-       BOŞ SEPET
-    ===================================================== */
+    items.innerHTML = "";
 
     if (
         cart.length === 0
@@ -6104,13 +5332,7 @@ function updateCart() {
             formatPrice(0);
 
         return;
-
     }
-
-
-    /* =====================================================
-       DOLU SEPET
-    ===================================================== */
 
     empty.style.display =
         "none";
@@ -6118,36 +5340,20 @@ function updateCart() {
     footer.style.display =
         "block";
 
-
-    let total =
-        0;
-
+    let total = 0;
 
     cart.forEach(
-        function(item, index) {
+        function(item,index) {
 
             const price =
                 Number(item.price) || 0;
 
+            total += price;
 
-            total +=
-                price;
-
-
-            /* =================================================
-               ÜRÜN İSMİ
-            ================================================= */
-
-            let productName =
+            let name =
                 item.name ||
                 item.productKey ||
                 "Product";
-
-
-            /*
-               Ürünler sayfasındaki
-               productNames varsa onu kullan.
-            */
 
             if (
                 typeof productNames !== "undefined" &&
@@ -6155,56 +5361,16 @@ function updateCart() {
                 item.productKey
             ) {
 
-                productName =
+                name =
                     productNames[currentLanguage][item.productKey]
                     ||
-                    productName;
-
+                    name;
             }
 
-
-            /* =================================================
-               SİL BUTONU
-            ================================================= */
-
-            let removeText =
-                "Kaldır";
-
-
-            if (
-                currentLanguage === "en"
-            ) {
-
-                removeText =
-                    "Remove";
-
-            }
-
-            if (
-                currentLanguage === "es"
-            ) {
-
-                removeText =
-                    "Eliminar";
-
-            }
-
-
-            if (
-                typeof translations !== "undefined" &&
-                translations[currentLanguage] &&
-                translations[currentLanguage].remove
-            ) {
-
-                removeText =
-                    translations[currentLanguage].remove;
-
-            }
-
-
-            /* =================================================
-               SEPET SATIRI
-            ================================================= */
+            const removeText =
+                translations[currentLanguage]?.remove
+                ||
+                "Remove";
 
             items.innerHTML += `
 
@@ -6213,50 +5379,30 @@ function updateCart() {
                     <div>
 
                         <div class="cart-item-name">
-
-                            ${escapeHTML(productName)}
-
+                            ${escapeHTML(name)}
                         </div>
 
-
                         <div class="cart-item-price">
-
                             ${formatPrice(price)}
-
                         </div>
 
                     </div>
-
 
                     <button
                         type="button"
                         class="remove-item"
                         data-index="${index}"
                     >
-
                         ${removeText}
-
                     </button>
 
                 </div>
-
             `;
-
         }
     );
 
-
-    /* =====================================================
-       TOPLAM
-    ===================================================== */
-
     totalElement.textContent =
         formatPrice(total);
-
-
-    /* =====================================================
-       SİLME BUTONLARI
-    ===================================================== */
 
     document
         .querySelectorAll(
@@ -6274,162 +5420,101 @@ function updateCart() {
                                 this.dataset.index
                             )
                         );
-
                     }
                 );
-
             }
         );
-
 }
-
-
-/* =========================================================
-   ÜRÜN SİL
-========================================================= */
 
 function removeItem(index) {
 
     const cart =
         getCart();
 
-
     if (
         index < 0 ||
         index >= cart.length
     ) {
-
         return;
-
     }
-
 
     cart.splice(
         index,
         1
     );
 
-
     localStorage.setItem(
         "alperTechCart",
         JSON.stringify(cart)
     );
 
-
     updateCart();
-
 }
-
-
-/* =========================================================
-   SEPET AÇ
-========================================================= */
 
 function openCart() {
 
     updateCart();
 
-
-    const overlay =
-        document.getElementById(
+    document
+        .getElementById(
             "cartOverlay"
-        );
-
-
-    if (overlay) {
-
-        overlay.classList.add(
+        )
+        .classList.add(
             "active"
         );
-
-    }
-
 }
-
-
-/* =========================================================
-   SEPET KAPAT
-========================================================= */
 
 function closeCart() {
 
-    const overlay =
-        document.getElementById(
+    document
+        .getElementById(
             "cartOverlay"
-        );
-
-
-    if (overlay) {
-
-        overlay.classList.remove(
+        )
+        .classList.remove(
             "active"
         );
-
-    }
-
 }
-
-
-/* =========================================================
-   ÖDEME AÇ
-========================================================= */
 
 function openPayment() {
 
     if (
         getCart().length === 0
     ) {
-
         return;
-
     }
-
 
     closeCart();
 
-
-    const paymentOverlay =
-        document.getElementById(
-            "paymentOverlay"
+    document
+        .getElementById(
+            "paymentError"
+        )
+        .classList.remove(
+            "show"
         );
 
-
-    if (paymentOverlay) {
-
-        paymentOverlay.classList.add(
+    document
+        .getElementById(
+            "paymentOverlay"
+        )
+        .classList.add(
             "active"
         );
-
-    }
-
 }
-
-
-/* =========================================================
-   ÖDEME KAPAT
-========================================================= */
 
 function closePayment() {
 
-    const paymentOverlay =
-        document.getElementById(
+    document
+        .getElementById(
             "paymentOverlay"
-        );
-
-
-    if (paymentOverlay) {
-
-        paymentOverlay.classList.remove(
+        )
+        .classList.remove(
             "active"
         );
-
-    }
-
 }
 
-
 /* =========================================================
-   TEMA
+   THEME
 ========================================================= */
 
 function toggleTheme() {
@@ -6444,26 +5529,18 @@ function toggleTheme() {
             "themeBtn"
         );
 
-
-    if (
-        !body
-    ) {
-
+    if (!body) {
         return;
-
     }
-
 
     body.classList.toggle(
         "light"
     );
 
-
     const light =
         body.classList.contains(
             "light"
         );
-
 
     if (button) {
 
@@ -6471,9 +5548,7 @@ function toggleTheme() {
             light
                 ? "☀️"
                 : "🌙";
-
     }
-
 
     localStorage.setItem(
         "alperTechTheme",
@@ -6481,37 +5556,32 @@ function toggleTheme() {
             ? "light"
             : "dark"
     );
-
 }
 
-
 /* =========================================================
-   BAŞLANGIÇ
+   INIT
 ========================================================= */
 
 window.addEventListener(
     "DOMContentLoaded",
     function() {
 
-        /* TEMA */
+        /* THEME */
 
         const savedTheme =
             localStorage.getItem(
                 "alperTechTheme"
             ) || "dark";
 
-
         const body =
             document.getElementById(
                 "pageBody"
             );
 
-
         const themeButton =
             document.getElementById(
                 "themeBtn"
             );
-
 
         if (
             body &&
@@ -6521,51 +5591,37 @@ window.addEventListener(
             body.classList.add(
                 "light"
             );
-
         }
 
-
-        if (
-            themeButton
-        ) {
+        if (themeButton) {
 
             themeButton.textContent =
                 savedTheme === "light"
                     ? "☀️"
                     : "🌙";
-
         }
 
-
-        /* DİL */
+        /* LANGUAGE */
 
         const savedLanguage =
             localStorage.getItem(
                 "alperTechLang"
             ) || "tr";
 
-
         currentLanguage =
-            ["tr", "en", "es"].includes(
-                savedLanguage
-            )
+            translations[savedLanguage]
                 ? savedLanguage
                 : "tr";
-
 
         const languageSelect =
             document.getElementById(
                 "languageSelect"
             );
 
-
-        if (
-            languageSelect
-        ) {
+        if (languageSelect) {
 
             languageSelect.value =
                 currentLanguage;
-
 
             languageSelect.addEventListener(
                 "change",
@@ -6574,129 +5630,75 @@ window.addEventListener(
                     changeLanguage(
                         this.value
                     );
-
                 }
             );
-
         }
 
+        /* THEME BUTTON */
 
-        /* TEMA */
-
-        if (
-            themeButton
-        ) {
+        if (themeButton) {
 
             themeButton.addEventListener(
                 "click",
                 toggleTheme
             );
-
         }
 
-
-        /* SEPET */
+        /* CART BUTTON */
 
         const cartButton =
             document.getElementById(
                 "cartButton"
             );
 
-
         const closeCartButton =
             document.getElementById(
-                "closeCartButton"
+                "closeCart"
             );
-
 
         const checkoutButton =
             document.getElementById(
                 "checkoutButton"
             );
 
-
         const closePaymentButton =
             document.getElementById(
-                "closePaymentButton"
+                "closePayment"
             );
 
-
-        if (
-            cartButton
-        ) {
+        if (cartButton) {
 
             cartButton.addEventListener(
                 "click",
                 openCart
             );
-
         }
 
-
-        if (
-            closeCartButton
-        ) {
+        if (closeCartButton) {
 
             closeCartButton.addEventListener(
                 "click",
                 closeCart
             );
-
         }
 
-
-        if (
-            checkoutButton
-        ) {
+        if (checkoutButton) {
 
             checkoutButton.addEventListener(
                 "click",
                 openPayment
             );
-
         }
 
-
-        if (
-            closePaymentButton
-        ) {
+        if (closePaymentButton) {
 
             closePaymentButton.addEventListener(
                 "click",
                 closePayment
             );
-
         }
 
-
-        /* ÜRÜN BUTONLARI */
-
-        document
-            .querySelectorAll(
-                ".add-btn"
-            )
-            .forEach(
-                function(button) {
-
-                    button.addEventListener(
-                        "click",
-                        function() {
-
-                            addToCart(
-                                this.dataset.product,
-                                Number(
-                                    this.dataset.price
-                                )
-                            );
-
-                        }
-                    );
-
-                }
-            );
-
-
-        /* KART TÜRLERİ */
+        /* CARD TYPE */
 
         document
             .querySelectorAll(
@@ -6719,57 +5721,255 @@ window.addEventListener(
                                         item.classList.remove(
                                             "active"
                                         );
-
                                     }
                                 );
-
 
                             this.classList.add(
                                 "active"
                             );
-
 
                             const brand =
                                 document.getElementById(
                                     "cardBrand"
                                 );
 
-
-                            if (
-                                brand
-                            ) {
+                            if (brand) {
 
                                 brand.textContent =
-                                    this.dataset.card ||
+                                    this.dataset.card
+                                    ||
                                     "VISA";
-
                             }
-
                         }
                     );
-
                 }
             );
 
+        /* CARD NUMBER */
 
-        /* İLK GÜNCELLEME */
+        const cardNumber =
+            document.getElementById(
+                "cardNumber"
+            );
+
+        if (cardNumber) {
+
+            cardNumber.addEventListener(
+                "input",
+                function() {
+
+                    let value =
+                        this.value
+                            .replace(
+                                /\D/g,
+                                ""
+                            )
+                            .substring(
+                                0,
+                                16
+                            );
+
+                    const groups =
+                        value.match(
+                            /.{1,4}/g
+                        );
+
+                    this.value =
+                        groups
+                            ? groups.join(" ")
+                            : "";
+
+                    const preview =
+                        document.getElementById(
+                            "previewNumber"
+                        );
+
+                    if (preview) {
+
+                        preview.textContent =
+                            this.value
+                            ||
+                            "•••• •••• •••• ••••";
+                    }
+                }
+            );
+        }
+
+        /* CARD NAME */
+
+        const cardName =
+            document.getElementById(
+                "cardName"
+            );
+
+        if (cardName) {
+
+            cardName.addEventListener(
+                "input",
+                function() {
+
+                    this.value =
+                        this.value
+                            .replace(
+                                /[^a-zA-ZğüşöçıİĞÜŞÖÇ\s]/g,
+                                ""
+                            )
+                            .toUpperCase();
+
+                    const preview =
+                        document.getElementById(
+                            "previewName"
+                        );
+
+                    if (preview) {
+
+                        preview.textContent =
+                            this.value
+                            ||
+                            "AD SOYAD";
+                    }
+                }
+            );
+        }
+
+        /* EXPIRY */
+
+        const expiry =
+            document.getElementById(
+                "expiry"
+            );
+
+        if (expiry) {
+
+            expiry.addEventListener(
+                "input",
+                function() {
+
+                    let value =
+                        this.value
+                            .replace(
+                                /\D/g,
+                                ""
+                            )
+                            .substring(
+                                0,
+                                4
+                            );
+
+                    if (
+                        value.length > 2
+                    ) {
+
+                        value =
+                            value.substring(
+                                0,
+                                2
+                            )
+                            +
+                            "/"
+                            +
+                            value.substring(
+                                2
+                            );
+                    }
+
+                    this.value =
+                        value;
+
+                    const preview =
+                        document.getElementById(
+                            "previewExpiry"
+                        );
+
+                    if (preview) {
+
+                        preview.textContent =
+                            value
+                            ||
+                            "12/30";
+                    }
+                }
+            );
+        }
+
+        /* CVV */
+
+        const cvv =
+            document.getElementById(
+                "cvv"
+            );
+
+        if (cvv) {
+
+            cvv.addEventListener(
+                "input",
+                function() {
+
+                    this.value =
+                        this.value
+                            .replace(
+                                /\D/g,
+                                ""
+                            )
+                            .substring(
+                                0,
+                                4
+                            );
+                }
+            );
+        }
+
+        /* PAYMENT */
+
+        const paymentSubmit =
+            document.getElementById(
+                "paymentSubmit"
+            );
+
+        if (paymentSubmit) {
+
+            paymentSubmit.addEventListener(
+                "click",
+                function() {
+
+                    const error =
+                        document.getElementById(
+                            "paymentError"
+                        );
+
+                    if (error) {
+
+                        const text =
+                            currentLanguage === "tr"
+                                ? "Bu demo ekranda gerçek ödeme alınamaz."
+                                : currentLanguage === "en"
+                                    ? "Real payment cannot be processed on this demo screen."
+                                    : "No se puede procesar un pago real en esta pantalla de demostración.";
+
+                        error.textContent =
+                            text;
+
+                        error.classList.add(
+                            "show"
+                        );
+                    }
+                }
+            );
+        }
+
+        /* INITIAL */
 
         changeLanguage(
             currentLanguage
         );
 
-
         updatePrices();
-
-
         updateCart();
-
     }
 );
 
-
 /* =========================================================
-   DIŞARI TIKLAMA
+   OUTSIDE CLICK
 ========================================================= */
 
 document.addEventListener(
@@ -6781,12 +5981,10 @@ document.addEventListener(
                 "cartOverlay"
             );
 
-
         const paymentOverlay =
             document.getElementById(
                 "paymentOverlay"
             );
-
 
         if (
             cartOverlay &&
@@ -6794,9 +5992,7 @@ document.addEventListener(
         ) {
 
             closeCart();
-
         }
-
 
         if (
             paymentOverlay &&
@@ -6804,12 +6000,9 @@ document.addEventListener(
         ) {
 
             closePayment();
-
         }
-
     }
 );
-
 
 /* =========================================================
    ESC
@@ -6825,15 +6018,12 @@ document.addEventListener(
 
             closeCart();
             closePayment();
-
         }
-
     }
 );
 
-
 /* =========================================================
-   DİĞER SAYFALARLA SEPET SENKRONU
+   STORAGE SYNC
 ========================================================= */
 
 window.addEventListener(
@@ -6845,29 +6035,56 @@ window.addEventListener(
         ) {
 
             updateCart();
-
         }
-
 
         if (
             event.key === "alperTechLang"
         ) {
 
             currentLanguage =
-                event.newValue || "tr";
+                translations[event.newValue]
+                    ? event.newValue
+                    : "tr";
 
-
-            updatePrices();
-            updateCart();
-
+            changeLanguage(
+                currentLanguage
+            );
         }
 
+        if (
+            event.key === "alperTechTheme"
+        ) {
+
+            const body =
+                document.getElementById(
+                    "pageBody"
+                );
+
+            const themeButton =
+                document.getElementById(
+                    "themeBtn"
+                );
+
+            if (body) {
+
+                body.classList.toggle(
+                    "light",
+                    event.newValue === "light"
+                );
+            }
+
+            if (themeButton) {
+
+                themeButton.textContent =
+                    event.newValue === "light"
+                        ? "☀️"
+                        : "🌙";
+            }
+        }
     }
 );
 
 </script>
 
-
 </body>
-
 </html>
