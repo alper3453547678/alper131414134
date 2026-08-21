@@ -4,1403 +4,4179 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Alper Tech | Ana Sayfa</title>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+/* =========================================================
+   ALPER TECH
+   PREMIUM TECHNOLOGY STORE
+   HOMEPAGE V4
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 }
 
-:root{
-    --bg:#05050a;
-    --bg2:#090b11;
-    --header:rgba(5,5,10,.95);
-    --card:#0d0d12;
-    --input:#111116;
-    --border:#292929;
-    --text:#fff;
-    --muted:#a1a1aa;
-    --blue:#00d9ff;
-    --blue-dark:#2563eb;
+
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
+
+:root {
+
+    --site-width: 1340px;
+    --site-side: 30px;
+
+    --header-height: 76px;
+    --content-top: 135px;
+
+    --bg: #020407;
+    --bg-soft: #060a10;
+    --bg-card: #0b1119;
+
+    --header:
+        rgba(3,6,10,.82);
+
+    --card:
+        rgba(12,18,27,.94);
+
+    --card-soft:
+        rgba(17,24,34,.88);
+
+    --input:
+        #091018;
+
+    --text:
+        #ffffff;
+
+    --muted:
+        #8f99a8;
+
+    --muted-2:
+        #596575;
+
+    --border:
+        rgba(255,255,255,.075);
+
+    --border-strong:
+        rgba(255,255,255,.14);
+
+    --blue:
+        #00d9ff;
+
+    --blue-2:
+        #2563eb;
+
+    --purple:
+        #6366f1;
+
+    --green:
+        #22c55e;
+
+    --red:
+        #ef4444;
+
+    --shadow:
+        0 30px 90px rgba(0,0,0,.30);
 }
 
-body.light{
-    --bg:#f5f7fa;
-    --bg2:#fff;
-    --header:rgba(255,255,255,.96);
-    --card:#fff;
-    --input:#f1f5f9;
-    --border:#d9dee7;
-    --text:#111;
-    --muted:#64748b;
-    --blue:#2563eb;
-    --blue-dark:#1d4ed8;
+
+body.light {
+
+    --bg:
+        #eef2f7;
+
+    --bg-soft:
+        #f7f9fc;
+
+    --bg-card:
+        #ffffff;
+
+    --header:
+        rgba(255,255,255,.86);
+
+    --card:
+        rgba(255,255,255,.97);
+
+    --card-soft:
+        rgba(248,250,252,.98);
+
+    --input:
+        #f1f5f9;
+
+    --text:
+        #0f172a;
+
+    --muted:
+        #64748b;
+
+    --muted-2:
+        #94a3b8;
+
+    --border:
+        rgba(15,23,42,.08);
+
+    --border-strong:
+        rgba(15,23,42,.14);
+
+    --blue:
+        #2563eb;
+
+    --blue-2:
+        #1d4ed8;
+
+    --purple:
+        #6366f1;
 }
 
-body{
-    min-height:100vh;
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
-    transition:.3s;
+
+/* =========================================================
+   DOCUMENT
+========================================================= */
+
+html {
+
+    min-height: 100%;
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 110px;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+
+body {
+
+    min-width: 320px;
+
+    min-height: 100vh;
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(0,217,255,.10),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 94% 10%,
+            rgba(37,99,235,.12),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(99,102,241,.035),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            var(--bg),
+            var(--bg-soft) 55%,
+            var(--bg)
+        );
+
+    transition:
+        background .3s ease,
+        color .3s ease;
 }
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -5;
+
+    background:
+
+        linear-gradient(
+            rgba(255,255,255,.012) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.012) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        48px 48px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+
+/* =========================================================
+   AMBIENT LIGHT
+========================================================= */
+
+.ambient {
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(50px);
+
+    opacity: .18;
+
+    z-index: -4;
+}
+
+.ambient.one {
+
+    top: 12%;
+
+    right: -150px;
+
+    background:
+        radial-gradient(
+            circle,
+            var(--blue),
+            transparent 70%
+        );
+}
+
+.ambient.two {
+
+    top: 55%;
+
+    left: -180px;
+
+    background:
+        radial-gradient(
+            circle,
+            var(--purple),
+            transparent 70%
+        );
+}
+
+
+/* =========================================================
+   GENERIC
+========================================================= */
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
 
 button,
 input,
-select,
-textarea{
-    font-family:inherit;
+select {
+
+    font-family: inherit;
 }
 
-/* =====================================================
+
+button {
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    background:var(--header);
-    border-bottom:1px solid var(--border);
-    backdrop-filter:blur(15px);
-    z-index:1000;
+header {
+
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+
+    height:
+        var(--header-height) !important;
+
+    background:
+        var(--header);
+
+    border-bottom:
+        1px solid var(--border);
+
+    backdrop-filter:
+        blur(24px)
+        saturate(150%);
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(150%);
+
+    z-index:
+        1000 !important;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.10);
 }
 
-.header-inner{
-    max-width:1250px;
-    margin:auto;
-    padding:14px 30px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
-    position:relative;
+
+.header-inner {
+
+    width:
+        min(
+            calc(100% - 60px),
+            var(--site-width)
+        ) !important;
+
+    height:
+        var(--header-height) !important;
+
+    margin:
+        auto !important;
+
+    padding:
+        0 !important;
+
+    position:
+        relative;
+
+    display:
+        flex !important;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
 }
 
-/* =====================================================
+
+/* =========================================================
    LOGO
-===================================================== */
+========================================================= */
 
-.logo{
-    width:145px;
-    height:45px;
-    display:flex;
-    align-items:center;
-    text-decoration:none;
-    white-space:nowrap;
+.logo {
+
+    width:
+        145px;
+
+    height:
+        45px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex:
+        0 0 auto;
 }
 
-.site-logo{
-    width:145px;
-    height:45px;
-    object-fit:contain;
-    object-position:left center;
-    display:block;
+
+.site-logo {
+
+    width:
+        145px;
+
+    height:
+        45px;
+
+    display:
+        block;
+
+    object-fit:
+        contain;
+
+    object-position:
+        left center;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
 }
 
-/* =====================================================
+
+.logo:hover .site-logo {
+
+    transform:
+        translateY(-1px);
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(0,217,255,.14)
+        );
+}
+
+
+/* =========================================================
    NAV
-===================================================== */
+========================================================= */
 
-nav{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:25px;
-    white-space:nowrap;
+nav {
+
+    position:
+        absolute !important;
+
+    left:
+        50% !important;
+
+    top:
+        50% !important;
+
+    transform:
+        translate(-50%,-50%) !important;
+
+    display:
+        flex !important;
+
+    align-items:
+        center;
+
+    gap:
+        28px;
+
+    white-space:
+        nowrap;
 }
 
-nav a{
-    position:relative;
-    color:var(--muted);
-    font-size:14px;
-    font-weight:600;
-    transition:.2s;
+
+nav a {
+
+    position:
+        relative;
+
+    padding:
+        8px 0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
 }
+
 
 nav a:hover,
-nav a.active{
-    color:var(--blue);
+nav a.active {
+
+    color:
+        var(--text);
+
+    transform:
+        translateY(-1px);
 }
 
-nav a::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    bottom:-8px;
-    width:0;
-    height:2px;
-    transform:translateX(-50%);
-    background:var(--blue);
-    transition:.2s;
+
+nav a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    bottom:
+        -6px;
+
+    width:
+        0;
+
+    height:
+        2px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        99px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--blue-2)
+        );
+
+    box-shadow:
+        0 0 14px
+        rgba(0,217,255,.45);
+
+    transition:
+        width .2s ease;
 }
+
 
 nav a:hover::after,
-nav a.active::after{
-    width:100%;
+nav a.active::after {
+
+    width:
+        100%;
 }
 
-/* =====================================================
-   CONTROLS
-===================================================== */
 
-.controls{
-    margin-left:auto;
-    display:flex;
-    align-items:center;
-    gap:10px;
+/* =========================================================
+   HEADER CONTROLS
+========================================================= */
+
+.controls {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-left:
+        auto;
 }
 
-.lang-select{
-    height:38px;
-    min-width:118px;
-    background:var(--input);
-    color:var(--text);
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:0 10px;
-    outline:none;
-    cursor:pointer;
-    font-size:12px;
-    transition:.2s;
+
+.lang-select {
+
+    width:
+        122px;
+
+    min-width:
+        122px;
+
+    height:
+        40px;
+
+    padding:
+        0 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        11px;
+
+    outline:
+        none;
+
+    background:
+        var(--input);
+
+    color:
+        var(--text);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        .2s;
 }
+
 
 .lang-select:hover,
-.lang-select:focus{
-    border-color:var(--blue);
-    box-shadow:0 0 15px rgba(0,217,255,.08);
-}
+.lang-select:focus {
 
-.lang-select option{
-    background:#10131a;
-    color:#fff;
-}
+    border-color:
+        var(--blue);
 
-body.light .lang-select option{
-    background:#fff;
-    color:#111;
-}
-
-.theme-btn{
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    background:var(--input);
-    color:var(--text);
-    border:1px solid var(--border);
-    cursor:pointer;
-    font-size:16px;
-    transition:.2s;
-}
-
-.theme-btn:hover{
-    border-color:var(--blue);
-    transform:translateY(-1px);
-}
-
-.cart-btn{
-    height:38px;
-    padding:0 15px;
-    border-radius:25px;
-    background:var(--input);
-    color:var(--text);
-    border:1px solid var(--border);
-    display:flex;
-    align-items:center;
-    gap:7px;
-    cursor:pointer;
-    font-weight:600;
-    transition:.2s;
-}
-
-.cart-btn:hover{
-    border-color:var(--blue);
-    transform:translateY(-1px);
-}
-
-.cart-count{
-    min-width:21px;
-    padding:2px 6px;
-    border-radius:20px;
-    background:var(--blue);
-    color:#000;
-    font-size:11px;
-    text-align:center;
-    font-weight:900;
-}
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-main{
-    max-width:1250px;
-    margin:auto;
-    padding:140px 30px 70px;
-}
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    min-height:610px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:55px;
-    align-items:center;
-    padding:30px 0 80px;
-    position:relative;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    width:410px;
-    height:410px;
-    right:0;
-    top:15px;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(0,217,255,.14),
-        transparent 68%
-    );
-    filter:blur(12px);
-    pointer-events:none;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    text-align:left;
-    max-width:650px;
-}
-
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:9px 14px;
-    margin-bottom:22px;
-    border-radius:50px;
-    border:1px solid rgba(0,217,255,.22);
-    background:rgba(0,217,255,.06);
-    color:var(--blue);
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-}
-
-.badge-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--blue);
-    box-shadow:0 0 10px var(--blue);
-}
-
-.hero h1{
-    max-width:650px;
-    font-size:clamp(48px,5.8vw,76px);
-    line-height:.99;
-    letter-spacing:-3.5px;
-    font-weight:900;
-    margin-bottom:24px;
-}
-
-.hero h1 span{
-    color:var(--blue);
-    text-shadow:0 0 30px rgba(0,217,255,.18);
-}
-
-.hero p{
-    max-width:590px;
-    color:var(--muted);
-    font-size:16px;
-    line-height:1.75;
-    margin-bottom:30px;
-}
-
-.buttons{
-    display:flex;
-    align-items:center;
-    gap:13px;
-    flex-wrap:wrap;
-}
-
-.button{
-    min-width:165px;
-    padding:14px 22px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:10px;
-    font-size:13px;
-    font-weight:800;
-    transition:.25s;
-}
-
-.primary{
-    background:linear-gradient(
-        135deg,
-        var(--blue),
-        var(--blue-dark)
-    );
-    color:#fff;
-    box-shadow:0 10px 30px rgba(0,217,255,.14);
-}
-
-.primary:hover{
-    transform:translateY(-2px);
-    box-shadow:0 14px 35px rgba(0,217,255,.25);
-}
-
-.secondary{
-    background:var(--input);
-    color:var(--text);
-    border:1px solid var(--border);
-}
-
-.secondary:hover{
-    border-color:var(--blue);
-    transform:translateY(-2px);
-}
-
-/* =====================================================
-   HERO VISUAL
-===================================================== */
-
-.hero-visual{
-    position:relative;
-    min-height:450px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.ring{
-    position:absolute;
-    width:390px;
-    height:390px;
-    border-radius:50%;
-    border:1px solid rgba(0,217,255,.13);
     box-shadow:
-        0 0 70px rgba(0,217,255,.05),
-        inset 0 0 65px rgba(0,217,255,.035);
+        0 0 0 4px
+        rgba(0,217,255,.05);
 }
 
-.ring::before{
-    content:"";
-    position:absolute;
-    inset:36px;
-    border-radius:50%;
-    border:1px solid rgba(0,217,255,.08);
-}
 
-.visual-card{
-    position:relative;
-    z-index:2;
-    width:305px;
-    height:365px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    border-radius:25px;
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.018)
-    );
-    border:1px solid var(--border);
-    backdrop-filter:blur(18px);
-    box-shadow:
-        0 28px 75px rgba(0,0,0,.35),
-        0 0 45px rgba(0,217,255,.05);
-    transform:rotate(-3deg);
-    transition:.4s;
-}
+.lang-select option {
 
-.visual-card:hover{
-    transform:rotate(0deg) translateY(-8px);
-}
-
-.visual-card h3{
-    font-size:23px;
-    letter-spacing:3px;
-    margin-bottom:11px;
-}
-
-.visual-card strong{
-    font-size:46px;
-    font-weight:900;
-    letter-spacing:-2px;
-    color:var(--blue);
-}
-
-.visual-line{
-    width:78px;
-    height:2px;
-    margin:19px auto;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        var(--blue),
-        transparent
-    );
-}
-
-.visual-card p{
-    color:var(--muted);
-    font-size:8px;
-    letter-spacing:1.8px;
-}
-
-/* =====================================================
-   STATS
-===================================================== */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    max-width:620px;
-    margin-top:46px;
-    padding-top:22px;
-    border-top:1px solid var(--border);
-}
-
-.stat{
-    padding-right:16px;
-    text-align:left;
-}
-
-.stat:not(:last-child){
-    border-right:1px solid var(--border);
-}
-
-.stat strong{
-    display:block;
-    font-size:24px;
-    margin-bottom:5px;
-}
-
-.stat span{
-    color:var(--muted);
-    font-size:9px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-}
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-.features,
-.categories,
-.showcase-section,
-.cta{
-    padding:96px 30px;
-}
-
-.features,
-.showcase-section{
-    margin-left:-30px;
-    margin-right:-30px;
-    background:var(--bg2);
-}
-
-.section-title{
-    max-width:700px;
-    margin:0 auto 48px;
-    text-align:center;
-}
-
-.section-title small{
-    color:var(--blue);
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:2.5px;
-    text-transform:uppercase;
-}
-
-.section-title h2{
-    margin-top:13px;
-    font-size:clamp(30px,4vw,46px);
-    line-height:1.05;
-    letter-spacing:-1.5px;
-}
-
-.section-title p{
-    margin-top:15px;
-    color:var(--muted);
-    line-height:1.7;
-    font-size:13px;
-}
-
-/* =====================================================
-   FEATURES
-===================================================== */
-
-.feature-grid{
-    max-width:1140px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.feature-card{
-    min-height:250px;
-    padding:30px;
-    border-radius:19px;
-    border:1px solid var(--border);
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.05),
-        rgba(255,255,255,.015)
-    );
-    transition:.3s;
-}
-
-.feature-card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(0,217,255,.24);
-    box-shadow:0 18px 45px rgba(0,0,0,.18);
-}
-
-.feature-number{
-    color:var(--blue);
-    font-size:9px;
-    font-weight:900;
-    letter-spacing:1.5px;
-}
-
-.icon{
-    width:50px;
-    height:50px;
-    margin:21px 0 19px;
-    border-radius:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(0,217,255,.08);
-    border:1px solid var(--border);
-    color:var(--blue);
-    font-size:20px;
-}
-
-.feature-card h3{
-    font-size:18px;
-    margin-bottom:10px;
-}
-
-.feature-card p{
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.7;
-}
-
-/* =====================================================
-   CATEGORIES
-===================================================== */
-
-.category-grid{
-    max-width:1140px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:17px;
-}
-
-.category-card{
-    min-height:195px;
-    padding:26px;
-    border-radius:18px;
-    border:1px solid var(--border);
-    background:var(--card);
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    position:relative;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.category-card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(0,217,255,.23);
-}
-
-.category-icon{
-    position:absolute;
-    top:21px;
-    right:21px;
-    font-size:30px;
-}
-
-.category-card h3{
-    font-size:17px;
-    margin-bottom:6px;
-}
-
-.category-card p{
-    color:var(--muted);
-    font-size:11px;
-}
-
-/* =====================================================
-   SHOWCASE
-===================================================== */
-
-.showcase{
-    max-width:1140px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.showcase-card{
-    min-height:315px;
-    padding:34px;
-    border-radius:21px;
-    border:1px solid var(--border);
-    position:relative;
-    overflow:hidden;
     background:
+        #0b1118;
+
+    color:
+        #ffffff;
+}
+
+
+body.light .lang-select option {
+
+    background:
+        #ffffff;
+
+    color:
+        #111827;
+}
+
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
+
+.theme-btn {
+
+    width:
+        40px;
+
+    min-width:
+        40px;
+
+    height:
+        40px;
+
+    padding:
+        0;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--input);
+
+    color:
+        var(--text);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        15px;
+
+    transition:
+        .25s;
+}
+
+
+.theme-btn:hover {
+
+    transform:
+        translateY(-2px)
+        rotate(7deg);
+
+    border-color:
+        var(--blue);
+}
+
+
+/* =========================================================
+   CART BUTTON
+========================================================= */
+
+.cart-btn {
+
+    height:
+        40px;
+
+    padding:
+        0 15px;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--input);
+
+    color:
+        var(--text);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    transition:
+        .25s;
+}
+
+
+.cart-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        var(--blue);
+}
+
+
+.cart-count {
+
+    min-width:
+        21px;
+
+    height:
+        21px;
+
+    padding:
+        0 6px;
+
+    border-radius:
+        99px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-2)
+        );
+
+    color:
+        #ffffff;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+
+    width:
+        min(
+            calc(100% - 60px),
+            var(--site-width)
+        ) !important;
+
+    margin:
+        auto !important;
+
+    padding-top:
+        var(--content-top) !important;
+
+    padding-bottom:
+        0 !important;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height:
+        650px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items:
+        center;
+
+    gap:
+        70px;
+
+    position:
+        relative;
+
+    padding:
+        25px 0 90px;
+}
+
+
+/* =========================================================
+   HERO LEFT
+========================================================= */
+
+.hero-left {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+.eyebrow {
+
+    width:
+        max-content;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    padding:
+        9px 13px;
+
+    border:
+        1px solid
+        rgba(0,217,255,.18);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(0,217,255,.045);
+
+    color:
+        var(--blue);
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.7px;
+
+    margin-bottom:
+        23px;
+}
+
+
+.eyebrow-dot {
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--blue);
+
+    box-shadow:
+        0 0 12px
+        var(--blue);
+}
+
+
+.hero-title {
+
+    max-width:
+        720px;
+
+    font-size:
+        clamp(
+            52px,
+            6.2vw,
+            84px
+        );
+
+    line-height:
+        .93;
+
+    letter-spacing:
+        -4.7px;
+
+    font-weight:
+        950;
+
+    margin-bottom:
+        27px;
+}
+
+
+.hero-title .white {
+
+    color:
+        var(--text);
+}
+
+
+.hero-title .gradient {
+
+    color:
+        transparent;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--blue),
+            #6ee7ff,
+            var(--blue-2)
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+}
+
+
+.hero-description {
+
+    max-width:
+        600px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.85;
+
+    margin-bottom:
+        31px;
+}
+
+
+/* =========================================================
+   HERO ACTIONS
+========================================================= */
+
+.hero-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    flex-wrap:
+        wrap;
+}
+
+
+.hero-button {
+
+    min-width:
+        175px;
+
+    min-height:
+        49px;
+
+    padding:
+        14px 22px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        12px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+
+    transition:
+        .25s;
+}
+
+
+.hero-button.primary {
+
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-2)
+        );
+
+    box-shadow:
+        0 16px 35px
+        rgba(37,99,235,.22);
+}
+
+
+.hero-button.primary:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 21px 45px
+        rgba(37,99,235,.32);
+}
+
+
+.hero-button.secondary {
+
+    color:
+        var(--text);
+
+    background:
+        var(--input);
+
+    border:
+        1px solid var(--border);
+}
+
+
+.hero-button.secondary:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--blue);
+}
+
+
+/* =========================================================
+   HERO TRUST
+========================================================= */
+
+.hero-trust {
+
+    margin-top:
+        47px;
+
+    padding-top:
+        22px;
+
+    border-top:
+        1px solid var(--border);
+
+    max-width:
+        630px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+}
+
+
+.trust-block {
+
+    padding-right:
+        18px;
+}
+
+
+.trust-block:not(:last-child) {
+
+    border-right:
+        1px solid var(--border);
+}
+
+
+.trust-number {
+
+    display:
+        block;
+
+    font-size:
+        24px;
+
+    font-weight:
+        950;
+
+    margin-bottom:
+        5px;
+}
+
+
+.trust-label {
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+}
+
+
+/* =========================================================
+   HERO RIGHT
+========================================================= */
+
+.hero-right {
+
+    min-height:
+        500px;
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+
+/* =========================================================
+   ORBIT
+========================================================= */
+
+.orbit {
+
+    position:
+        absolute;
+
+    width:
+        470px;
+
+    height:
+        470px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(0,217,255,.11);
+
+    box-shadow:
+
+        0 0 80px
+        rgba(0,217,255,.04),
+
+        inset
+        0 0 80px
+        rgba(0,217,255,.025);
+
+    animation:
+        orbitPulse
+        5s
+        ease-in-out
+        infinite;
+}
+
+
+.orbit::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        40px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(0,217,255,.08);
+}
+
+
+.orbit::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        105px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(37,99,235,.08);
+}
+
+
+@keyframes orbitPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity:
+            .8;
+    }
+
+    50% {
+
+        transform:
+            scale(1.025);
+
+        opacity:
+            1;
+    }
+}
+
+
+/* =========================================================
+   HERO DEVICE
+========================================================= */
+
+.hero-device {
+
+    width:
+        315px;
+
+    height:
+        390px;
+
+    position:
+        relative;
+
+    z-index:
+        5;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--border-strong);
+
+    border-radius:
+        28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.012)
+        );
+
+    box-shadow:
+
+        0 35px 100px
+        rgba(0,0,0,.40),
+
+        0 0 55px
+        rgba(0,217,255,.055);
+
+    backdrop-filter:
+        blur(22px);
+
+    transform:
+        rotate(-4deg);
+
+    transition:
+        .45s;
+}
+
+
+.hero-device:hover {
+
+    transform:
+        rotate(0deg)
+        translateY(-10px);
+}
+
+
+.device-top {
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        2.2px;
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        24px;
+}
+
+
+.device-title {
+
+    font-size:
+        26px;
+
+    letter-spacing:
+        3px;
+
+    font-weight:
+        950;
+}
+
+
+.device-main {
+
+    margin-top:
+        10px;
+
+    font-size:
+        56px;
+
+    font-weight:
+        950;
+
+    letter-spacing:
+        -3px;
+
+    color:
+        var(--blue);
+
+    text-shadow:
+        0 0 32px
+        rgba(0,217,255,.2);
+}
+
+
+.device-line {
+
+    width:
+        90px;
+
+    height:
+        2px;
+
+    margin:
+        21px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--blue),
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(0,217,255,.35);
+}
+
+
+.device-caption {
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2px;
+
+    font-weight:
+        800;
+}
+
+
+.device-bottom {
+
+    position:
+        absolute;
+
+    bottom:
+        25px;
+
+    left:
+        25px;
+
+    right:
+        25px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    padding-top:
+        15px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.device-bottom span {
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        1px;
+}
+
+
+/* =========================================================
+   FLOATING TAGS
+========================================================= */
+
+.floating-tag {
+
+    position:
+        absolute;
+
+    z-index:
+        7;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        8px 11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(0,0,0,.30);
+
+    backdrop-filter:
+        blur(10px);
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .8px;
+}
+
+
+.floating-tag.one {
+
+    top:
+        58px;
+
+    left:
+        25px;
+}
+
+
+.floating-tag.two {
+
+    right:
+        18px;
+
+    bottom:
+        55px;
+}
+
+
+.floating-dot {
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--blue);
+
+    box-shadow:
+        0 0 9px
+        var(--blue);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.section-divider {
+
+    width:
+        100%;
+
+    height:
+        1px;
+
+    background:
+        var(--border);
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section {
+
+    padding:
+        105px 0;
+}
+
+
+.section.dark {
+
+    width:
+        calc(100% + 60px);
+
+    margin-left:
+        -30px;
+
+    padding-left:
+        30px;
+
+    padding-right:
+        30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.012),
+            rgba(255,255,255,.025)
+        );
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.section-heading {
+
+    max-width:
+        730px;
+
+    margin:
+        0 auto 52px;
+
+    text-align:
+        center;
+}
+
+
+.section-heading .label {
+
+    color:
+        var(--blue);
+
+    font-size:
+        9px;
+
+    font-weight:
+        950;
+
+    letter-spacing:
+        2.5px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.section-heading h2 {
+
+    margin-top:
+        14px;
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            50px
+        );
+
+    line-height:
+        1.02;
+
+    letter-spacing:
+        -2px;
+
+    font-weight:
+        950;
+}
+
+
+.section-heading p {
+
+    max-width:
+        650px;
+
+    margin:
+        16px auto 0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   THREE FEATURES
+========================================================= */
+
+.feature-grid {
+
+    max-width:
+        1140px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        20px;
+}
+
+
+.feature-card {
+
+    min-height:
+        255px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        29px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        21px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        .3s;
+}
+
+
+.feature-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(0,217,255,.23);
+}
+
+
+.feature-number {
+
+    color:
+        var(--blue);
+
+    font-size:
+        9px;
+
+    font-weight:
+        950;
+
+    letter-spacing:
+        1.7px;
+}
+
+
+.feature-icon {
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    margin:
+        21px 0 18px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        14px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(0,217,255,.065);
+
+    color:
+        var(--blue);
+
+    font-size:
+        20px;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.04);
+}
+
+
+.feature-card h3 {
+
+    font-size:
+        18px;
+
+    margin-bottom:
+        10px;
+
+    font-weight:
+        900;
+}
+
+
+.feature-card p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   CATEGORY SECTION
+========================================================= */
+
+.category-grid {
+
+    max-width:
+        1140px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:
+        17px;
+}
+
+
+.category {
+
+    min-height:
+        205px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        25px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        flex-end;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    background:
+        var(--card);
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        .3s;
+}
+
+
+.category:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(0,217,255,.24);
+}
+
+
+.category-symbol {
+
+    position:
+        absolute;
+
+    top:
+        20px;
+
+    right:
+        20px;
+
+    font-size:
+        31px;
+}
+
+
+.category-index {
+
+    position:
+        absolute;
+
+    top:
+        22px;
+
+    left:
+        22px;
+
+    color:
+        var(--muted-2);
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+}
+
+
+.category h3 {
+
+    margin-bottom:
+        6px;
+
+    font-size:
+        18px;
+
+    font-weight:
+        900;
+}
+
+
+.category p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   FEATURED SHOWCASE
+========================================================= */
+
+.showcase {
+
+    max-width:
+        1140px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap:
+        20px;
+}
+
+
+.showcase-main,
+.showcase-side {
+
+    min-height:
+        350px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        24px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.showcase-main {
+
+    padding:
+        35px;
+
+    background:
+
         radial-gradient(
-            circle at 75% 25%,
-            rgba(0,217,255,.11),
+            circle at 78% 28%,
+            rgba(0,217,255,.13),
             transparent 26%
         ),
-        var(--card);
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.008)
+        );
 }
 
-.showcase-card.purple{
+
+.showcase-side {
+
+    padding:
+        30px;
+
     background:
+
         radial-gradient(
-            circle at 75% 20%,
-            rgba(99,102,241,.13),
-            transparent 27%
+            circle at 75% 22%,
+            rgba(99,102,241,.15),
+            transparent 29%
         ),
+
         var(--card);
 }
 
-.showcase-label{
-    color:var(--blue);
-    font-size:9px;
-    letter-spacing:1.8px;
-    font-weight:900;
+
+.showcase-label {
+
+    color:
+        var(--blue);
+
+    font-size:
+        9px;
+
+    font-weight:
+        950;
+
+    letter-spacing:
+        2px;
 }
 
-.showcase-card h3{
-    max-width:440px;
-    font-size:28px;
-    margin:15px 0;
-    line-height:1.15;
+
+.showcase-main h3,
+.showcase-side h3 {
+
+    max-width:
+        550px;
+
+    margin:
+        15px 0;
+
+    font-size:
+        30px;
+
+    line-height:
+        1.12;
+
+    letter-spacing:
+        -1px;
+
+    font-weight:
+        950;
 }
 
-.showcase-card p{
-    max-width:470px;
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.75;
+
+.showcase-main p,
+.showcase-side p {
+
+    max-width:
+        510px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.8;
 }
 
-.showcase-chip{
-    position:absolute;
-    width:185px;
-    height:185px;
-    right:-48px;
-    bottom:-65px;
-    border-radius:50%;
-    border:1px solid rgba(0,217,255,.16);
-    box-shadow:
-        0 0 60px rgba(0,217,255,.08),
-        inset 0 0 60px rgba(0,217,255,.035);
+
+/* =========================================================
+   SHOWCASE ORBIT
+========================================================= */
+
+.showcase-orbit {
+
+    position:
+        absolute;
+
+    width:
+        280px;
+
+    height:
+        280px;
+
+    right:
+        -95px;
+
+    bottom:
+        -115px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(0,217,255,.16);
 }
 
-/* =====================================================
-   CTA
-===================================================== */
 
-.cta-box{
-    max-width:1140px;
-    margin:auto;
-    padding:66px 32px;
-    text-align:center;
-    border-radius:26px;
-    border:1px solid var(--border);
+.showcase-orbit::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        32px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(0,217,255,.09);
+}
+
+
+.showcase-orbit::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        72px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(37,99,235,.10);
+}
+
+
+/* =========================================================
+   SIDE FEATURE
+========================================================= */
+
+.side-stat {
+
+    margin-top:
+        38px;
+
+    display:
+        grid;
+
+    gap:
+        11px;
+}
+
+
+.side-stat-row {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        12px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        11px;
+
     background:
+        rgba(255,255,255,.018);
+}
+
+
+.side-stat-row span {
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+}
+
+
+.side-stat-row strong {
+
+    color:
+        var(--blue);
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+}
+
+
+/* =========================================================
+   NUMBERS
+========================================================= */
+
+.numbers {
+
+    max-width:
+        1140px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:
+        16px;
+}
+
+
+.number-card {
+
+    padding:
+        25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        17px;
+
+    background:
+        var(--card);
+}
+
+
+.number-card strong {
+
+    display:
+        block;
+
+    color:
+        var(--blue);
+
+    font-size:
+        28px;
+
+    font-weight:
+        950;
+
+    margin-bottom:
+        7px;
+}
+
+
+.number-card span {
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+
+    padding:
+        110px 0;
+}
+
+
+.cta-box {
+
+    max-width:
+        1140px;
+
+    margin:
+        auto;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        72px 30px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        28px;
+
+    background:
+
         radial-gradient(
             circle at center,
             rgba(0,217,255,.10),
             transparent 55%
         ),
+
         var(--card);
-    box-shadow:0 25px 65px rgba(0,0,0,.18);
+
+    box-shadow:
+        0 35px 95px
+        rgba(0,0,0,.22);
 }
 
-.cta-box small{
-    color:var(--blue);
-    font-size:9px;
-    font-weight:900;
-    letter-spacing:2px;
+
+.cta-box::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        260px;
+
+    height:
+        260px;
+
+    left:
+        -130px;
+
+    top:
+        -130px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,217,255,.09),
+            transparent 70%
+        );
 }
 
-.cta-box h2{
-    margin:13px auto;
-    max-width:700px;
-    font-size:clamp(32px,4vw,50px);
-    line-height:1;
-    letter-spacing:-2px;
+
+.cta-box::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        250px;
+
+    height:
+        250px;
+
+    right:
+        -120px;
+
+    bottom:
+        -125px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(99,102,241,.08),
+            transparent 70%
+        );
 }
 
-.cta-box p{
-    max-width:580px;
-    margin:0 auto 27px;
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.75;
+
+.cta-box small,
+.cta-box h2,
+.cta-box p,
+.cta-box a {
+
+    position:
+        relative;
+
+    z-index:
+        2;
 }
 
-/* =====================================================
+
+.cta-box small {
+
+    color:
+        var(--blue);
+
+    font-size:
+        9px;
+
+    font-weight:
+        950;
+
+    letter-spacing:
+        2.3px;
+}
+
+
+.cta-box h2 {
+
+    max-width:
+        720px;
+
+    margin:
+        14px auto;
+
+    font-size:
+        clamp(
+            32px,
+            4.5vw,
+            54px
+        );
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -2.2px;
+
+    font-weight:
+        950;
+}
+
+
+.cta-box p {
+
+    max-width:
+        600px;
+
+    margin:
+        0 auto 28px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
-footer{
-    margin-left:-30px;
-    margin-right:-30px;
-    padding:45px 30px 22px;
-    border-top:1px solid var(--border);
-    background:var(--bg2);
+footer {
+
+    border-top:
+        1px solid var(--border);
+
+    background:
+        var(--bg-soft);
+
+    padding:
+        48px 0 22px;
 }
 
-.footer-inner{
-    max-width:1140px;
-    margin:auto;
+
+.footer-inner {
+
+    width:
+        min(
+            calc(100% - 60px),
+            var(--site-width)
+        );
+
+    margin:
+        auto;
 }
 
-.footer-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
-    padding-bottom:26px;
-    border-bottom:1px solid var(--border);
+
+.footer-top {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
+
+    padding-bottom:
+        28px;
+
+    border-bottom:
+        1px solid var(--border);
 }
 
-.footer-brand h3{
-    font-size:19px;
-    letter-spacing:1.5px;
+
+.footer-brand h3 {
+
+    font-size:
+        20px;
+
+    letter-spacing:
+        1.7px;
+
+    font-weight:
+        950;
 }
 
-.footer-brand h3 span{
-    color:var(--blue);
+
+.footer-brand h3 span {
+
+    color:
+        var(--blue);
 }
 
-.footer-brand p{
-    max-width:380px;
-    margin-top:8px;
-    color:var(--muted);
-    line-height:1.6;
-    font-size:10px;
+
+.footer-brand p {
+
+    max-width:
+        410px;
+
+    margin-top:
+        9px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.7;
 }
 
-.footer-links{
-    display:flex;
-    gap:26px;
+
+.footer-links {
+
+    display:
+        flex;
+
+    gap:
+        26px;
+
+    flex-wrap:
+        wrap;
 }
 
-.footer-links a{
-    color:var(--muted);
-    font-size:10px;
-    transition:.2s;
+
+.footer-links a {
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    transition:
+        color .2s;
 }
 
-.footer-links a:hover{
-    color:var(--blue);
+
+.footer-links a:hover {
+
+    color:
+        var(--blue);
 }
 
-.footer-bottom{
-    padding-top:15px;
-    color:var(--muted);
-    font-size:9px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
+
+.footer-bottom {
+
+    padding-top:
+        16px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
 }
 
-/* =====================================================
-   CART
-===================================================== */
 
-.cart-overlay{
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    background:rgba(0,0,0,.72);
-    backdrop-filter:blur(10px);
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
+/* =========================================================
+   CART OVERLAY
+========================================================= */
+
+.cart-overlay {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        2000;
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    background:
+        rgba(0,0,0,.74);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        .3s;
 }
 
-.cart-overlay.active{
-    opacity:1;
-    visibility:visible;
+
+.cart-overlay.active {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
 }
 
-.cart-drawer{
-    position:absolute;
-    top:0;
-    right:-450px;
-    width:430px;
-    max-width:100%;
-    height:100%;
-    background:var(--card);
-    border-left:1px solid var(--border);
-    display:flex;
-    flex-direction:column;
-    transition:.3s;
+
+.cart-drawer {
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    right:
+        -470px;
+
+    width:
+        450px;
+
+    max-width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--card-soft),
+            var(--card)
+        );
+
+    border-left:
+        1px solid var(--border);
+
+    box-shadow:
+        -35px 0 90px
+        rgba(0,0,0,.4);
+
+    transition:
+        right .38s
+        cubic-bezier(.22,1,.36,1);
 }
 
-.cart-overlay.active .cart-drawer{
-    right:0;
+
+.cart-overlay.active .cart-drawer {
+
+    right:
+        0;
 }
 
-.drawer-header{
-    padding:24px;
-    border-bottom:1px solid var(--border);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+
+.drawer-header {
+
+    padding:
+        25px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
 }
 
-.drawer-title{
-    font-size:20px;
-    font-weight:900;
+
+.drawer-title {
+
+    font-size:
+        21px;
+
+    font-weight:
+        950;
 }
 
-.drawer-close{
-    width:37px;
-    height:37px;
-    border-radius:50%;
-    background:var(--input);
-    color:var(--text);
-    border:1px solid var(--border);
-    cursor:pointer;
-    font-size:15px;
+
+.drawer-close {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--input);
+
+    color:
+        var(--text);
+
+    transition:
+        .25s;
 }
 
-.drawer-close:hover{
-    border-color:var(--blue);
-    color:var(--blue);
+
+.drawer-close:hover {
+
+    transform:
+        rotate(90deg);
+
+    border-color:
+        var(--blue);
 }
 
-.drawer-body{
-    flex:1;
-    padding:25px;
-    overflow-y:auto;
+
+.drawer-body {
+
+    flex:
+        1;
+
+    padding:
+        25px;
+
+    overflow-y:
+        auto;
 }
 
-.cart-empty{
-    text-align:center;
-    color:var(--muted);
-    margin-top:80px;
-    font-size:14px;
+
+.cart-empty {
+
+    margin-top:
+        90px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
 }
 
-.cart-item{
-    padding:16px 0;
-    border-bottom:1px solid var(--border);
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
+
+.cart-item {
+
+    padding:
+        17px 0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    border-bottom:
+        1px solid var(--border);
 }
 
-.cart-item-name{
-    font-weight:800;
-    margin-bottom:5px;
+
+.cart-item-name {
+
+    margin-bottom:
+        5px;
+
+    font-weight:
+        900;
 }
 
-.cart-item-price{
-    color:var(--blue);
-    font-weight:700;
+
+.cart-item-price {
+
+    color:
+        var(--blue);
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
 }
 
-.remove-item{
-    border:none;
-    background:none;
-    color:#ef4444;
-    cursor:pointer;
-    font-weight:700;
+
+.remove-item {
+
+    border:
+        none;
+
+    background:
+        none;
+
+    color:
+        var(--red);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
 }
 
-.cart-footer{
-    padding:25px;
-    border-top:1px solid var(--border);
-    background:var(--card);
+
+.cart-footer {
+
+    padding:
+        25px;
+
+    border-top:
+        1px solid var(--border);
 }
 
-.cart-total{
-    display:flex;
-    justify-content:space-between;
-    font-size:18px;
-    font-weight:900;
-    margin-bottom:18px;
+
+.cart-total {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        18px;
+
+    font-size:
+        18px;
+
+    font-weight:
+        950;
 }
 
-.cart-total span:last-child{
-    color:var(--blue);
+
+.cart-total span:last-child {
+
+    color:
+        var(--blue);
 }
 
-.checkout-btn{
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:11px;
-    background:linear-gradient(
-        135deg,
-        #00d9ff,
-        #2563eb
-    );
-    color:#fff;
-    font-weight:900;
-    cursor:pointer;
+
+.checkout-btn {
+
+    width:
+        100%;
+
+    padding:
+        16px;
+
+    border:
+        none;
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-2)
+        );
+
+    color:
+        #ffffff;
+
+    font-size:
+        13px;
+
+    font-weight:
+        950;
 }
 
-/* =====================================================
+
+/* =========================================================
    PAYMENT
-===================================================== */
+========================================================= */
 
-.payment-overlay{
-    position:fixed;
-    inset:0;
-    z-index:3000;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(0,0,0,.88);
-    backdrop-filter:blur(18px);
+.payment-overlay {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        3000;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(0,0,0,.88);
+
+    backdrop-filter:
+        blur(18px);
 }
 
-.payment-overlay.active{
-    display:flex;
+
+.payment-overlay.active {
+
+    display:
+        flex;
 }
 
-.payment-box{
-    width:950px;
-    max-width:100%;
-    max-height:92vh;
-    overflow-y:auto;
-    padding:35px;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:28px;
-    box-shadow:0 30px 100px #000;
+
+.payment-box {
+
+    width:
+        980px;
+
+    max-width:
+        100%;
+
+    max-height:
+        92vh;
+
+    overflow-y:
+        auto;
+
+    padding:
+        38px;
+
+    position:
+        relative;
+
+    border:
+        1px solid var(--border-strong);
+
+    border-radius:
+        28px;
+
+    background:
+        var(--card);
+
+    box-shadow:
+        0 35px 110px
+        rgba(0,0,0,.55);
 }
 
-.payment-close{
-    float:right;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:var(--input);
-    color:var(--text);
-    border:1px solid var(--border);
-    cursor:pointer;
+
+.payment-close {
+
+    position:
+        absolute;
+
+    top:
+        20px;
+
+    right:
+        20px;
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--input);
+
+    color:
+        var(--text);
 }
 
-.payment-title{
-    text-align:center;
-    font-size:28px;
-    font-weight:900;
-    margin-bottom:8px;
+
+.payment-title {
+
+    text-align:
+        center;
+
+    font-size:
+        29px;
+
+    font-weight:
+        950;
+
+    margin-bottom:
+        8px;
 }
 
-.payment-subtitle{
-    text-align:center;
-    color:var(--muted);
-    margin-bottom:30px;
+
+.payment-subtitle {
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    margin-bottom:
+        30px;
+
+    font-size:
+        13px;
 }
 
-.payment-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:35px;
-    align-items:center;
+
+.payment-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        35px;
+
+    align-items:
+        center;
 }
 
-.credit-card{
-    width:100%;
-    max-width:430px;
-    aspect-ratio:1.586;
-    margin:auto;
-    padding:28px;
-    border-radius:22px;
-    background:linear-gradient(
-        135deg,
-        #111827,
-        #020617,
-        #164e63
-    );
-    box-shadow:0 25px 60px #000;
-    position:relative;
-    overflow:hidden;
-    color:#fff;
+
+/* =========================================================
+   CREDIT CARD
+========================================================= */
+
+.credit-card {
+
+    width:
+        100%;
+
+    max-width:
+        430px;
+
+    aspect-ratio:
+        1.586;
+
+    margin:
+        auto;
+
+    padding:
+        28px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        23px;
+
+    color:
+        #ffffff;
+
+    background:
+
+        radial-gradient(
+            circle at 82% 16%,
+            rgba(0,217,255,.18),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #151f2e,
+            #020617,
+            #123346
+        );
+
+    box-shadow:
+        0 30px 65px
+        rgba(0,0,0,.44);
 }
 
-.card-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+
+.card-top {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
 }
 
-.chip{
-    width:48px;
-    height:36px;
-    border-radius:8px;
-    background:linear-gradient(
-        135deg,
-        #eee,
-        #777
-    );
+
+.chip {
+
+    width:
+        49px;
+
+    height:
+        37px;
+
+    border-radius:
+        8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f4f5,
+            #9ca3af,
+            #52525b
+        );
 }
 
-.card-brand{
-    font-size:21px;
-    font-weight:900;
-    font-style:italic;
+
+.card-brand {
+
+    font-size:
+        21px;
+
+    font-weight:
+        950;
+
+    font-style:
+        italic;
 }
 
-.card-number{
-    margin-top:45px;
-    font-family:monospace;
-    font-size:22px;
-    letter-spacing:3px;
+
+.card-number {
+
+    margin-top:
+        45px;
+
+    font-family:
+        monospace;
+
+    font-size:
+        22px;
+
+    letter-spacing:
+        3px;
 }
 
-.card-bottom{
-    position:absolute;
-    left:28px;
-    right:28px;
-    bottom:25px;
-    display:flex;
-    justify-content:space-between;
+
+.card-bottom {
+
+    position:
+        absolute;
+
+    left:
+        28px;
+
+    right:
+        28px;
+
+    bottom:
+        24px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
 }
 
-.card-label{
-    color:#999;
-    font-size:8px;
+
+.card-label {
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size:
+        8px;
 }
+
 
 .card-holder,
-.card-expiry{
-    margin-top:4px;
-    font-size:12px;
-    font-weight:700;
+.card-expiry {
+
+    margin-top:
+        4px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
 }
 
-.method-title{
-    font-size:14px;
-    font-weight:800;
-    margin-bottom:10px;
+
+/* =========================================================
+   PAYMENT FORM
+========================================================= */
+
+.method-title {
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        900;
 }
 
-.methods{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-    margin-bottom:18px;
+
+.methods {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        8px;
+
+    margin-bottom:
+        18px;
 }
 
-.method{
-    padding:12px 5px;
-    border-radius:8px;
-    background:var(--input);
-    color:var(--text);
-    border:1px solid var(--border);
-    cursor:pointer;
-    font-weight:800;
+
+.method {
+
+    padding:
+        12px 5px;
+
+    border-radius:
+        9px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--input);
+
+    color:
+        var(--text);
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
 }
 
-.method.active{
-    border-color:var(--blue);
-    box-shadow:0 0 15px rgba(0,217,255,.12);
+
+.method.active {
+
+    border-color:
+        var(--blue);
+
+    box-shadow:
+        0 0 15px
+        rgba(0,217,255,.10);
 }
 
-.payment-group{
-    margin-bottom:15px;
+
+.payment-group {
+
+    margin-bottom:
+        15px;
 }
 
-.payment-group label{
-    display:block;
-    color:var(--muted);
-    font-size:13px;
-    margin-bottom:7px;
+
+.payment-group label {
+
+    display:
+        block;
+
+    margin-bottom:
+        7px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
 }
 
-.payment-group input{
-    width:100%;
-    padding:13px;
-    border-radius:9px;
-    background:var(--input);
-    color:var(--text);
-    border:1px solid var(--border);
-    outline:none;
+
+.payment-group input {
+
+    width:
+        100%;
+
+    padding:
+        13px;
+
+    border-radius:
+        10px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--input);
+
+    color:
+        var(--text);
+
+    outline:
+        none;
 }
 
-.payment-group input:focus{
-    border-color:var(--blue);
+
+.payment-group input:focus {
+
+    border-color:
+        var(--blue);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(0,217,255,.05);
 }
 
-.payment-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
+
+.payment-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        10px;
 }
 
-.payment-error{
-    display:none;
-    padding:13px;
-    margin-bottom:15px;
-    border-radius:10px;
-    background:rgba(239,68,68,.08);
-    border:1px solid rgba(239,68,68,.35);
-    color:#ff6b6b;
-    font-size:13px;
-    font-weight:700;
+
+.payment-submit {
+
+    width:
+        100%;
+
+    padding:
+        15px;
+
+    border:
+        none;
+
+    border-radius:
+        11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-2)
+        );
+
+    color:
+        #ffffff;
+
+    font-weight:
+        950;
 }
 
-.payment-error.show{
-    display:block;
+
+.payment-error {
+
+    display:
+        none;
+
+    padding:
+        13px;
+
+    margin-bottom:
+        15px;
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(239,68,68,.08);
+
+    border:
+        1px solid
+        rgba(239,68,68,.30);
+
+    color:
+        #ff6b6b;
+
+    text-align:
+        center;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
 }
 
-.payment-submit{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:10px;
-    background:linear-gradient(
-        135deg,
-        #00d9ff,
-        #2563eb
-    );
-    color:#fff;
-    font-weight:900;
-    cursor:pointer;
+
+.payment-error.show {
+
+    display:
+        block;
 }
 
-.security{
-    text-align:center;
-    color:var(--muted);
-    font-size:11px;
-    margin-top:10px;
+
+.security {
+
+    margin-top:
+        10px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.5;
 }
 
-/* =====================================================
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:1100px) {
+
+    :root {
+
+        --site-side:
+            20px;
+    }
+
+
+    header {
+
+        height:
+            auto !important;
+
+        min-height:
+            var(--header-height);
+    }
+
+
+    .header-inner {
+
+        width:
+            calc(100% - 40px) !important;
+
+        height:
+            auto !important;
+
+        min-height:
+            var(--header-height);
+
+        padding:
+            10px 0 !important;
+
+        flex-wrap:
+            wrap !important;
+    }
+
+
+    nav {
+
+        position:
+            static !important;
+
+        transform:
+            none !important;
+
+        width:
+            100% !important;
+
+        order:
+            3 !important;
+
+        justify-content:
+            center;
+    }
+
+
+    main {
+
+        width:
+            calc(100% - 40px) !important;
+
+        padding-top:
+            145px !important;
+    }
+
+
+    .hero {
+
+        grid-template-columns:
+            1fr;
+
+        text-align:
+            center;
+    }
+
+
+    .hero-left {
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+    }
+
+
+    .hero-description {
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+    }
+
+
+    .hero-right {
+
+        min-height:
+            440px;
+    }
+
+
+    .feature-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .category-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .showcase {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .numbers {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .payment-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
-@media(max-width:1000px){
+@media (max-width:650px) {
 
-    .header-inner{
-        flex-wrap:wrap;
+    :root {
+
+        --site-side:
+            15px;
     }
 
-    nav{
-        position:static;
-        width:100%;
-        order:3;
-        transform:none;
-        justify-content:center;
+
+    .header-inner {
+
+        width:
+            calc(100% - 30px) !important;
     }
 
-    .hero{
-        grid-template-columns:1fr;
-        text-align:center;
-        padding-top:150px;
+
+    .logo {
+
+        width:
+            110px;
+
+        height:
+            38px;
     }
 
-    .hero-content{
-        margin:auto;
-        text-align:center;
+
+    .site-logo {
+
+        width:
+            110px;
+
+        height:
+            38px;
     }
 
-    .hero p{
-        margin-left:auto;
-        margin-right:auto;
+
+    nav {
+
+        gap:
+            12px;
     }
 
-    .badge{
-        justify-content:center;
+
+    nav a {
+
+        font-size:
+            10px;
     }
 
-    .feature-grid{
-        grid-template-columns:repeat(2,1fr);
+
+    .controls {
+
+        gap:
+            5px;
     }
 
-    .category-grid{
-        grid-template-columns:repeat(2,1fr);
+
+    .lang-select {
+
+        width:
+            83px;
+
+        min-width:
+            83px;
+
+        padding:
+            0 7px;
+
+        font-size:
+            9px;
     }
 
-    .showcase{
-        grid-template-columns:1fr;
+
+    .theme-btn {
+
+        width:
+            36px;
+
+        min-width:
+            36px;
+
+        height:
+            36px;
     }
 
-    .payment-grid{
-        grid-template-columns:1fr;
+
+    .cart-btn {
+
+        height:
+            36px;
+
+        padding:
+            0 9px;
+
+        font-size:
+            10px;
+    }
+
+
+    main {
+
+        width:
+            calc(100% - 30px) !important;
+
+        padding-top:
+            135px !important;
+    }
+
+
+    .hero {
+
+        min-height:
+            auto;
+
+        padding:
+            10px 0 60px;
+
+        gap:
+            35px;
+    }
+
+
+    .eyebrow {
+
+        font-size:
+            8px;
+    }
+
+
+    .hero-title {
+
+        font-size:
+            45px;
+
+        letter-spacing:
+            -2.7px;
+    }
+
+
+    .hero-description {
+
+        font-size:
+            13px;
+    }
+
+
+    .hero-trust {
+
+        width:
+            100%;
+    }
+
+
+    .trust-number {
+
+        font-size:
+            20px;
+    }
+
+
+    .trust-label {
+
+        font-size:
+            8px;
+    }
+
+
+    .hero-right {
+
+        min-height:
+            350px;
+    }
+
+
+    .orbit {
+
+        width:
+            285px;
+
+        height:
+            285px;
+    }
+
+
+    .hero-device {
+
+        width:
+            245px;
+
+        height:
+            300px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .device-main {
+
+        font-size:
+            43px;
+    }
+
+
+    .floating-tag {
+
+        display:
+            none;
+    }
+
+
+    .section {
+
+        padding:
+            72px 0;
+    }
+
+
+    .section.dark {
+
+        width:
+            calc(100% + 30px);
+
+        margin-left:
+            -15px;
+
+        padding-left:
+            15px;
+
+        padding-right:
+            15px;
+    }
+
+
+    .section-heading {
+
+        margin-bottom:
+            36px;
+    }
+
+
+    .section-heading h2 {
+
+        font-size:
+            32px;
+    }
+
+
+    .feature-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .category-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .showcase-main,
+    .showcase-side {
+
+        min-height:
+            300px;
+
+        padding:
+            25px;
+    }
+
+
+    .showcase-main h3,
+    .showcase-side h3 {
+
+        font-size:
+            25px;
+    }
+
+
+    .numbers {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            12px;
+    }
+
+
+    .cta {
+
+        padding:
+            72px 0;
+    }
+
+
+    .cta-box {
+
+        padding:
+            55px 20px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .cta-box h2 {
+
+        font-size:
+            34px;
+    }
+
+
+    .footer-top {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .footer-links {
+
+        gap:
+            17px;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            8px;
+    }
+
+
+    .cart-drawer {
+
+        width:
+            100%;
+
+        right:
+            -100%;
+    }
+
+
+    .payment-box {
+
+        padding:
+            25px 18px;
+
+        border-radius:
+            20px;
+    }
+
+
+    .credit-card {
+
+        padding:
+            20px;
+    }
+
+
+    .card-number {
+
+        font-size:
+            17px;
+
+        letter-spacing:
+            2px;
+    }
+
+
+    .payment-row {
+
+        grid-template-columns:
+            1fr;
     }
 }
 
-@media(max-width:650px){
 
-    .header-inner{
-        padding:12px 15px;
-    }
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-    .logo{
-        width:110px;
-        height:38px;
-    }
+@media (prefers-reduced-motion:reduce) {
 
-    .site-logo{
-        width:110px;
-        height:38px;
-    }
+    *,
+    *::before,
+    *::after {
 
-    nav{
-        gap:13px;
-    }
+        animation-duration:
+            .01ms !important;
 
-    nav a{
-        font-size:12px;
-    }
+        animation-iteration-count:
+            1 !important;
 
-    nav a:nth-child(3),
-    nav a:nth-child(4){
-        display:none;
-    }
+        transition-duration:
+            .01ms !important;
 
-    .controls{
-        gap:6px;
-    }
-
-    .lang-select{
-        width:85px;
-        min-width:85px;
-        font-size:10px;
-    }
-
-    .cart-btn{
-        padding:0 10px;
-    }
-
-    main{
-        padding:125px 20px 50px;
-    }
-
-    .hero{
-        padding:10px 0 50px;
-    }
-
-    .hero h1{
-        font-size:46px;
-        letter-spacing:-2px;
-    }
-
-    .hero p{
-        font-size:14px;
-    }
-
-    .hero-visual{
-        min-height:330px;
-    }
-
-    .ring{
-        width:290px;
-        height:290px;
-    }
-
-    .visual-card{
-        width:250px;
-        height:300px;
-    }
-
-    .features,
-    .categories,
-    .showcase-section,
-    .cta{
-        padding:70px 20px;
-    }
-
-    .features,
-    .showcase-section,
-    footer{
-        margin-left:-20px;
-        margin-right:-20px;
-    }
-
-    .feature-grid,
-    .category-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-top{
-        flex-direction:column;
-    }
-
-    .footer-links{
-        flex-wrap:wrap;
-        gap:18px;
-    }
-
-    .footer-bottom{
-        flex-direction:column;
-    }
-
-    .cart-drawer{
-        width:100%;
-        right:-100%;
-    }
-
-    .payment-box{
-        padding:25px 18px;
-        border-radius:20px;
-    }
-
-    .credit-card{
-        padding:20px;
-    }
-
-    .card-number{
-        font-size:17px;
-        letter-spacing:2px;
-    }
-
-    .payment-row{
-        grid-template-columns:1fr;
+        scroll-behavior:
+            auto !important;
     }
 }
 
@@ -1408,91 +4184,127 @@ footer{
 
 </head>
 
+
 <body id="pageBody">
+
+
+<div class="ambient one"></div>
+<div class="ambient two"></div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
 
 <div class="header-inner">
 
-<a href="index.html" class="logo">
 
-    <img
-        src="Logo.png"
-        alt="Alper Tech"
-        class="site-logo"
-        onerror="this.onerror=null;this.src='logo.png';"
-    >
+<a
+    href="index.html"
+    class="logo"
+>
+
+<img
+    src="Logo.png"
+    alt="Alper Tech"
+    class="site-logo"
+>
 
 </a>
+
 
 <nav>
 
 <a
     href="index.html"
     class="active"
-    data-i18n="nav_home">
+    data-i18n="nav_home"
+>
     Ana Sayfa
 </a>
 
+
 <a
     href="urunler.html"
-    data-i18n="nav_products">
+    data-i18n="nav_products"
+>
     Ürünler
 </a>
 
+
 <a
     href="hakkimizda.html"
-    data-i18n="nav_about">
+    data-i18n="nav_about"
+>
     Hakkımızda
 </a>
 
+
 <a
     href="iletisim.html"
-    data-i18n="nav_contact">
+    data-i18n="nav_contact"
+>
     İletişim
 </a>
 
 </nav>
 
+
 <div class="controls">
+
 
 <select
     id="languageSelect"
     class="lang-select"
-    onchange="changeLanguage(this.value)">
+>
 
-<option value="tr">TR - Türkçe</option>
-<option value="en">EN - English</option>
-<option value="es">ES - Español</option>
+<option value="tr">
+    TR - Türkçe
+</option>
+
+<option value="en">
+    EN - English
+</option>
+
+<option value="es">
+    ES - Español
+</option>
 
 </select>
 
-<button
-    class="theme-btn"
-    id="themeBtn"
-    onclick="toggleTheme()"
-    type="button">
-🌙
-</button>
 
 <button
+    id="themeBtn"
+    class="theme-btn"
+    type="button"
+>
+    🌙
+</button>
+
+
+<button
+    id="cartButton"
     class="cart-btn"
-    onclick="openCart()"
-    type="button">
+    type="button"
+>
 
 🛒
 
-<span data-i18n="cart_text">
+<span data-i18n="cart">
     Sepet
 </span>
 
 <span
     class="cart-count"
-    id="cartCount">
+    id="cartCount"
+>
     0
 </span>
 
 </button>
+
 
 </div>
 
@@ -1500,15 +4312,27 @@ footer{
 
 </header>
 
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
 <main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero">
 
-<div class="hero-content">
 
-<div class="badge">
+<div class="hero-left">
 
-<span class="badge-dot"></span>
+
+<div class="eyebrow">
+
+<span class="eyebrow-dot"></span>
 
 <span data-i18n="hero_badge">
     Yeni Nesil Teknoloji
@@ -1516,1161 +4340,1633 @@ footer{
 
 </div>
 
-<h1>
 
-<span data-i18n="hero_line1">
-    Teknolojiyi
+<h1 class="hero-title">
+
+<span
+    class="white"
+    data-i18n="hero_title_1"
+>
+    Teknolojinin
 </span>
 
 <br>
 
-<span data-i18n="hero_line2">
-    yeniden
+<span
+    class="gradient"
+    data-i18n="hero_title_2"
+>
+    yeni neslini
 </span>
 
 <br>
 
-<span data-i18n="hero_line3">
+<span
+    class="white"
+    data-i18n="hero_title_3"
+>
     keşfet.
 </span>
 
 </h1>
 
-<p data-i18n="hero_desc">
-    Alper Tech ile performans, kalite ve modern tasarım
-    tek bir deneyimde buluşuyor. İhtiyacın olan teknoloji
-    artık daha güçlü, daha hızlı ve daha şık.
+
+<p
+    class="hero-description"
+    data-i18n="hero_description"
+>
+    Performans, tasarım ve teknolojiyi tek bir
+    premium deneyimde bir araya getiriyoruz.
+    İhtiyacın olan teknoloji burada başlıyor.
 </p>
 
-<div class="buttons">
+
+<div class="hero-actions">
+
 
 <a
     href="urunler.html"
-    class="button primary"
-    data-i18n="hero_products">
-
-    Ürünleri İncele →
-
+    class="hero-button primary"
+    data-i18n="hero_products"
+>
+    Ürünleri Keşfet →
 </a>
+
 
 <a
     href="hakkimizda.html"
-    class="button secondary"
-    data-i18n="hero_about">
-
-    Daha Fazla Bilgi
-
+    class="hero-button secondary"
+    data-i18n="hero_about"
+>
+    Alper Tech'i Tanı
 </a>
+
 
 </div>
 
-<div class="stats">
 
-<div class="stat">
+<div class="hero-trust">
 
-<strong>
+
+<div class="trust-block">
+
+<span class="trust-number">
     100%
-</strong>
+</span>
 
-<span data-i18n="stat_quality">
+<span
+    class="trust-label"
+    data-i18n="trust_quality"
+>
     Kalite Odaklı
 </span>
 
 </div>
 
-<div class="stat">
 
-<strong>
-    7/24
-</strong>
+<div class="trust-block">
 
-<span data-i18n="stat_support">
+<span class="trust-number">
+    24/7
+</span>
+
+<span
+    class="trust-label"
+    data-i18n="trust_support"
+>
     Destek
 </span>
 
 </div>
 
-<div class="stat">
 
-<strong>
-    NEW
-</strong>
+<div class="trust-block">
 
-<span data-i18n="stat_next">
-    Yeni Nesil
+<span class="trust-number">
+    PRO
+</span>
+
+<span
+    class="trust-label"
+    data-i18n="trust_technology"
+>
+    Teknoloji
 </span>
 
 </div>
 
-</div>
 
 </div>
 
-<div class="hero-visual">
 
-<div class="ring"></div>
+</div>
 
-<div class="visual-card">
 
-<h3 data-i18n="elite_brand">
-    ALPER TECH
-</h3>
+<!-- =====================================================
+     HERO VISUAL
+===================================================== -->
 
-<strong data-i18n="elite_title">
+<div class="hero-right">
+
+
+<div class="orbit"></div>
+
+
+<div class="floating-tag one">
+
+<span class="floating-dot"></span>
+
+<span data-i18n="floating_performance">
+    PERFORMANCE READY
+</span>
+
+</div>
+
+
+<div class="floating-tag two">
+
+<span class="floating-dot"></span>
+
+<span data-i18n="floating_premium">
+    PREMIUM BUILD
+</span>
+
+</div>
+
+
+<div class="hero-device">
+
+
+<div
+    class="device-top"
+    data-i18n="device_top"
+>
+    ALPER TECH / SYSTEM
+</div>
+
+
+<div
+    class="device-title"
+    data-i18n="device_title"
+>
     ELITE
-</strong>
+</div>
 
-<div class="visual-line"></div>
 
-<p data-i18n="elite_desc">
+<div class="device-main">
+    01
+</div>
+
+
+<div class="device-line"></div>
+
+
+<div
+    class="device-caption"
+    data-i18n="device_caption"
+>
     TECHNOLOGY • PERFORMANCE
-</p>
+</div>
+
+
+<div class="device-bottom">
+
+<span data-i18n="device_left">
+    NEXT GEN
+</span>
+
+<span data-i18n="device_right">
+    2026
+</span>
 
 </div>
 
+
 </div>
+
+
+</div>
+
 
 </section>
 
-<section class="features">
 
-<div class="section-title">
+<div class="section-divider"></div>
 
-<small data-i18n="standard_label">
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section class="section dark">
+
+
+<div class="section-heading">
+
+
+<span
+    class="label"
+    data-i18n="features_label"
+>
     ALPER TECH STANDARD
-</small>
+</span>
 
-<h2 data-i18n="feature_title">
-    Teknoloji artık sadece güçlü değil.
+
+<h2 data-i18n="features_title">
+    Teknoloji sadece güçlü
+    olmak zorunda değil.
 </h2>
 
-<p data-i18n="feature_desc">
-    Performans, tasarım ve kullanıcı deneyimini
-    tek bir premium teknoloji anlayışında birleştiriyoruz.
+
+<p data-i18n="features_description">
+    Gücü, tasarımı ve kullanım deneyimini
+    aynı seviyede tutan modern teknoloji yaklaşımı.
 </p>
 
+
 </div>
+
 
 <div class="feature-grid">
 
+
 <div class="feature-card">
 
-<span
-    class="feature-number"
-    data-i18n="performance_label">
-    01 / PERFORMANCE
-</span>
 
-<div class="icon">
+<div
+    class="feature-number"
+    data-i18n="feature_1_number"
+>
+    01 / PERFORMANCE
+</div>
+
+
+<div class="feature-icon">
     ⚡
 </div>
 
-<h3 data-i18n="feature_1_title">
+
+<h3
+    data-i18n="feature_1_title"
+>
     Üst Düzey Performans
 </h3>
 
-<p data-i18n="feature_1_desc">
-    Günlük kullanımdan ağır işlemlere kadar
-    hızlı, akıcı ve güçlü teknoloji deneyimi.
+
+<p
+    data-i18n="feature_1_description"
+>
+    Günlük kullanımın ötesine geçen hızlı,
+    akıcı ve güçlü bir teknoloji deneyimi.
 </p>
+
 
 </div>
 
+
 <div class="feature-card">
 
-<span
-    class="feature-number"
-    data-i18n="design_label">
-    02 / DESIGN
-</span>
 
-<div class="icon">
+<div
+    class="feature-number"
+    data-i18n="feature_2_number"
+>
+    02 / DESIGN
+</div>
+
+
+<div class="feature-icon">
     ◈
 </div>
 
-<h3 data-i18n="feature_2_title">
+
+<h3
+    data-i18n="feature_2_title"
+>
     Premium Tasarım
 </h3>
 
-<p data-i18n="feature_2_desc">
-    Güçlü performansı modern ve şık
-    tasarımla birleştiren teknoloji.
+
+<p
+    data-i18n="feature_2_description"
+>
+    Modern çizgiler, sade arayüz ve
+    güçlü görsel kimlik tek bir sistemde.
 </p>
 
+
 </div>
+
 
 <div class="feature-card">
 
-<span
-    class="feature-number"
-    data-i18n="experience_label">
-    03 / EXPERIENCE
-</span>
 
-<div class="icon">
+<div
+    class="feature-number"
+    data-i18n="feature_3_number"
+>
+    03 / EXPERIENCE
+</div>
+
+
+<div class="feature-icon">
     ✓
 </div>
 
-<h3 data-i18n="feature_3_title">
+
+<h3
+    data-i18n="feature_3_title"
+>
     Kusursuz Deneyim
 </h3>
 
-<p data-i18n="feature_3_desc">
-    Teknoloji seçimini kolaylaştıran sade
-    ve güvenilir kullanıcı deneyimi.
+
+<p
+    data-i18n="feature_3_description"
+>
+    Teknoloji seçimini daha kolay ve
+    anlaşılır hale getiren kullanıcı deneyimi.
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
 
-<section class="categories">
 
-<div class="section-title">
+<!-- =========================================================
+     CATEGORY
+========================================================= -->
 
-<small data-i18n="collection_label">
-    KOLEKSİYON
-</small>
+<section class="section">
+
+
+<div class="section-heading">
+
+
+<span
+    class="label"
+    data-i18n="category_label"
+>
+    COLLECTION
+</span>
+
 
 <h2 data-i18n="category_title">
-    İhtiyacın olan teknoloji tek yerde.
+    Teknoloji dünyasını keşfet.
 </h2>
 
-<p data-i18n="category_desc">
-    Teknoloji dünyasının farklı kategorilerini keşfet.
+
+<p data-i18n="category_description">
+    İhtiyacın olan ürün kategorisini seç
+    ve bir sonraki seviyeye geç.
 </p>
 
+
 </div>
+
 
 <div class="category-grid">
 
+
 <a
     href="urunler.html"
-    class="category-card">
+    class="category"
+>
 
-<div class="category-icon">
+
+<span class="category-index">
+    01
+</span>
+
+
+<span class="category-symbol">
     🖥️
-</div>
+</span>
 
-<h3 data-i18n="category_pc">
+
+<h3
+    data-i18n="category_pc"
+>
     Bilgisayar
 </h3>
 
-<p data-i18n="category_pc_desc">
+
+<p
+    data-i18n="category_pc_desc"
+>
     Güçlü performans sistemleri
 </p>
 
-</a>
-
-<a
-    href="urunler.html"
-    class="category-card">
-
-<div class="category-icon">
-    📱
-</div>
-
-<h3 data-i18n="category_phone">
-    Akıllı Telefon
-</h3>
-
-<p data-i18n="category_phone_desc">
-    Yeni nesil mobil teknoloji
-</p>
 
 </a>
 
+
 <a
     href="urunler.html"
-    class="category-card">
+    class="category"
+>
 
-<div class="category-icon">
+
+<span class="category-index">
+    02
+</span>
+
+
+<span class="category-symbol">
     🎮
-</div>
+</span>
 
-<h3 data-i18n="category_gaming">
+
+<h3
+    data-i18n="category_gaming"
+>
     Gaming
 </h3>
 
-<p data-i18n="category_gaming_desc">
+
+<p
+    data-i18n="category_gaming_desc"
+>
     Oyuncular için yüksek performans
 </p>
 
+
 </a>
+
 
 <a
     href="urunler.html"
-    class="category-card">
+    class="category"
+>
 
-<div class="category-icon">
-    ⚙️
-</div>
 
-<h3 data-i18n="category_component">
-    Bileşen
+<span class="category-index">
+    03
+</span>
+
+
+<span class="category-symbol">
+    📱
+</span>
+
+
+<h3
+    data-i18n="category_mobile"
+>
+    Mobil
 </h3>
 
-<p data-i18n="category_component_desc">
-    Sistemin için doğru parçalar
+
+<p
+    data-i18n="category_mobile_desc"
+>
+    Yeni nesil mobil teknoloji
 </p>
+
 
 </a>
 
+
+<a
+    href="urunler.html"
+    class="category"
+>
+
+
+<span class="category-index">
+    04
+</span>
+
+
+<span class="category-symbol">
+    ⚙️
+</span>
+
+
+<h3
+    data-i18n="category_component"
+>
+    Bileşen
+</h3>
+
+
+<p
+    data-i18n="category_component_desc"
+>
+    Sistemin için doğru parçalar
+</p>
+
+
+</a>
+
+
 </div>
+
 
 </section>
 
-<section class="showcase-section">
+
+<!-- =========================================================
+     SHOWCASE
+========================================================= -->
+
+<section class="section dark">
+
+
+<div class="section-heading">
+
+
+<span
+    class="label"
+    data-i18n="showcase_label"
+>
+    ALPER TECH EXPERIENCE
+</span>
+
+
+<h2 data-i18n="showcase_heading">
+    Sistemini bir üst seviyeye taşı.
+</h2>
+
+
+<p data-i18n="showcase_description">
+    Doğru ürünleri seç, performansını yükselt
+    ve teknoloji deneyimini yeniden tanımla.
+</p>
+
+
+</div>
+
 
 <div class="showcase">
 
-<div class="showcase-card">
+
+<div class="showcase-main">
+
 
 <span
     class="showcase-label"
-    data-i18n="showcase_performance">
+    data-i18n="showcase_main_label"
+>
     PERFORMANCE
 </span>
 
-<h3 data-i18n="showcase_1_title">
+
+<h3
+    data-i18n="showcase_main_title"
+>
     Sistemin için daha fazlasını iste.
 </h3>
 
-<p data-i18n="showcase_1_desc">
-    Yüksek performanslı bileşenler,
-    modern sistemler ve güçlü donanımlarla
-    sınırları ileri taşı.
+
+<p
+    data-i18n="showcase_main_description"
+>
+    Yüksek performanslı donanımlar,
+    modern sistemler ve güçlü teknoloji
+    seçenekleriyle sınırları ileri taşı.
 </p>
 
-<div class="showcase-chip"></div>
+
+<div class="showcase-orbit"></div>
+
 
 </div>
 
-<div class="showcase-card purple">
+
+<div class="showcase-side">
+
 
 <span
     class="showcase-label"
-    data-i18n="showcase_experience">
-    EXPERIENCE
+    data-i18n="showcase_side_label"
+>
+    PREMIUM EXPERIENCE
 </span>
 
-<h3 data-i18n="showcase_2_title">
+
+<h3
+    data-i18n="showcase_side_title"
+>
     Teknolojiyi daha premium yaşa.
 </h3>
 
-<p data-i18n="showcase_2_desc">
-    Alper Tech; performans, kalite ve tasarımı
-    aynı deneyimde buluşturmak için tasarlandı.
+
+<p
+    data-i18n="showcase_side_description"
+>
+    Performans, kalite ve tasarımın
+    aynı deneyimde buluştuğu Alper Tech yaklaşımı.
 </p>
 
-<div class="showcase-chip"></div>
+
+<div class="side-stat">
+
+
+<div class="side-stat-row">
+
+<span
+    data-i18n="side_stat_1"
+>
+    Performans
+</span>
+
+<strong>
+    PRO
+</strong>
 
 </div>
 
+
+<div class="side-stat-row">
+
+<span
+    data-i18n="side_stat_2"
+>
+    Tasarım
+</span>
+
+<strong>
+    ELITE
+</strong>
+
 </div>
+
+
+<div class="side-stat-row">
+
+<span
+    data-i18n="side_stat_3"
+>
+    Deneyim
+</span>
+
+<strong>
+    NEXT
+</strong>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
 
 </section>
 
+
+<!-- =========================================================
+     NUMBERS
+========================================================= -->
+
+<section class="section">
+
+
+<div class="section-heading">
+
+
+<span
+    class="label"
+    data-i18n="numbers_label"
+>
+    THE ALPER TECH DIFFERENCE
+</span>
+
+
+<h2 data-i18n="numbers_title">
+    Detaylarda fark yaratıyoruz.
+</h2>
+
+
+<p data-i18n="numbers_description">
+    Basit görünen ayrıntıların toplamı,
+    premium bir teknoloji deneyimi oluşturur.
+</p>
+
+
+</div>
+
+
+<div class="numbers">
+
+
+<div class="number-card">
+
+
+<strong>
+    180Hz
+</strong>
+
+
+<span
+    data-i18n="number_1"
+>
+    Yüksek yenileme hızına sahip ürün seçenekleri
+</span>
+
+
+</div>
+
+
+<div class="number-card">
+
+
+<strong>
+    24/7
+</strong>
+
+
+<span
+    data-i18n="number_2"
+>
+    Her zaman erişilebilir dijital mağaza deneyimi
+</span>
+
+
+</div>
+
+
+<div class="number-card">
+
+
+<strong>
+    PRO
+</strong>
+
+
+<span
+    data-i18n="number_3"
+>
+    Performans odaklı teknoloji yaklaşımı
+</span>
+
+
+</div>
+
+
+<div class="number-card">
+
+
+<strong>
+    2026
+</strong>
+
+
+<span
+    data-i18n="number_4"
+>
+    Yeni nesil teknoloji vizyonu
+</span>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
 <section class="cta">
+
 
 <div class="cta-box">
 
-<small data-i18n="cta_label">
+
+<small
+    data-i18n="cta_label"
+>
     READY FOR THE NEXT LEVEL?
 </small>
 
-<h2 data-i18n="cta_title">
+
+<h2
+    data-i18n="cta_title"
+>
     Teknolojinin yeni tarafına geç.
 </h2>
 
-<p data-i18n="cta_desc">
+
+<p
+    data-i18n="cta_description"
+>
     Sana uygun sistemi, ürünü veya ekipmanı
     keşfet ve Alper Tech deneyimini yaşa.
 </p>
 
+
 <a
     href="urunler.html"
-    class="button primary"
-    data-i18n="cta_button">
-
+    class="hero-button primary"
+    data-i18n="cta_button"
+>
     Ürünleri Keşfet →
-
 </a>
+
 
 </div>
 
+
 </section>
+
 
 </main>
 
-<!-- =====================================================
-     SEPET
-===================================================== -->
+
+<!-- =========================================================
+     CART
+========================================================= -->
 
 <div
     class="cart-overlay"
     id="cartOverlay"
-    onclick="closeCartOutside(event)">
+>
+
 
 <div class="cart-drawer">
 
+
 <div class="drawer-header">
+
 
 <span
     class="drawer-title"
-    data-i18n="cart_title">
-
+    data-i18n="cart_title"
+>
     Sepetiniz
-
 </span>
+
 
 <button
     class="drawer-close"
-    onclick="closeCart()"
-    type="button">
-
+    id="closeCart"
+    type="button"
+>
     ✕
-
 </button>
+
 
 </div>
 
+
 <div class="drawer-body">
+
 
 <div
     class="cart-empty"
     id="cartEmpty"
-    data-i18n="cart_empty">
-
+    data-i18n="cart_empty"
+>
     Sepetinizde henüz ürün bulunmuyor.
-
 </div>
+
 
 <div id="cartItems"></div>
 
+
 </div>
+
 
 <div
     class="cart-footer"
     id="cartFooter"
-    style="display:none;">
+    style="display:none;"
+>
+
 
 <div class="cart-total">
+
 
 <span data-i18n="cart_total">
     Toplam
 </span>
 
+
 <span id="cartTotal">
     0 ₺
 </span>
 
+
 </div>
+
 
 <button
     class="checkout-btn"
-    onclick="openPayment()"
+    id="checkoutButton"
     type="button"
-    data-i18n="checkout">
-
+    data-i18n="checkout"
+>
     ÖDEMEYE GEÇ
-
 </button>
 
-</div>
 
 </div>
 
+
 </div>
 
-<!-- =====================================================
-     ÖDEME
-===================================================== -->
+
+</div>
+
+
+<!-- =========================================================
+     PAYMENT
+========================================================= -->
 
 <div
     class="payment-overlay"
-    id="paymentOverlay">
+    id="paymentOverlay"
+>
+
 
 <div class="payment-box">
 
+
 <button
     class="payment-close"
-    onclick="closePayment()"
-    type="button">
-
+    id="closePayment"
+    type="button"
+>
     ✕
-
 </button>
+
 
 <h2
     class="payment-title"
-    data-i18n="payment_title">
-
+    data-i18n="payment_title"
+>
     GÜVENLİ ÖDEME
-
 </h2>
+
 
 <p
     class="payment-subtitle"
-    data-i18n="payment_subtitle">
-
-    Demo ödeme ekranı
-
+    data-i18n="payment_subtitle"
+>
+    Ödeme bilgilerinizi girin.
 </p>
+
 
 <div class="payment-grid">
 
+
+<!-- CARD -->
+
 <div>
+
 
 <div class="credit-card">
 
+
 <div class="card-top">
+
 
 <div class="chip"></div>
 
+
 <div
     class="card-brand"
-    id="cardBrand">
-
+    id="cardBrand"
+>
     VISA
+</div>
+
 
 </div>
 
-</div>
 
 <div
     class="card-number"
-    id="previewNumber">
-
+    id="previewNumber"
+>
     •••• •••• •••• ••••
-
 </div>
+
 
 <div class="card-bottom">
 
+
 <div>
+
 
 <div
     class="card-label"
-    data-i18n="card_holder">
-
+    data-i18n="card_holder"
+>
     KART SAHİBİ
-
 </div>
+
 
 <div
     class="card-holder"
-    id="previewName">
-
+    id="previewName"
+>
     AD SOYAD
+</div>
+
 
 </div>
 
-</div>
 
 <div>
+
 
 <div
     class="card-label"
-    data-i18n="expiry_label">
-
+    data-i18n="expiry_label"
+>
     SON KULLANMA
-
 </div>
+
 
 <div
     class="card-expiry"
-    id="previewExpiry">
-
+    id="previewExpiry"
+>
     12/30
+</div>
+
 
 </div>
 
-</div>
 
 </div>
 
-</div>
 
 </div>
+
+
+</div>
+
+
+<!-- FORM -->
 
 <div>
 
+
 <div
     class="method-title"
-    data-i18n="card_type">
-
+    data-i18n="card_type"
+>
     Kart Türü
-
 </div>
+
 
 <div class="methods">
 
+
 <button
-    type="button"
     class="method active"
-    onclick="selectCard('VISA',this)">
+    data-card="VISA"
+    type="button"
+>
     VISA
 </button>
 
+
 <button
-    type="button"
     class="method"
-    onclick="selectCard('MASTERCARD',this)">
+    data-card="MASTERCARD"
+    type="button"
+>
     MASTERCARD
 </button>
 
+
 <button
-    type="button"
     class="method"
-    onclick="selectCard('TROY',this)">
+    data-card="TROY"
+    type="button"
+>
     TROY
 </button>
 
+
 </div>
+
 
 <div
     class="payment-error"
-    id="paymentError">
-
+    id="paymentError"
+>
 </div>
+
 
 <div class="payment-group">
 
-<label data-i18n="card_number">
+
+<label
+    for="cardNumber"
+    data-i18n="card_number"
+>
     Kart Numarası
 </label>
+
 
 <input
     id="cardNumber"
     type="text"
     inputmode="numeric"
     maxlength="19"
+    autocomplete="off"
     placeholder="1234 5678 9012 3456"
-    autocomplete="off">
+>
+
 
 </div>
 
+
 <div class="payment-group">
 
-<label data-i18n="card_name">
+
+<label
+    for="cardName"
+    data-i18n="card_name"
+>
     Kart Üzerindeki İsim
 </label>
+
 
 <input
     id="cardName"
     type="text"
     maxlength="30"
+    autocomplete="off"
     placeholder="AD SOYAD"
-    autocomplete="off">
+>
+
 
 </div>
 
+
 <div class="payment-row">
+
 
 <div class="payment-group">
 
-<label data-i18n="expiry">
+
+<label
+    for="expiry"
+    data-i18n="expiry"
+>
     Son Kullanma
 </label>
+
 
 <input
     id="expiry"
     type="text"
     inputmode="numeric"
     maxlength="5"
+    autocomplete="off"
     placeholder="AA/YY"
-    autocomplete="off">
+>
+
 
 </div>
 
+
 <div class="payment-group">
 
-<label data-i18n="cvv">
+
+<label
+    for="cvv"
+    data-i18n="cvv"
+>
     CVV
 </label>
+
 
 <input
     id="cvv"
     type="text"
     inputmode="numeric"
     maxlength="4"
+    autocomplete="off"
     placeholder="•••"
-    autocomplete="off">
+>
+
 
 </div>
 
+
 </div>
+
 
 <button
-    type="button"
     class="payment-submit"
-    onclick="completePayment()"
-    data-i18n="complete_payment">
-
+    id="paymentSubmit"
+    type="button"
+    data-i18n="complete_payment"
+>
     ÖDEMEYİ TAMAMLA
-
 </button>
+
 
 <div
     class="security"
-    data-i18n="security">
+    data-i18n="security"
+>
+    Gerçek tahsilat için güvenli ödeme sağlayıcısı entegrasyonu gerekir.
+</div>
 
-    Demo ödeme ekranı — kart bilgileri kaydedilmez.
 
 </div>
 
-</div>
 
 </div>
 
-</div>
 
 </div>
 
-<!-- =====================================================
+
+</div>
+
+
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer>
 
+
 <div class="footer-inner">
+
 
 <div class="footer-top">
 
+
 <div class="footer-brand">
+
 
 <h3>
     ALPER<span>TECH</span>
 </h3>
 
-<p data-i18n="footer_desc">
-    Yeni nesil teknoloji, performans ve premium
-    tasarımın buluştuğu teknoloji platformu.
+
+<p
+    data-i18n="footer_description"
+>
+    Yeni nesil teknoloji, performans ve
+    premium tasarımın buluştuğu teknoloji platformu.
 </p>
 
+
 </div>
+
 
 <div class="footer-links">
 
+
 <a
     href="index.html"
-    data-i18n="nav_home">
+    data-i18n="nav_home"
+>
     Ana Sayfa
 </a>
 
+
 <a
     href="urunler.html"
-    data-i18n="nav_products">
+    data-i18n="nav_products"
+>
     Ürünler
 </a>
 
+
 <a
     href="hakkimizda.html"
-    data-i18n="nav_about">
+    data-i18n="nav_about"
+>
     Hakkımızda
 </a>
 
+
 <a
     href="iletisim.html"
-    data-i18n="nav_contact">
+    data-i18n="nav_contact"
+>
     İletişim
 </a>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 <div class="footer-bottom">
 
-<span data-i18n="footer_copy">
+
+<span
+    data-i18n="footer_copy"
+>
     © 2026 Alper Tech. Tüm hakları saklıdır.
 </span>
 
-<span data-i18n="footer_motto">
+
+<span
+    data-i18n="footer_motto"
+>
     TECHNOLOGY • PERFORMANCE • DESIGN
 </span>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </footer>
 
+
 <script>
+/* =========================================================
+   ALPER TECH - ORTAK PARA BİRİMİ SİSTEMİ
+========================================================= */
 
-/* =====================================================
-   DİLLER
-===================================================== */
+let currentLanguage =
+    localStorage.getItem("alperTechLang") || "tr";
 
-const translations={
 
-tr:{
-    nav_home:"Ana Sayfa",
-    nav_products:"Ürünler",
-    nav_about:"Hakkımızda",
-    nav_contact:"İletişim",
-    cart_text:"Sepet",
-
-    hero_badge:"Yeni Nesil Teknoloji",
-    hero_line1:"Teknolojiyi",
-    hero_line2:"yeniden",
-    hero_line3:"keşfet.",
-    hero_desc:"Alper Tech ile performans, kalite ve modern tasarım tek bir deneyimde buluşuyor. İhtiyacın olan teknoloji artık daha güçlü, daha hızlı ve daha şık.",
-    hero_products:"Ürünleri İncele →",
-    hero_about:"Daha Fazla Bilgi",
-
-    stat_quality:"Kalite Odaklı",
-    stat_support:"Destek",
-    stat_next:"Yeni Nesil",
-
-    elite_brand:"ALPER TECH",
-    elite_title:"ELITE",
-    elite_desc:"TECHNOLOGY • PERFORMANCE",
-
-    standard_label:"ALPER TECH STANDARD",
-    collection_label:"KOLEKSİYON",
-
-    performance_label:"01 / PERFORMANCE",
-    design_label:"02 / DESIGN",
-    experience_label:"03 / EXPERIENCE",
-
-    feature_title:"Teknoloji artık sadece güçlü değil.",
-    feature_desc:"Performans, tasarım ve kullanıcı deneyimini tek bir premium teknoloji anlayışında birleştiriyoruz.",
-    feature_1_title:"Üst Düzey Performans",
-    feature_1_desc:"Günlük kullanımdan ağır işlemlere kadar hızlı, akıcı ve güçlü teknoloji deneyimi.",
-    feature_2_title:"Premium Tasarım",
-    feature_2_desc:"Güçlü performansı modern ve şık tasarımla birleştiren teknoloji.",
-    feature_3_title:"Kusursuz Deneyim",
-    feature_3_desc:"Teknoloji seçimini kolaylaştıran sade ve güvenilir kullanıcı deneyimi.",
-
-    category_title:"İhtiyacın olan teknoloji tek yerde.",
-    category_desc:"Teknoloji dünyasının farklı kategorilerini keşfet.",
-    category_pc:"Bilgisayar",
-    category_pc_desc:"Güçlü performans sistemleri",
-    category_phone:"Akıllı Telefon",
-    category_phone_desc:"Yeni nesil mobil teknoloji",
-    category_gaming:"Gaming",
-    category_gaming_desc:"Oyuncular için yüksek performans",
-    category_component:"Bileşen",
-    category_component_desc:"Sistemin için doğru parçalar",
-
-    showcase_performance:"PERFORMANCE",
-    showcase_experience:"EXPERIENCE",
-    showcase_1_title:"Sistemin için daha fazlasını iste.",
-    showcase_1_desc:"Yüksek performanslı bileşenler, modern sistemler ve güçlü donanımlarla sınırları ileri taşı.",
-    showcase_2_title:"Teknolojiyi daha premium yaşa.",
-    showcase_2_desc:"Alper Tech; performans, kalite ve tasarımı aynı deneyimde buluşturmak için tasarlandı.",
-
-    cta_label:"READY FOR THE NEXT LEVEL?",
-    cta_title:"Teknolojinin yeni tarafına geç.",
-    cta_desc:"Sana uygun sistemi, ürünü veya ekipmanı keşfet ve Alper Tech deneyimini yaşa.",
-    cta_button:"Ürünleri Keşfet →",
-
-    footer_desc:"Yeni nesil teknoloji, performans ve premium tasarımın buluştuğu teknoloji platformu.",
-    footer_copy:"© 2026 Alper Tech. Tüm hakları saklıdır.",
-    footer_motto:"TECHNOLOGY • PERFORMANCE • DESIGN",
-
-    cart_title:"Sepetiniz",
-    cart_empty:"Sepetinizde henüz ürün bulunmuyor.",
-    cart_total:"Toplam",
-    checkout:"ÖDEMEYE GEÇ",
-
-    payment_title:"GÜVENLİ ÖDEME",
-    payment_subtitle:"Demo ödeme ekranı",
-    card_type:"Kart Türü",
-    card_number:"Kart Numarası",
-    card_name:"Kart Üzerindeki İsim",
-    expiry:"Son Kullanma",
-    cvv:"CVV",
-    card_holder:"KART SAHİBİ",
-    expiry_label:"SON KULLANMA",
-    complete_payment:"ÖDEMEYİ TAMAMLA",
-    security:"Demo ödeme ekranı — kart bilgileri kaydedilmez."
-},
-
-en:{
-    nav_home:"Home",
-    nav_products:"Products",
-    nav_about:"About Us",
-    nav_contact:"Contact",
-    cart_text:"Cart",
-
-    hero_badge:"Next Generation Technology",
-    hero_line1:"Rediscover",
-    hero_line2:"technology",
-    hero_line3:"again.",
-    hero_desc:"Performance, quality and modern design come together in one experience with Alper Tech. The technology you need is now more powerful, faster and more stylish.",
-    hero_products:"Explore Products →",
-    hero_about:"Learn More",
-
-    stat_quality:"Quality Focused",
-    stat_support:"Support",
-    stat_next:"Next Generation",
-
-    elite_brand:"ALPER TECH",
-    elite_title:"ELITE",
-    elite_desc:"TECHNOLOGY • PERFORMANCE",
-
-    standard_label:"ALPER TECH STANDARD",
-    collection_label:"COLLECTION",
-
-    performance_label:"01 / PERFORMANCE",
-    design_label:"02 / DESIGN",
-    experience_label:"03 / EXPERIENCE",
-
-    feature_title:"Technology is more than power.",
-    feature_desc:"We combine performance, design and user experience in one premium technology vision.",
-    feature_1_title:"High Performance",
-    feature_1_desc:"A fast, smooth and powerful technology experience for everyday use and demanding tasks.",
-    feature_2_title:"Premium Design",
-    feature_2_desc:"Technology that combines powerful performance with a modern and stylish design.",
-    feature_3_title:"Seamless Experience",
-    feature_3_desc:"A simple and reliable user experience that makes choosing technology easier.",
-
-    category_title:"All the technology you need in one place.",
-    category_desc:"Explore different categories from the world of technology.",
-    category_pc:"Computers",
-    category_pc_desc:"High-performance systems",
-    category_phone:"Smartphones",
-    category_phone_desc:"Next-generation mobile technology",
-    category_gaming:"Gaming",
-    category_gaming_desc:"High performance for gamers",
-    category_component:"Components",
-    category_component_desc:"The right parts for your system",
-
-    showcase_performance:"PERFORMANCE",
-    showcase_experience:"EXPERIENCE",
-    showcase_1_title:"Expect more from your system.",
-    showcase_1_desc:"Take performance further with high-performance components, modern systems and powerful hardware.",
-    showcase_2_title:"Experience technology at a premium level.",
-    showcase_2_desc:"Alper Tech is designed to bring performance, quality and design together in one experience.",
-
-    cta_label:"READY FOR THE NEXT LEVEL?",
-    cta_title:"Step into the next side of technology.",
-    cta_desc:"Discover the system, product or equipment that fits you and experience Alper Tech.",
-    cta_button:"Discover Products →",
-
-    footer_desc:"A technology platform where next-generation technology, performance and premium design meet.",
-    footer_copy:"© 2026 Alper Tech. All rights reserved.",
-    footer_motto:"TECHNOLOGY • PERFORMANCE • DESIGN",
-
-    cart_title:"Your Cart",
-    cart_empty:"Your cart is currently empty.",
-    cart_total:"Total",
-    checkout:"CHECKOUT",
-
-    payment_title:"SECURE PAYMENT",
-    payment_subtitle:"Demo payment screen",
-    card_type:"Card Type",
-    card_number:"Card Number",
-    card_name:"Name on Card",
-    expiry:"Expiration",
-    cvv:"CVV",
-    card_holder:"CARD HOLDER",
-    expiry_label:"EXPIRATION",
-    complete_payment:"COMPLETE PAYMENT",
-    security:"Demo payment screen — card information is not saved."
-},
-
-es:{
-    nav_home:"Inicio",
-    nav_products:"Productos",
-    nav_about:"Sobre Nosotros",
-    nav_contact:"Contacto",
-    cart_text:"Carrito",
-
-    hero_badge:"Tecnología de Nueva Generación",
-    hero_line1:"Descubre",
-    hero_line2:"la tecnología",
-    hero_line3:"de nuevo.",
-    hero_desc:"Rendimiento, calidad y diseño moderno se unen en una sola experiencia con Alper Tech. La tecnología que necesitas ahora es más potente, rápida y elegante.",
-    hero_products:"Ver Productos →",
-    hero_about:"Más Información",
-
-    stat_quality:"Enfocados en Calidad",
-    stat_support:"Soporte",
-    stat_next:"Nueva Generación",
-
-    elite_brand:"ALPER TECH",
-    elite_title:"ÉLITE",
-    elite_desc:"TECNOLOGÍA • RENDIMIENTO",
-
-    standard_label:"ESTÁNDAR ALPER TECH",
-    collection_label:"COLECCIÓN",
-
-    performance_label:"01 / RENDIMIENTO",
-    design_label:"02 / DISEÑO",
-    experience_label:"03 / EXPERIENCIA",
-
-    feature_title:"La tecnología es más que potencia.",
-    feature_desc:"Combinamos rendimiento, diseño y experiencia de usuario en una visión tecnológica premium.",
-    feature_1_title:"Alto Rendimiento",
-    feature_1_desc:"Una experiencia tecnológica rápida, fluida y potente para el uso diario y tareas exigentes.",
-    feature_2_title:"Diseño Premium",
-    feature_2_desc:"Tecnología que combina un gran rendimiento con un diseño moderno y elegante.",
-    feature_3_title:"Experiencia Perfecta",
-    feature_3_desc:"Una experiencia sencilla y fiable que facilita la elección de tecnología.",
-
-    category_title:"Toda la tecnología que necesitas en un solo lugar.",
-    category_desc:"Explora diferentes categorías del mundo de la tecnología.",
-    category_pc:"Computadoras",
-    category_pc_desc:"Sistemas de alto rendimiento",
-    category_phone:"Smartphones",
-    category_phone_desc:"Tecnología móvil de nueva generación",
-    category_gaming:"Gaming",
-    category_gaming_desc:"Alto rendimiento para jugadores",
-    category_component:"Componentes",
-    category_component_desc:"Las piezas adecuadas para tu sistema",
-
-    showcase_performance:"RENDIMIENTO",
-    showcase_experience:"EXPERIENCIA",
-    showcase_1_title:"Exige más de tu sistema.",
-    showcase_1_desc:"Lleva el rendimiento más lejos con componentes potentes, sistemas modernos y hardware de alto nivel.",
-    showcase_2_title:"Vive la tecnología a un nivel premium.",
-    showcase_2_desc:"Alper Tech ha sido diseñado para unir rendimiento, calidad y diseño en una sola experiencia.",
-
-    cta_label:"¿LISTO PARA EL SIGUIENTE NIVEL?",
-    cta_title:"Da el paso hacia el nuevo lado de la tecnología.",
-    cta_desc:"Descubre el sistema, producto o equipo ideal para ti y vive la experiencia Alper Tech.",
-    cta_button:"Descubrir Productos →",
-
-    footer_desc:"Una plataforma tecnológica donde se unen la tecnología de nueva generación, el rendimiento y el diseño premium.",
-    footer_copy:"© 2026 Alper Tech. Todos los derechos reservados.",
-    footer_motto:"TECNOLOGÍA • RENDIMIENTO • DISEÑO",
-
-    cart_title:"Tu Carrito",
-    cart_empty:"Tu carrito está vacío.",
-    cart_total:"Total",
-    checkout:"IR AL PAGO",
-
-    payment_title:"PAGO SEGURO",
-    payment_subtitle:"Pantalla de demostración",
-    card_type:"Tipo de Tarjeta",
-    card_number:"Número de Tarjeta",
-    card_name:"Nombre en la Tarjeta",
-    expiry:"Vencimiento",
-    cvv:"CVV",
-    card_holder:"TITULAR",
-    expiry_label:"VENCIMIENTO",
-    complete_payment:"COMPLETAR PAGO",
-    security:"Pantalla de demostración — los datos de la tarjeta no se guardan."
+if (
+    !["tr", "en", "es"].includes(currentLanguage)
+) {
+    currentLanguage = "tr";
 }
 
-};
 
-/* =====================================================
-   DİL
-===================================================== */
+/* =========================================================
+   FİYAT FORMAT
+========================================================= */
 
-function changeLanguage(lang){
+function formatPrice(price) {
 
-    if(!translations[lang]){
-        lang="tr";
+    price =
+        Number(price) || 0;
+
+
+    /* TÜRKÇE */
+
+    if (currentLanguage === "tr") {
+
+        return price.toLocaleString(
+            "tr-TR",
+            {
+                style: "currency",
+                currency: "TRY",
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }
+        );
+
     }
+
+
+    /* İNGİLİZCE */
+
+    if (currentLanguage === "en") {
+
+        const usd =
+            price / 48.06;
+
+        return usd.toLocaleString(
+            "en-US",
+            {
+                style: "currency",
+                currency: "USD",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+
+    }
+
+
+    /* İSPANYOLCA */
+
+    if (currentLanguage === "es") {
+
+        const eur =
+            price / 56.18;
+
+        return eur.toLocaleString(
+            "es-ES",
+            {
+                style: "currency",
+                currency: "EUR",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+
+    }
+
+
+    /* FALLBACK */
+
+    return price.toLocaleString(
+        "tr-TR",
+        {
+            style: "currency",
+            currency: "TRY",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ÜRÜN FİYATLARINI GÜNCELLE
+========================================================= */
+
+function updatePrices() {
+
+    document
+        .querySelectorAll(
+            ".price[data-price]"
+        )
+        .forEach(
+            function(element) {
+
+                const price =
+                    Number(
+                        element.dataset.price
+                    ) || 0;
+
+
+                element.textContent =
+                    formatPrice(price);
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   DİL DEĞİŞTİR
+========================================================= */
+
+function changeLanguage(lang) {
+
+    if (
+        !["tr", "en", "es"].includes(lang)
+    ) {
+        lang = "tr";
+    }
+
+
+    currentLanguage =
+        lang;
+
 
     localStorage.setItem(
         "alperTechLang",
         lang
     );
 
-    document.documentElement.lang=lang;
 
-    const select=
+    document.documentElement.lang =
+        lang;
+
+
+    const select =
         document.getElementById(
             "languageSelect"
         );
 
-    if(select){
-        select.value=lang;
+
+    if (select) {
+
+        select.value =
+            lang;
+
     }
 
-    document
-        .querySelectorAll("[data-i18n]")
-        .forEach(function(element){
 
-            const key=
-                element.getAttribute(
-                    "data-i18n"
-                );
+    /* NORMAL METİNLER */
 
-            if(
-                Object.prototype.hasOwnProperty.call(
-                    translations[lang],
-                    key
-                )
-            ){
+    if (
+        typeof translations !== "undefined"
+    ) {
 
-                element.textContent=
-                    translations[lang][key];
+        document
+            .querySelectorAll(
+                "[data-i18n]"
+            )
+            .forEach(
+                function(element) {
 
-            }
+                    const key =
+                        element.getAttribute(
+                            "data-i18n"
+                        );
 
-        });
+
+                    if (
+                        translations[currentLanguage] &&
+                        translations[currentLanguage][key] !== undefined
+                    ) {
+
+                        element.textContent =
+                            translations[currentLanguage][key];
+
+                    }
+
+                }
+            );
+
+    }
+
+
+    /* PLACEHOLDER */
+
+    if (
+        typeof translations !== "undefined"
+    ) {
+
+        document
+            .querySelectorAll(
+                "[data-i18n-placeholder]"
+            )
+            .forEach(
+                function(element) {
+
+                    const key =
+                        element.getAttribute(
+                            "data-i18n-placeholder"
+                        );
+
+
+                    if (
+                        translations[currentLanguage] &&
+                        translations[currentLanguage][key] !== undefined
+                    ) {
+
+                        element.placeholder =
+                            translations[currentLanguage][key];
+
+                    }
+
+                }
+            );
+
+    }
+
+
+    /* FİYATLAR */
+
+    updatePrices();
+
+
+    /* SEPET */
+
+    updateCart();
 
 }
 
-/* =====================================================
-   TEMA
-===================================================== */
 
-function toggleTheme(){
+/* =========================================================
+   SEPETİ AL
+========================================================= */
 
-    const body=
-        document.getElementById(
-            "pageBody"
-        );
+function getCart() {
 
-    const button=
-        document.getElementById(
-            "themeBtn"
-        );
+    try {
 
-    body.classList.toggle(
-        "light"
-    );
-
-    const light=
-        body.classList.contains(
-            "light"
-        );
-
-    button.textContent=
-        light
-            ? "☀️"
-            : "🌙";
-
-    localStorage.setItem(
-        "alperTechTheme",
-        light
-            ? "light"
-            : "dark"
-    );
-
-}
-
-/* =====================================================
-   SEPET
-===================================================== */
-
-function getCart(){
-
-    try{
-
-        const cart=
+        const saved =
             JSON.parse(
                 localStorage.getItem(
                     "alperTechCart"
                 )
             );
 
-        return Array.isArray(cart)
-            ? cart
+
+        return Array.isArray(saved)
+            ? saved
             : [];
 
-    }catch{
+    } catch {
 
         return [];
 
@@ -2678,114 +5974,267 @@ function getCart(){
 
 }
 
-function escapeHTML(text){
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHTML(text) {
 
     return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
 
-function updateCart(){
 
-    const cart=
+/* =========================================================
+   SEPETE EKLE
+========================================================= */
+
+function addToCart(
+    productKey,
+    price
+) {
+
+    const cart =
         getCart();
 
-    const count=
+
+    cart.push({
+
+        productKey:
+            productKey,
+
+        price:
+            Number(price) || 0
+
+    });
+
+
+    localStorage.setItem(
+        "alperTechCart",
+        JSON.stringify(cart)
+    );
+
+
+    updateCart();
+
+
+    openCart();
+
+}
+
+
+/* =========================================================
+   SEPETİ GÜNCELLE
+========================================================= */
+
+function updateCart() {
+
+    const cart =
+        getCart();
+
+
+    const count =
         document.getElementById(
             "cartCount"
         );
 
-    const items=
+    const items =
         document.getElementById(
             "cartItems"
         );
 
-    const empty=
+    const empty =
         document.getElementById(
             "cartEmpty"
         );
 
-    const footer=
+    const footer =
         document.getElementById(
             "cartFooter"
         );
 
-    const totalElement=
+    const totalElement =
         document.getElementById(
             "cartTotal"
         );
 
-    if(
+
+    if (
         !count ||
         !items ||
         !empty ||
         !footer ||
         !totalElement
-    ){
+    ) {
 
         return;
 
     }
 
-    count.textContent=
+
+    count.textContent =
         cart.length;
 
-    items.innerHTML="";
 
-    if(cart.length===0){
+    items.innerHTML =
+        "";
 
-        empty.style.display=
+
+    /* =====================================================
+       BOŞ SEPET
+    ===================================================== */
+
+    if (
+        cart.length === 0
+    ) {
+
+        empty.style.display =
             "block";
 
-        footer.style.display=
+        footer.style.display =
             "none";
+
+        totalElement.textContent =
+            formatPrice(0);
 
         return;
 
     }
 
-    empty.style.display=
+
+    /* =====================================================
+       DOLU SEPET
+    ===================================================== */
+
+    empty.style.display =
         "none";
 
-    footer.style.display=
+    footer.style.display =
         "block";
 
-    let total=0;
+
+    let total =
+        0;
+
 
     cart.forEach(
-        function(item,index){
+        function(item, index) {
 
-            const price=
-                Number(item.price)||0;
+            const price =
+                Number(item.price) || 0;
 
-            total+=price;
 
-            items.innerHTML+=`
+            total +=
+                price;
+
+
+            /* =================================================
+               ÜRÜN İSMİ
+            ================================================= */
+
+            let productName =
+                item.name ||
+                item.productKey ||
+                "Product";
+
+
+            /*
+               Ürünler sayfasındaki
+               productNames varsa onu kullan.
+            */
+
+            if (
+                typeof productNames !== "undefined" &&
+                productNames[currentLanguage] &&
+                item.productKey
+            ) {
+
+                productName =
+                    productNames[currentLanguage][item.productKey]
+                    ||
+                    productName;
+
+            }
+
+
+            /* =================================================
+               SİL BUTONU
+            ================================================= */
+
+            let removeText =
+                "Kaldır";
+
+
+            if (
+                currentLanguage === "en"
+            ) {
+
+                removeText =
+                    "Remove";
+
+            }
+
+            if (
+                currentLanguage === "es"
+            ) {
+
+                removeText =
+                    "Eliminar";
+
+            }
+
+
+            if (
+                typeof translations !== "undefined" &&
+                translations[currentLanguage] &&
+                translations[currentLanguage].remove
+            ) {
+
+                removeText =
+                    translations[currentLanguage].remove;
+
+            }
+
+
+            /* =================================================
+               SEPET SATIRI
+            ================================================= */
+
+            items.innerHTML += `
 
                 <div class="cart-item">
 
                     <div>
 
                         <div class="cart-item-name">
-                            ${escapeHTML(item.name)}
+
+                            ${escapeHTML(productName)}
+
                         </div>
 
+
                         <div class="cart-item-price">
-                            ${price.toLocaleString("tr-TR")} ₺
+
+                            ${formatPrice(price)}
+
                         </div>
 
                     </div>
 
+
                     <button
                         type="button"
                         class="remove-item"
-                        onclick="removeItem(${index})">
+                        data-index="${index}"
+                    >
 
-                        Kaldır
+                        ${removeText}
 
                     </button>
 
@@ -2796,375 +6245,583 @@ function updateCart(){
         }
     );
 
-    totalElement.textContent=
-        total.toLocaleString(
-            "tr-TR"
-        )+" ₺";
+
+    /* =====================================================
+       TOPLAM
+    ===================================================== */
+
+    totalElement.textContent =
+        formatPrice(total);
+
+
+    /* =====================================================
+       SİLME BUTONLARI
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".remove-item"
+        )
+        .forEach(
+            function(button) {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        removeItem(
+                            Number(
+                                this.dataset.index
+                            )
+                        );
+
+                    }
+                );
+
+            }
+        );
 
 }
 
-function removeItem(index){
 
-    const cart=
+/* =========================================================
+   ÜRÜN SİL
+========================================================= */
+
+function removeItem(index) {
+
+    const cart =
         getCart();
+
+
+    if (
+        index < 0 ||
+        index >= cart.length
+    ) {
+
+        return;
+
+    }
+
 
     cart.splice(
         index,
         1
     );
 
+
     localStorage.setItem(
         "alperTechCart",
         JSON.stringify(cart)
     );
 
-    updateCart();
-
-}
-
-function openCart(){
 
     updateCart();
 
-    document
-        .getElementById(
-            "cartOverlay"
-        )
-        .classList.add(
-            "active"
-        );
-
 }
 
-function closeCart(){
 
-    document
-        .getElementById(
+/* =========================================================
+   SEPET AÇ
+========================================================= */
+
+function openCart() {
+
+    updateCart();
+
+
+    const overlay =
+        document.getElementById(
             "cartOverlay"
-        )
-        .classList.remove(
-            "active"
         );
 
-}
 
-function closeCartOutside(event){
+    if (overlay) {
 
-    if(
-        event.target.id===
-        "cartOverlay"
-    ){
-
-        closeCart();
+        overlay.classList.add(
+            "active"
+        );
 
     }
 
 }
 
-/* =====================================================
-   ÖDEME
-===================================================== */
 
-function openPayment(){
+/* =========================================================
+   SEPET KAPAT
+========================================================= */
 
-    if(
-        getCart().length===0
-    ){
+function closeCart() {
+
+    const overlay =
+        document.getElementById(
+            "cartOverlay"
+        );
+
+
+    if (overlay) {
+
+        overlay.classList.remove(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   ÖDEME AÇ
+========================================================= */
+
+function openPayment() {
+
+    if (
+        getCart().length === 0
+    ) {
 
         return;
 
     }
 
+
     closeCart();
 
-    document
-        .getElementById(
-            "paymentOverlay"
-        )
-        .classList.add(
-            "active"
-        );
 
-}
-
-function closePayment(){
-
-    document
-        .getElementById(
-            "paymentOverlay"
-        )
-        .classList.remove(
-            "active"
-        );
-
-}
-
-function selectCard(
-    type,
-    button
-){
-
-    document
-        .querySelectorAll(
-            ".method"
-        )
-        .forEach(
-            function(item){
-
-                item.classList.remove(
-                    "active"
-                );
-
-            }
-        );
-
-    button.classList.add(
-        "active"
-    );
-
-    document.getElementById(
-        "cardBrand"
-    ).textContent=
-        type;
-
-}
-
-/* =====================================================
-   KART
-===================================================== */
-
-document
-    .getElementById(
-        "cardNumber"
-    )
-    .addEventListener(
-        "input",
-        function(){
-
-            let value=
-                this.value
-                    .replace(
-                        /\D/g,
-                        ""
-                    )
-                    .substring(
-                        0,
-                        16
-                    );
-
-            const groups=
-                value.match(
-                    /.{1,4}/g
-                );
-
-            this.value=
-                groups
-                    ? groups.join(" ")
-                    : "";
-
-            document.getElementById(
-                "previewNumber"
-            ).textContent=
-                this.value ||
-                "•••• •••• •••• ••••";
-
-        }
-    );
-
-document
-    .getElementById(
-        "cardName"
-    )
-    .addEventListener(
-        "input",
-        function(){
-
-            this.value=
-                this.value
-                    .replace(
-                        /[^a-zA-ZğüşöçıİĞÜŞÖÇ\s]/g,
-                        ""
-                    )
-                    .toUpperCase();
-
-            document.getElementById(
-                "previewName"
-            ).textContent=
-                this.value ||
-                "AD SOYAD";
-
-        }
-    );
-
-document
-    .getElementById(
-        "expiry"
-    )
-    .addEventListener(
-        "input",
-        function(){
-
-            let value=
-                this.value
-                    .replace(
-                        /\D/g,
-                        ""
-                    )
-                    .substring(
-                        0,
-                        4
-                    );
-
-            if(
-                value.length>2
-            ){
-
-                value=
-                    value.substring(
-                        0,
-                        2
-                    )
-                    +"/"+
-                    value.substring(
-                        2
-                    );
-
-            }
-
-            this.value=
-                value;
-
-            document.getElementById(
-                "previewExpiry"
-            ).textContent=
-                value ||
-                "12/30";
-
-        }
-    );
-
-document
-    .getElementById(
-        "cvv"
-    )
-    .addEventListener(
-        "input",
-        function(){
-
-            this.value=
-                this.value
-                    .replace(
-                        /\D/g,
-                        ""
-                    )
-                    .substring(
-                        0,
-                        4
-                    );
-
-        }
-    );
-
-/* =====================================================
-   DEMO ÖDEME
-===================================================== */
-
-function completePayment(){
-
-    const error=
+    const paymentOverlay =
         document.getElementById(
-            "paymentError"
+            "paymentOverlay"
         );
 
-    error.textContent=
-        "Bu demo ödeme ekranında gerçek ödeme işlemi yapılamaz.";
 
-    error.classList.add(
-        "show"
+    if (paymentOverlay) {
+
+        paymentOverlay.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   ÖDEME KAPAT
+========================================================= */
+
+function closePayment() {
+
+    const paymentOverlay =
+        document.getElementById(
+            "paymentOverlay"
+        );
+
+
+    if (paymentOverlay) {
+
+        paymentOverlay.classList.remove(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   TEMA
+========================================================= */
+
+function toggleTheme() {
+
+    const body =
+        document.getElementById(
+            "pageBody"
+        );
+
+    const button =
+        document.getElementById(
+            "themeBtn"
+        );
+
+
+    if (
+        !body
+    ) {
+
+        return;
+
+    }
+
+
+    body.classList.toggle(
+        "light"
+    );
+
+
+    const light =
+        body.classList.contains(
+            "light"
+        );
+
+
+    if (button) {
+
+        button.textContent =
+            light
+                ? "☀️"
+                : "🌙";
+
+    }
+
+
+    localStorage.setItem(
+        "alperTechTheme",
+        light
+            ? "light"
+            : "dark"
     );
 
 }
 
-/* =====================================================
+
+/* =========================================================
    BAŞLANGIÇ
-===================================================== */
+========================================================= */
 
 window.addEventListener(
     "DOMContentLoaded",
-    function(){
+    function() {
 
-        const savedTheme=
+        /* TEMA */
+
+        const savedTheme =
             localStorage.getItem(
                 "alperTechTheme"
             ) || "dark";
 
-        if(
-            savedTheme==="light"
-        ){
 
-            document
-                .getElementById(
-                    "pageBody"
-                )
-                .classList.add(
-                    "light"
-                );
+        const body =
+            document.getElementById(
+                "pageBody"
+            );
 
-            document
-                .getElementById(
-                    "themeBtn"
-                )
-                .textContent=
-                    "☀️";
+
+        const themeButton =
+            document.getElementById(
+                "themeBtn"
+            );
+
+
+        if (
+            body &&
+            savedTheme === "light"
+        ) {
+
+            body.classList.add(
+                "light"
+            );
 
         }
 
-        const savedLang=
+
+        if (
+            themeButton
+        ) {
+
+            themeButton.textContent =
+                savedTheme === "light"
+                    ? "☀️"
+                    : "🌙";
+
+        }
+
+
+        /* DİL */
+
+        const savedLanguage =
             localStorage.getItem(
                 "alperTechLang"
             ) || "tr";
 
+
+        currentLanguage =
+            ["tr", "en", "es"].includes(
+                savedLanguage
+            )
+                ? savedLanguage
+                : "tr";
+
+
+        const languageSelect =
+            document.getElementById(
+                "languageSelect"
+            );
+
+
+        if (
+            languageSelect
+        ) {
+
+            languageSelect.value =
+                currentLanguage;
+
+
+            languageSelect.addEventListener(
+                "change",
+                function() {
+
+                    changeLanguage(
+                        this.value
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* TEMA */
+
+        if (
+            themeButton
+        ) {
+
+            themeButton.addEventListener(
+                "click",
+                toggleTheme
+            );
+
+        }
+
+
+        /* SEPET */
+
+        const cartButton =
+            document.getElementById(
+                "cartButton"
+            );
+
+
+        const closeCartButton =
+            document.getElementById(
+                "closeCartButton"
+            );
+
+
+        const checkoutButton =
+            document.getElementById(
+                "checkoutButton"
+            );
+
+
+        const closePaymentButton =
+            document.getElementById(
+                "closePaymentButton"
+            );
+
+
+        if (
+            cartButton
+        ) {
+
+            cartButton.addEventListener(
+                "click",
+                openCart
+            );
+
+        }
+
+
+        if (
+            closeCartButton
+        ) {
+
+            closeCartButton.addEventListener(
+                "click",
+                closeCart
+            );
+
+        }
+
+
+        if (
+            checkoutButton
+        ) {
+
+            checkoutButton.addEventListener(
+                "click",
+                openPayment
+            );
+
+        }
+
+
+        if (
+            closePaymentButton
+        ) {
+
+            closePaymentButton.addEventListener(
+                "click",
+                closePayment
+            );
+
+        }
+
+
+        /* ÜRÜN BUTONLARI */
+
+        document
+            .querySelectorAll(
+                ".add-btn"
+            )
+            .forEach(
+                function(button) {
+
+                    button.addEventListener(
+                        "click",
+                        function() {
+
+                            addToCart(
+                                this.dataset.product,
+                                Number(
+                                    this.dataset.price
+                                )
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* KART TÜRLERİ */
+
+        document
+            .querySelectorAll(
+                ".method"
+            )
+            .forEach(
+                function(button) {
+
+                    button.addEventListener(
+                        "click",
+                        function() {
+
+                            document
+                                .querySelectorAll(
+                                    ".method"
+                                )
+                                .forEach(
+                                    function(item) {
+
+                                        item.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+                                );
+
+
+                            this.classList.add(
+                                "active"
+                            );
+
+
+                            const brand =
+                                document.getElementById(
+                                    "cardBrand"
+                                );
+
+
+                            if (
+                                brand
+                            ) {
+
+                                brand.textContent =
+                                    this.dataset.card ||
+                                    "VISA";
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* İLK GÜNCELLEME */
+
         changeLanguage(
-            savedLang
+            currentLanguage
         );
+
+
+        updatePrices();
+
 
         updateCart();
 
     }
 );
 
-/* =====================================================
-   SEPET SENKRON
-===================================================== */
 
-window.addEventListener(
-    "storage",
-    function(event){
+/* =========================================================
+   DIŞARI TIKLAMA
+========================================================= */
 
-        if(
-            event.key===
-            "alperTechCart"
-        ){
+document.addEventListener(
+    "click",
+    function(event) {
 
-            updateCart();
+        const cartOverlay =
+            document.getElementById(
+                "cartOverlay"
+            );
+
+
+        const paymentOverlay =
+            document.getElementById(
+                "paymentOverlay"
+            );
+
+
+        if (
+            cartOverlay &&
+            event.target === cartOverlay
+        ) {
+
+            closeCart();
+
+        }
+
+
+        if (
+            paymentOverlay &&
+            event.target === paymentOverlay
+        ) {
+
+            closePayment();
 
         }
 
     }
 );
 
-/* =====================================================
+
+/* =========================================================
    ESC
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     "keydown",
-    function(event){
+    function(event) {
 
-        if(
-            event.key===
-            "Escape"
-        ){
+        if (
+            event.key === "Escape"
+        ) {
 
             closeCart();
             closePayment();
@@ -3174,7 +6831,43 @@ document.addEventListener(
     }
 );
 
+
+/* =========================================================
+   DİĞER SAYFALARLA SEPET SENKRONU
+========================================================= */
+
+window.addEventListener(
+    "storage",
+    function(event) {
+
+        if (
+            event.key === "alperTechCart"
+        ) {
+
+            updateCart();
+
+        }
+
+
+        if (
+            event.key === "alperTechLang"
+        ) {
+
+            currentLanguage =
+                event.newValue || "tr";
+
+
+            updatePrices();
+            updateCart();
+
+        }
+
+    }
+);
+
 </script>
 
+
 </body>
+
 </html>
